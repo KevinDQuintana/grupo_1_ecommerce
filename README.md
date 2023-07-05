@@ -10,3 +10,15 @@ Sitios de referencia o inspiración
 2- Mercado libre (https://www.mercadolibre.com.ar)
 
  El e-commerce por excelencia en Argentina y varios países de latinoamérica. Visualmente genial y con descripciones de productos muy completo.
+
+ 3- NOVA INFORMÁTICA (https://www.novainfo.com.ar)
+
+ Similar a "Mercado libre" pero vinculado a la venta de productos informáticos.
+
+4- Mebac! (https://www.mebac.com.ar/jujuy)
+
+ Ofrece computadoras, impresoras y variedad de insumos informáticos. La descripción de sus productos es sencilla y clara.
+
+5- Amazon (https://www.amazon.com)
+
+ De las tiendas online más conocidas en el mundo. Su apartado visual es agradable.
