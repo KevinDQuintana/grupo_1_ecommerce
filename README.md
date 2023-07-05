@@ -1,6 +1,4 @@
-Esto es una prueba...
-
-Sitios de referencia o inspiración
+﻿Sitios de referencia o inspiración
 
 1- Compra gamer (https://compragamer.com)
 
