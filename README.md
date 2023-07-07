@@ -1,4 +1,5 @@
 ﻿Iara Salces: Tengo 17 años, me gusta la matematica y me entusiasma mucho el curso.
+
 Maciel Marinez : Soy de signo Aries , Me gustan los juegos y el hardware de PC.
 
 
