@@ -2,6 +2,7 @@
 
 Maciel Marinez : Soy de signo Aries , Me gustan los juegos y el hardware de PC.
 
+Gabriela Bustamante: Tengo dieciséis, me encanta todo lo que tenga que ver con el arte, la ciencia, la física y la matemática, lo adoro. No estoy especialmente interesada en la programación, pero como actualmente estoy en la orientación de Int. a la Robótica y la Programación en donde estudio (ya que soy demasiado floja como para levantarme temprano todos lo días y haber elegido la de Biología), pensé que el curso me ayudaría, y sí, ahora al menos entiendo algo tan básico como programar una secuencias de luces LED sin morir en el intento. Me doy cuenta de que mis actuales profesores de programación de la escuela no se enfocan tanto en el proceso, sino en el resultado.
 
 Sitios de referencia o inspiración
 
