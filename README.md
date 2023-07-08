@@ -1,4 +1,11 @@
-﻿## Integrantes
+﻿## Descripcion del ecommerce
+Bienvenido a nuestra tienda de componentes de PC, tu destino definitivo para todas tus necesidades tecnológicas. Nuestro ecommerce está dedicado a ofrecerte una amplia gama de productos de calidad para construir y mejorar tu propia PC personalizada.
+
+Explora nuestro extenso catálogo, donde encontrarás una variedad impresionante de componentes de PC de marcas reconocidas y confiables. Desde procesadores de última generación hasta tarjetas gráficas de alto rendimiento, pasando por placas base, memoria RAM, unidades de almacenamiento, fuentes de alimentación y una amplia selección de periféricos, tenemos todo lo que necesitas para llevar tu experiencia informática al siguiente nivel.
+
+En resumen, nuestro ecommerce es el lugar ideal para los entusiastas de la tecnología y los constructores de PC. Con una amplia selección de productos de calidad, atención al cliente excepcional y un proceso de compra fluido, estamos aquí para ayudarte a construir la PC de tus sueños. ¡Explora nuestro sitio web y comienza a crear tu configuración perfecta hoy mismo!
+
+## Integrantes
 **Santino Viglino**:Tengo 17 años, me gusta el basquet y me gusta mucho el curso.
 
 **Iara Salces**: Tengo 17 años, me gusta la matematica y me entusiasma mucho el curso.
@@ -10,6 +17,8 @@
 **Valentín Emmanuel López**: tengo 20 años, estudio licenciatura en sistemas de información. Me gusta la programación y espero sumar mucho conocimiento al respecto.
 
 **Kevin Quintana**: tengo 22 años y estudio ingenieria informatica.
+
+**Veramendi Gabriel**: Tengo 17 años, estoy en 5to año de secundaria, me gustan los juegos y la computacion en general
 
 ## Sitios de referencia o inspiración
 
