@@ -6,6 +6,8 @@ Gabriela Bustamante: Tengo dieciséis, me encanta todo lo que tenga que ver con 
 
 Valentín Emmanuel López: tengo 20 años, estudio licenciatura en sistemas de información. Me gusta la programación y espero sumar mucho conocimiento al respecto.
 
+Kevin Quintana: tengo 22 años, estudio ingenieria informatica.
+
 Sitios de referencia o inspiración
 
 1- Compra gamer (https://compragamer.com)
