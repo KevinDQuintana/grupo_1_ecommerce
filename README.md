@@ -1,14 +1,16 @@
-﻿Iara Salces: Tengo 17 años, me gusta la matematica y me entusiasma mucho el curso.
+﻿## Integrantes
 
-Maciel Marinez : Soy de signo Aries , Me gustan los juegos y el hardware de PC.
+**Iara Salces**: Tengo 17 años, me gusta la matematica y me entusiasma mucho el curso.
 
-Gabriela Bustamante: Tengo dieciséis, me encanta todo lo que tenga que ver con el arte, la ciencia, la física y la matemática, lo adoro. No estoy especialmente interesada en la programación, pero como actualmente estoy en la orientación de Int. a la Robótica y la Programación en donde estudio (ya que soy demasiado floja como para levantarme temprano todos lo días y haber elegido la de Biología), pensé que el curso me ayudaría, y sí, ahora al menos entiendo algo tan básico como programar una secuencias de luces LED sin morir en el intento. Me doy cuenta de que mis actuales profesores de programación de la escuela no se enfocan tanto en el proceso, sino en el resultado.
+**Maciel Marinez**: Soy de signo Aries, me gustan los juegos y el hardware de PC.
 
-Valentín Emmanuel López: tengo 20 años, estudio licenciatura en sistemas de información. Me gusta la programación y espero sumar mucho conocimiento al respecto.
+**Gabriela Bustamante**: Tengo dieciséis, me encanta todo lo que tenga que ver con el arte, la ciencia, la física y la matemática, lo adoro. No estoy especialmente interesada en la programación, pero como actualmente estoy en la orientación de Int. a la Robótica y la Programación en donde estudio (ya que soy demasiado floja como para levantarme temprano todos lo días y haber elegido la de Biología), pensé que el curso me ayudaría, y sí, ahora al menos entiendo algo tan básico como programar una secuencias de luces LED sin morir en el intento. Me doy cuenta de que mis actuales profesores de programación de la escuela no se enfocan tanto en el proceso, sino en el resultado.
 
-Kevin Quintana: tengo 22 años, estudio ingenieria informatica.
+**Valentín Emmanuel López**: tengo 20 años, estudio licenciatura en sistemas de información. Me gusta la programación y espero sumar mucho conocimiento al respecto.
 
-Sitios de referencia o inspiración
+**Kevin Quintana**: tengo 22 años y estudio ingenieria informatica.
+
+## Sitios de referencia o inspiración
 
 1- Compra gamer (https://compragamer.com)
 
