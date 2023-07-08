@@ -1,4 +1,5 @@
 ﻿## Integrantes
+**Santino Viglino**:Tengo 17 años, me gusta el basquet y me gusta mucho el curso.
 
 **Iara Salces**: Tengo 17 años, me gusta la matematica y me entusiasma mucho el curso.
 
