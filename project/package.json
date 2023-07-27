@@ -1,0 +1,22 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "proyecto",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinDQuintana/grupo_1_ecommerce.git"
+  },
+  "author": "Kevin Quintana, López Valentin, Santino Viglino, Maciel Martinez, Gabriela Bustamante, Gabriel Veramendi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KevinDQuintana/grupo_1_ecommerce/issues"
+  },
+  "homepage": "https://github.com/KevinDQuintana/grupo_1_ecommerce#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
