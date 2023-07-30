@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ebebeb;
+}
+.registro{
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+    margin-top: 50px;
+    background: white;
+}
+body main section > hr{
+    border: 0;
+    border-bottom: 1px solid #eaeaea;
+    margin: 10px 0;
+}
+.controlar{
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #ebebeb;
+}
+.boton{
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background: blue;
+    color: white;
+    border-radius: 6px;
+    border: 1px solid #ebebeb;
+}
+.registro div{
+    margin-top: 20px;
+    font-size: 18px;
+}
+.mensaje{
+    width: 80%;
+    background: white;
+    margin: auto;
+    margin-top: 30px;
+    padding: 25px;
+    font-size: 20px;
+}
+body main div > hr{
+    border: 0;
+    border-bottom: 1px solid #eaeaea;
+    margin: 15px 0;
+}
