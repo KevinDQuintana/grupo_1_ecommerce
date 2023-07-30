@@ -11,3 +11,6 @@ app.listen(PORT, () => console.log(`server started on port ${PORT}`));
 app.get('/', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'views', 'index.html'))
 });
+app.get('/productCart', function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'views', 'productCart.html'))
+});
