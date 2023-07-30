@@ -4,6 +4,7 @@
   "description": "proyecto",
   "main": "app.js",
   "scripts": {
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/KevinDQuintana/grupo_1_ecommerce/issues"
   },
-  "homepage": "https://github.com/KevinDQuintana/grupo_1_ecommerce#readme",
+  "homepage": "https://github.com/KevinDQuintana/grupo_1_ecommerce",
   "dependencies": {
     "express": "^4.18.2"
   }
