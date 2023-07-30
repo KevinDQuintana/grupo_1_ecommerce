@@ -19,7 +19,12 @@ video {
 }
 
 header {
+	background-color: #240046;
 	position: relative;
+}
+
+footer {
+	background-color: #10002b;
 }
 
 .header {
@@ -150,6 +155,10 @@ header {
 	gap: 2rem;
 }
 
+.carousel {
+	text-align: center;
+}
+
 .saludo {
 	text-align: center;
 }
@@ -263,7 +272,6 @@ header {
 }
 
 .container {
-	background-color: #10002b;
 	margin-left: auto;
 	margin-right: auto;
 	/* padding-left: 0.5rem; */
