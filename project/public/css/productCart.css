@@ -132,6 +132,7 @@ main {
     color: gold;
 }
 .order-summary__button {
+    border-radius: 5px;
     margin: auto;
     padding: 20px;
     transition-duration: 450ms;
@@ -165,7 +166,7 @@ main {
 @media (min-width: 769px) {
     main {
         display: flex;
-        flex-wrap: initial; 
+        flex-wrap: initial;
         align-items: center;
         width: 100%;
         margin: 0;
