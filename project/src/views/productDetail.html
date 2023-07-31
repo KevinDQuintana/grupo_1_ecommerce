@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,43 +8,44 @@
     <link rel="stylesheet" href="css/productDetail.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-		integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="js/index.js" defer></script>
-	<title>GAME ON! Componentes de PC</title>
+    <title>GAME ON! Componentes de PC</title>
 </head>
+
 <body>
     <header class="container">
-		<div class="header">
-			<a href="/">
-				<div class="header__logo"><img src="img/logo_final.jpg" alt=""></div>
-			</a>
-			<div class="header__search-area">
-				<form action="">
-					<input class="search-area__search" type="text" name="search" id="search">
-					<button class="search-area__button" type="submit">
-						<i class="fa-solid fa-magnifying-glass"></i>
-					</button>
-				</form>
-			</div>
-			<div class="header__menu-button">
-				<i class="fa-solid fa-bars"></i>
-			</div>
-		</div>
-		<div class="header__menu" data-visible="false">
-			<ul>
-				<li><a href="#">Productos</a></li>
-				<li><a href="#">Arma tu PC</a></li>
-			</ul>
-			<ul>
-				<li><a href="/login">Ingresar</a></li>
-				<li><a href="/register">Registrarse</a></li>
-				<li><a href="/productCart">Mi Carrito</a></li>
-			</ul>
-		</div>
-		<div class="header__rgb-bar"></div>
-	</header>
+        <div class="header">
+            <a href="/">
+                <div class="header__logo"><img src="img/logo_final.jpg" alt=""></div>
+            </a>
+            <div class="header__search-area">
+                <form action="">
+                    <input class="search-area__search" type="text" name="search" id="search">
+                    <button class="search-area__button" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="header__menu-button">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="header__menu" data-visible="false">
+            <ul>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Arma tu PC</a></li>
+            </ul>
+            <ul>
+                <li><a href="/login">Ingresar</a></li>
+                <li><a href="/register">Registrarse</a></li>
+                <li><a href="/productCart">Mi Carrito</a></li>
+            </ul>
+        </div>
+        <div class="header__rgb-bar"></div>
+    </header>
     <main class="container">
         <section class="product">
             <section class="product-photos">
@@ -60,8 +62,16 @@
             <section class="product__information">
                 <p class="product__information__nombre-del-producto">NVIDIA ASUS Geforce RTX 3070 8GB TUF Gaming</p>
                 <p class="product__information__precio-del-producto">$350.000</p>
-                <p class="product__information__descripcion-del-producto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, sed? Quasi provident deleniti suscipit laboriosam perferendis, id esse, ducimus consequatur eligendi placeat praesentium natus. Placeat eveniet dignissimos omnis nulla voluptatem.</p>
-                <p class="product__information__stock-disponible">Stock disponible:<br>X unidades</p>
+                <div class="product__information__descripcion-del-producto">
+                    <h3>La Jugada Definitiva</h3>
+                    <p>
+                        Las tarjetas gráficas GeForce RTX® 3070 Ti y RTX 3070 cuentan con Ampere, la arquitectura de 2.ª
+                        generación de NVIDIA RTX. Te brindan la potencia para disfrutar sin problemas de los juegos más
+                        exigentes, ya que incluyen los Núcleos RT de 2.ª generación y los Núcleos Tensor 3.ª generación
+                        dedicados, multiprocesadores de transmisión y una memoria de alta velocidad.
+                    </p>
+                </div>
+                <p class="product__information__stock-disponible">Stock disponible:<br>100 unidades</p>
                 <section class="product__buttons">
                     <span>
                         <button class="product__buttons__comprar-ahora">Comprar ahora</button>
@@ -89,62 +99,75 @@
         <section class="related-products">
             <p class="related-products__título">Productos relacionados</p>
             <div class="related-products__more-products">
-                <p class="related-products__more-products__nombre-del-producto">Nombre del producto<br><img src="img/product.jpg" alt=""></p>
-                <p class="related-products__more-products__nombre-del-producto">Nombre del producto<br><img src="img/product.jpg" alt=""></p>
-                <p class="related-products__more-products__nombre-del-producto">Nombre del producto<br><img src="img/product.jpg" alt=""></p>
-                <p class="related-products__more-products__nombre-del-producto">Nombre del producto<br><img src="img/product.jpg" alt=""></p>
+                <div class="related-products__more-products__nombre-del-producto">
+                    <p >Nombre del producto</p>
+                    <img src="img/product.jpg" alt="">
+                </div>
+                <div class="related-products__more-products__nombre-del-producto">
+                    <p >Nombre del producto</p>
+                    <img src="img/product.jpg" alt="">
+                </div>
+                <div class="related-products__more-products__nombre-del-producto">
+                    <p >Nombre del producto</p>
+                    <img src="img/product.jpg" alt="">
+                </div>
+                <div class="related-products__more-products__nombre-del-producto">
+                    <p >Nombre del producto</p>
+                    <img src="img/product.jpg" alt="">
+                </div>
             </div>
         </section>
     </main>
     <footer class="container">
-		<section class="footer">
-			<article>
-				<h3>Contactanos</h3>
-				<p>Telefono: +54 123 1234567</p>
-				<p>Direccion: Av. Nosequeponer, Piso -1, Caldo de Pollo 3600 </p>
-				<p></p>
-			</article>
-			<article>
-				<h3>Nuestros horarios</h3>
-				<p>De Lun. a Vie. de 08:30hs. a 17hs.</p>
-				<!-- <p>Lunes 8:30 13:00 y de 17:00 21:00</p> -->
-				<!-- <p>Martes 8:30 13:00 y de 17:00 21:00</p> -->
-				<!-- <p>Miercoles 8:30 13:00 y de 17:00 21:00</p> -->
-				<!-- <p>Jueves 8:30 13:00 y de 17:00 21:00</p> -->
-				<!-- <p>Viernes 8:30 13:00 y de 17:00 21:00</p> -->
-				<p>Sabado se duerme todo el dia</p>
-			</article>
-			<article>
-				<h3>Ayuda</h3>
-				<p>Te perdiste we? Toma un mapa</p>
-			</article>
-			<article>
-				<h3>Seguinos en redes</h3>
-				<a class="redes" href="#">
-					<i class="fa-brands fa-facebook"></i>
-				</a>
-				<a class="redes" href="#">
-					<i class="fa-brands fa-twitter"></i>
-				</a>
-				<a class="redes" href="#">
-					<i class="fa-brands fa-instagram"></i>
-				</a>
-				<a class="redes" href="#">
-					<i class="fa-brands fa-github"></i>
-				</a>
-			</article>
-			<article>
-				<h3>Defensa del consumidor</h3>
-				<p>
-					Apa papa, queres problemas we?
-				</p>
-			</article>
-		</section>
-		<p class="copy">
-			Copyright © 2023. Todos los derechos reservados,
-			prohibida la reproduccion total o parcial de los contenidos
-			de esta página.
-		</p>
-	</footer>
+        <section class="footer">
+            <article>
+                <h3>Contactanos</h3>
+                <p>Telefono: +54 123 1234567</p>
+                <p>Direccion: Av. Nosequeponer, Piso -1, Caldo de Pollo 3600 </p>
+                <p></p>
+            </article>
+            <article>
+                <h3>Nuestros horarios</h3>
+                <p>De Lun. a Vie. de 08:30hs. a 17hs.</p>
+                <!-- <p>Lunes 8:30 13:00 y de 17:00 21:00</p> -->
+                <!-- <p>Martes 8:30 13:00 y de 17:00 21:00</p> -->
+                <!-- <p>Miercoles 8:30 13:00 y de 17:00 21:00</p> -->
+                <!-- <p>Jueves 8:30 13:00 y de 17:00 21:00</p> -->
+                <!-- <p>Viernes 8:30 13:00 y de 17:00 21:00</p> -->
+                <p>Sabado se duerme todo el dia</p>
+            </article>
+            <article>
+                <h3>Ayuda</h3>
+                <p>Te perdiste we? Toma un mapa</p>
+            </article>
+            <article>
+                <h3>Seguinos en redes</h3>
+                <a class="redes" href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a class="redes" href="#">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a class="redes" href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a class="redes" href="#">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </article>
+            <article>
+                <h3>Defensa del consumidor</h3>
+                <p>
+                    Apa papa, queres problemas we?
+                </p>
+            </article>
+        </section>
+        <p class="copy">
+            Copyright © 2023. Todos los derechos reservados,
+            prohibida la reproduccion total o parcial de los contenidos
+            de esta página.
+        </p>
+    </footer>
 </body>
+
 </html>

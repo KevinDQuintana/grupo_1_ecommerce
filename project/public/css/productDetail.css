@@ -107,8 +107,11 @@ main {
 .product__characteristics__características-del-producto {
     background-color: rgba(224, 170, 255, 0.5);
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
     font-size: 0.95rem;
     font-weight: bold;
+    gap: 1rem;
     padding: 2rem;
 }
 
@@ -127,7 +130,11 @@ main {
 }
 
 .related-products__more-products__nombre-del-producto {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     font-size: 15px;
+    gap: 1rem;
     margin: 20px 0px;
     transition-duration: 450ms;
     transition-timing-function: ease-in-out;
