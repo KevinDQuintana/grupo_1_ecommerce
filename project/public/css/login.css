@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ebebeb;
+    font-family: "roboto",sans-serif;
+}
+h3{
+    text-align: center;
+    color: #313131;
+    font-size: 20px;
+}
+.iniciar-sesión{
+    width: 90%;
+    margin: auto;
+    padding: 30px;
+    margin-top: 50px;
+    background: white;
+    border-radius: 6px;
+}
+hr{
+    border: 0;
+    border-bottom: 1px solid #ebebeb;
+    margin: 20px 0px 0px;
+    position: relative;
+    z-index: 0;
+}
+.texto-rayita{
+    display: block;
+    text-align: center;
+    position: relative;
+    bottom: 8px;
+    font-size: 13px;
+    z-index: 10;
+    width: 150px;
+    margin: auto;
+    background-color: white;
+}
+.fa-brands{
+    padding-left: 8px;
+    right: 10%;
+    position: relative;
+    font-size: 20px;
+}
+button{
+    background-color: #ffffff;
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #313131;
+}
+button:hover{
+    color:#ffffff;
+    background-color: #0011ff;
+    transition: color, background-color, 450ms;
+}
+.controlar{
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #313131;
+}
+.boton{
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background: #313131;
+    color: white;
+    border-radius: 6px;
+    border: 1px solid #ebebeb;
+}
+.olvidar-contraseña{
+    font-size: 12px;
+    color: #313131;
+    margin: 20px 0px 0px 0px;
+    text-decoration: underline;
+}
+.boton2{
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #313131;
+    border-radius: 6px;
+    border: 1px solid #313131;
+}
+.texto-rayita2{
+    display: block;
+    text-align: center;
+    position: relative;
+    bottom: 8px;
+    font-size: 13px;
+    z-index: 10;
+    width: 150px;
+    margin: auto;
+    background-color: white;
+}
+.mensaje{
+    width: 90%;
+    background: white;
+
+    padding: 25px 25px 25px 0px;;
+    font-size: 20px;
+}
+.fa-car-side:before {
+    content: "\f5e4";
+    top: 25px;
+    position: relative;
+
+}
+h5{
+    position: relative;
+    left: 35px;
+    bottom: 20px;
+    margin-top: 20px;
+}
+.texto{
+    position: relative;
+    font-size: 12px;
+    color: #313131;
+    left: 35px;
+    margin-top: -10px;
+}
+.h5-2{
+    position: relative;
+    left: 35px;
+    bottom: 20px;
+    margin-top: 20px;
+}
+.fa-medal:before {
+    content: "\f5a2";
+    top: 40px;
+    position: relative;
+}
+.texto2{
+    position: relative;
+    font-size: 12px;
+    color: #313131;
+    left: 35px;
+    margin-top: -10px; 
+}
+body main div > hr{
+    border: 0;
+    border-bottom: 1px solid #eaeaea;
+    margin: 15px 0;
+}
+@media (min-width: 600px) {
+    main > section{
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row-reverse;
+        position: relative;
+    }
+    .mensaje{
+        position: relative;
+        width: 60%;
+        padding: 8% 20% 0% 5%;
+    }
+}
+@media (min-width: 1080px) {
+    main > section{
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row-reverse;
+        position: relative;
+    }
+    .mensaje{
+        position: relative;
+        width: 60%;
+        padding: 8% 20% 0% 5%;
+    }
+    form{
+        padding-right: 10%;
+    }
+}
