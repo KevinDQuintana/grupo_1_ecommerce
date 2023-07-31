@@ -13,13 +13,15 @@
 
 **3. Continuar haciendo.**
 - Participar en el repositorio.
-- Aportar ideas. 
+- Aportar ideas.
 - Hacer reuniones entre los miembros del grupo.
 - Mantener el ambiente de trabajo agradable e integrador.
 - Practicar con las ejercitaciones del playground.
 
 **4. Hacer menos.**
 - Desalentarse por fallas o errores.
+- Jugar juegos digitales.
 
 **5. Dejar de hacer.**
 - No estar al día con las clases.
+- Atrasarme.
