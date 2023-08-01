@@ -12,8 +12,9 @@ body{
     padding: 30px;
     margin-top: 50px;
     background: #7B2CBF;
-    color: #E0AAFF;
+    color: white;
     max-width: 615px;
+    border-radius: 15px;
 }
 body main section > hr{
     border: 0;
@@ -31,10 +32,10 @@ body main section > hr{
     margin-top: 20px;
     width: 100%;
     padding: 10px;
-    background: blue;
+    background: #10002B;
     color: white;
     border-radius: 6px;
-    border: 1px solid #ebebeb;
+    border: none;
 }
 .registro div{
     margin-top: 20px;
@@ -43,12 +44,13 @@ body main section > hr{
 .mensaje{
     width: 80%;
     background: #7B2CBF;
-    color: #E0AAFF;
+    color: white;
     margin: auto;
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 25px;
     font-size: 20px;
+    border-radius: 15px;
 }
 body main div > hr{
     border: 0;
