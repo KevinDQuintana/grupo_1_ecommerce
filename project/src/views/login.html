@@ -45,20 +45,23 @@
 	</header>
     <main class="container">
     <section class="iniciar-sesión">
-        
-        <form class="formulario" action="/" method="post">
+        <div class="formulario">
             <h3>Iniciar sesión</h3>
             <button class="button1"><i class="fa-brands fa-google"></i>Iniciar sesión por Google</button>
+            <form  action="/" method="get">
             <hr>
             <span class="texto-rayita">O bien por</span>
-            <input class="controlar" type="email" name="email" id="email" placeholder="Email" pattern="[a-z-@]+">
+            <input class="controlar" type="email" name="email" id="email" placeholder="Email" required>
             <input class="controlar" type="password" name="contrasena" id="password" placeholder="Contraseña" required="">
             <a href="#"><div class="olvidar-contraseña">He olvidado mi contraseña</div></a>
         <a><button class="boton" type="submit">Iniciar sesión</button></a>
         <hr>
         <span class="texto-rayita2">¿Eres nuevo cliente?</span>
-        <a href="#" ><button class="boton2" type="submit">Crear cuenta</button></a>
-    </form>
+        </form>
+        <form  action="/register" method="get">
+        <button class="boton2" type="submit">Crear cuenta</button>
+        </form>
+    </div>
     <div class="mensaje">
         <span><i class="fa-solid fa-car-side fa-flip-horizontal"></i></span>
         <h5 class="h5-1">Gestiona tus pedidos</h5>
