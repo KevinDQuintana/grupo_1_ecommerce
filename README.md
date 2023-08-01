@@ -42,3 +42,6 @@ En resumen, nuestro ecommerce es el lugar ideal para los entusiastas de la tecno
 5- Amazon (https://www.amazon.com)
 
  De las tiendas online más conocidas en el mundo. Su apartado visual es agradable.
+
+## Enlace a Trello
+https://trello.com/invite/b/YinnhiQs/ATTIc48b8ce1d45f1a619ac2210955e8c3634973BE41/proyecto-integrador
