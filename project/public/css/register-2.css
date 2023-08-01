@@ -36,6 +36,13 @@ body main section > hr{
     color: white;
     border-radius: 6px;
     border: none;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;   
+}
+.boton:hover{
+    background: #c77dff;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
 }
 .registro div{
     margin-top: 20px;
