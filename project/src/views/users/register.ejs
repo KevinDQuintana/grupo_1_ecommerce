@@ -1,88 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('../partials/head') %>
-    <link href = "/css/register-2.css" rel = "stylesheet">
+        <link href="/css/register-2.css" rel="stylesheet">
 </head>
+
 <body>
     <%- include('../partials/header') %>
-    <main class="container">
-    <section class="registro">
-        <h2>Registro de usuario</h2>
-        <hr>
+        <main class="container">
+            <section class="registro">
+                <h2>Registro de usuario</h2>
+                <hr>
 
-        <form action="/" method="post">
-            <input class="controlar" type="email" name="email" id="email" placeholder="Email" pattern="[a-z-@]+">
-            <input class="controlar" type="password" name="contrasena" id="password" placeholder="Contraseña" required="">
-            <input class="controlar" type="password" name="Confirmacion" id="password2" placeholder="Confirmar Contraseña" required="">
+                <form action="/" method="post">
+                    <input class="controlar" type="email" name="email" id="email" placeholder="Email"
+                        pattern="[a-z-@]+">
+                    <input class="controlar" type="password" name="contrasena" id="password" placeholder="Contraseña"
+                        required="">
+                    <input class="controlar" type="password" name="Confirmacion" id="password2"
+                        placeholder="Confirmar Contraseña" required="">
 
-        <div>Informacion Personal</div>
+                    <div>Informacion Personal</div>
 
-            <input class="controlar" type="text" name="nombre" id="nombre" placeholder="Nombre" required="">
-            <input class="controlar" type="text" name="apellido" id="apellido" placeholder="Apellido" required="">
-            <input class="controlar" type="number" name="dni" id="dni" placeholder="Numero de DNI (opcional)">
-            <input class="controlar" type="number" name="telefono" id="telefono" placeholder="Numero de telefono (opcional)">
+                    <input class="controlar" type="text" name="nombre" id="nombre" placeholder="Nombre" required="">
+                    <input class="controlar" type="text" name="apellido" id="apellido" placeholder="Apellido"
+                        required="">
+                    <input class="controlar" type="number" name="dni" id="dni" placeholder="Numero de DNI (opcional)">
+                    <input class="controlar" type="number" name="telefono" id="telefono"
+                        placeholder="Numero de telefono (opcional)">
 
-        <button class="boton" type="submit">Enviar</button>
-        </form>
-    </section>
+                    <button class="boton" type="submit">Enviar</button>
+                </form>
+            </section>
 
-    <div class="mensaje">
-        <h4>Recordá:</h4>
-    <hr>
-    Es muy importante que coloques todos tus datos reales a la hora de registrar tu cuenta.
-    Ante cualquier inconveniente vamos a estar comunicándonos con vos por teléfono o vía email.
-    </div>
-    </main>
-    <footer class="container">
-        <section class="footer">
-            <article>
-                <h3>Contactanos</h3>
-                <p>Telefono: +54 123 1234567</p>
-                <p>Direccion: Av. Nosequeponer, Piso -1, Caldo de Pollo 3600 </p>
-                <p></p>
-            </article>
-            <article>
-                <h3>Nuestros horarios</h3>
-                <p>De Lun. a Vie. de 08:30hs. a 17hs.</p>
-                <!-- <p>Lunes 8:30 13:00 y de 17:00 21:00</p> -->
-                <!-- <p>Martes 8:30 13:00 y de 17:00 21:00</p> -->
-                <!-- <p>Miercoles 8:30 13:00 y de 17:00 21:00</p> -->
-                <!-- <p>Jueves 8:30 13:00 y de 17:00 21:00</p> -->
-                <!-- <p>Viernes 8:30 13:00 y de 17:00 21:00</p> -->
-                <p>Sabado se duerme todo el dia</p>
-            </article>
-            <article>
-                <h3>Ayuda</h3>
-                <p>Te perdiste we? Toma un mapa</p>
-            </article>
-            <article>
-                <h3>Seguinos en redes</h3>
-                <a class="redes" href="#">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-                <a class="redes" href="#">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-                <a class="redes" href="#">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a class="redes" href="#">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-            </article>
-            <article>
-                <h3>Defensa del consumidor</h3>
-                <p>
-                    Apa papa, queres problemas we?
-                </p>
-            </article>
-        </section>
-        <p class="copy">
-            Copyright © 2023. Todos los derechos reservados,
-            prohibida la reproduccion total o parcial de los contenidos
-            de esta página.
-        </p>
-    </footer>
+            <div class="mensaje">
+                <h4>Recordá:</h4>
+                <hr>
+                Es muy importante que coloques todos tus datos reales a la hora de registrar tu cuenta.
+                Ante cualquier inconveniente vamos a estar comunicándonos con vos por teléfono o vía email.
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
 </body>
+
 </html>
