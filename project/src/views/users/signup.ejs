@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<%- include('../partials/head') %>
+		<link rel="stylesheet" href="/css/signup.css">
+</head>
+
+<body>
+	<%- include('../partials/header') %>
+		<main class="container">
+			<section class="registro">
+				<h2>Registro de usuario</h2>
+				<hr>
+				<form action="/" method="post">
+					<input class="controlar" type="email" name="email" id="email" placeholder="Email"
+						pattern="[a-z-@]+">
+					<input class="controlar" type="password" name="contrasena" id="password" placeholder="Contraseña"
+						required="">
+					<input class="controlar" type="password" name="Confirmacion" id="password2"
+						placeholder="Confirmar Contraseña" required="">
+					<div>Informacion Personal</div>
+					<input class="controlar" type="text" name="nombre" id="nombre" placeholder="Nombre" required="">
+					<input class="controlar" type="text" name="apellido" id="apellido" placeholder="Apellido"
+						required="">
+					<input class="controlar" type="number" name="dni" id="dni" placeholder="Numero de DNI (opcional)">
+					<input class="controlar" type="number" name="telefono" id="telefono"
+						placeholder="Numero de telefono (opcional)">
+					<button class="boton" type="submit">Enviar</button>
+				</form>
+			</section>
+			<div class="mensaje">
+				<h4>Recordá:</h4>
+				<hr>
+				Es muy importante que coloques todos tus datos reales a la hora de registrar tu cuenta.
+				Ante cualquier inconveniente vamos a estar comunicándonos con vos por teléfono o vía email.
+			</div>
+		</main>
+		<%- include('../partials/footer') %>
+</body>
+
+</html>
