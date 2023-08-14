@@ -1,6 +1,9 @@
 .product-form {
     margin: 70px 0px 70px 0px;
     text-align: center;
+    padding: 30px;
+    background: #7B2CBF;
+    border-radius: 15px;
 }
 .product-form form{
     display: flex;
