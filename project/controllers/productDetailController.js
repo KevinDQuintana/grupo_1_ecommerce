@@ -1,7 +1,13 @@
+const path = require('path');
+
 const controller = {
-    id: function(req,res) {
-        res.render(require.resolve('../src/views/products/productDetail.ejs'));
-    }
+	index: function (req, res) {
+		res.render(path.join(__dirname, '../', 'src', 'views', 'products', 'productDetail'));
+	},
+
+	// id: function (req, res) {
+	// 	res.render(path.join(__dirname, '../', 'src', 'views', 'products', 'productDetail'));
+	// }
 }
 
 module.exports = controller;
