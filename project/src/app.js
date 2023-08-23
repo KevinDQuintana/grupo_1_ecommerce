@@ -9,10 +9,10 @@ const app = express();
 app.use(express.static(publicPath));
 app.set('view engine', 'ejs');
 
-const ruteIndex = require(path.join(__dirname, '../', 'routes', 'index'));
-const ruteProductCart = require(path.join(__dirname, '../', 'routes', 'productCart'));
-const ruteProductDetail = require(path.join(__dirname, '../', 'routes', 'productDetail'));
-const ruteProductOptions = require(path.join(__dirname, '../', 'routes', 'productOptions'));
+const ruteIndex = require(path.join(__dirname, 'routes', 'index'));
+const ruteProductCart = require(path.join(__dirname, 'routes', 'productCart'));
+const ruteProductDetail = require(path.join(__dirname, 'routes', 'productDetail'));
+const ruteProductOptions = require(path.join(__dirname, 'routes', 'productOptions'));
 
 app.use('/', ruteIndex);
 app.use('/productCart', ruteProductCart);
