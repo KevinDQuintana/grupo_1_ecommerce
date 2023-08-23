@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/css/productOptions.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main class="container"> 
+        <div class="product-form">
+            <h1>Añadir producto a la lista de ventas</h1>
+            <form action="#" method="get">
+                <input class="product-form__image" type="file" placeholder="Imagen" name="image" required>
+                <input type="text" placeholder="Categoría" name="category" required>
+                <input type="text" placeholder="Marca" name="brand" required>
+                <input type="text" placeholder="Color (opcional)" name="brand">
+                <input type="text" placeholder="Precio" name="price" required>
+                <input type="text" placeholder="Nombre del producto" name="name" required>
+                <textarea placeholder="Descripción" name="description" required></textarea>
+                <button class="product-form__button">Agregar producto</button>
+            </form> 
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
