@@ -1,8 +1,10 @@
 const express = require('express');
-const app = express();
 const path = require('path');
+
 const PORT = process.env.PORT || 4000;
-const publicPath = path.resolve(__dirname, '../', 'public');
+const publicPath = path.join(__dirname, '../', 'public');
+
+const app = express();
 
 app.use(express.static(publicPath));
 app.set('view engine', 'ejs');
