@@ -3,7 +3,7 @@
 
 <head>
     <%- include('../partials/head') %>
-        <link rel="stylesheet" href="/css/productDetail.css">
+    <link rel="stylesheet" href="/css/productDetail.css">
 </head>
 
 <body>
@@ -12,29 +12,21 @@
             <section class="product">
                 <section class="product-photos">
                     <div class="product-photos__more-photos">
-                        <img src="/img/product.jpg" alt="">
-                        <img src="/img/product.jpg" alt="">
-                        <img src="/img/product.jpg" alt="">
-                        <img src="/img/product.jpg" alt="">
+                        <img src="/img/products/<%= product.image %>" alt="">
+                        <img src="/img/products/<%= product.image %>" alt="">
+                        <img src="/img/products/<%= product.image %>" alt="">
+                        <img src="/img/products/<%= product.image %>" alt="">
                     </div>
                     <div class="product-photos__main-photo">
-                        <img src="/img/product.jpg" alt="">
+                        <img src="/img/products/<%= product.image %>" alt="">
                     </div>
                 </section>
                 <section class="product__information">
-                    <p class="product__information__nombre-del-producto">NVIDIA ASUS Geforce RTX 3070 8GB TUF Gaming</p>
-                    <p class="product__information__precio-del-producto">$350.000</p>
+                    <p class="product__information__nombre-del-producto"><%= product.name %></p>
+                    <p class="product__information__precio-del-producto">$<%= toThousand(product.price) %></p>
                     <div class="product__information__descripcion-del-producto">
                         <h3>La Jugada Definitiva</h3>
-                        <p>
-                            Las tarjetas gráficas GeForce RTX® 3070 Ti y RTX 3070 cuentan con Ampere, la arquitectura de
-                            2.ª
-                            generación de NVIDIA RTX. Te brindan la potencia para disfrutar sin problemas de los juegos
-                            más
-                            exigentes, ya que incluyen los Núcleos RT de 2.ª generación y los Núcleos Tensor 3.ª
-                            generación
-                            dedicados, multiprocesadores de transmisión y una memoria de alta velocidad.
-                        </p>
+                        <p><%= product.description %></p>
                     </div>
                     <p class="product__information__stock-disponible">Stock disponible:<br>100 unidades</p>
                     <section class="product__buttons">

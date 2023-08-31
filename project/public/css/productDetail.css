@@ -14,6 +14,7 @@ main {
 }
 
 .product {
+	max-width: 320px;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -26,7 +27,7 @@ main {
 }
 
 .product-photos__more-photos img {
-	width: 20vw;
+	width: 20%;
 	border: 1px solid #000000;
 }
 
@@ -136,15 +137,15 @@ main {
 	font-size: 15px;
 	gap: 1rem;
 	margin: 20px 0px;
-	transition-duration: 450ms;
+	padding: 15px;
+	transition-duration: 250ms;
 	transition-timing-function: ease-in-out;
 }
 
 .related-products__more-products__nombre-del-producto:hover {
 	background-color: rgba(60, 9, 108, 1);
 	border-radius: 15px;
-	padding: 15px;
-	transition-duration: 450ms;
+	transition-duration: 250ms;
 	transition-timing-function: ease-in-out;
 }
 
@@ -152,9 +153,11 @@ main {
 	width: 70%;
 }
 
-@media (max-width: 480px) {}
+@media (min-width: 500px){
+	.product {
+		max-width: none;
+	}
 
-@media (min-width: 481px) and (max-width: 768px) {
 	.product-photos {
 		display: flex;
 		justify-content: space-evenly;
@@ -167,11 +170,11 @@ main {
 	}
 
 	.product-photos__more-photos img {
-		width: 15vw;
+		width: 70px;
 	}
 
 	.product-photos__main-photo {
-		width: 70%;
+		width: 80%;
 		margin: 0;
 	}
 
@@ -196,14 +199,16 @@ main {
 	}
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px){
 	.product {
+		max-width: none;
 		flex-direction: initial;
 		align-items: center;
 	}
 
 	.product-photos {
 		display: flex;
+		justify-content: space-evenly;
 		width: 50%;
 	}
 
@@ -211,17 +216,21 @@ main {
 		display: flex;
 		justify-content: space-between;
 		flex-direction: column;
-		width: auto;
 	}
 
 	.product-photos__more-photos img {
-		width: 80px;
+		width: 60px;
 		border: 1px solid #000000;
 	}
 
 	.product-photos__main-photo {
+		width: 70%;
 		display: flex;
 		margin-top: 0;
+	}
+
+	.product-photos__main-photo img {
+		margin-left: none;
 	}
 
 	.product__information {
@@ -242,5 +251,11 @@ main {
 
 	.related-products__more-products__nombre-del-producto {
 		width: 25%;
+	}
+}
+
+@media(min-width: 1024px) {
+	.product-photos__more-photos img {
+		width: 70px;
 	}
 }
