@@ -12,13 +12,9 @@ app.set('view engine', 'ejs');
 const ruteIndex = require(path.join(__dirname, 'routes', 'index'));
 const ruteProducts = require(path.join(__dirname, 'routes', 'products')); // ruteProducts
 const ruteProductCart = require(path.join(__dirname, 'routes', 'productCart'));
-const ruteProductDetail = require(path.join(__dirname, 'routes', 'productDetail'));
-const ruteProductOptions = require(path.join(__dirname, 'routes', 'productOptions'));
 
 app.use('/', ruteIndex);
 app.use('/products', ruteProducts); // Nueva ruta '/products'
 app.use('/productCart', ruteProductCart);
-app.use('/productDetail', ruteProductDetail);
-// app.use('/productOptions',ruteProductOptions);
 
 app.listen(PORT, () => console.log(`server started on port ${PORT}`));

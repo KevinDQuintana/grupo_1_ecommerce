@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/css/productOptions.css">
-</head>
+
+<%- include('../partials/head') %>
+
 <body>
     <%- include('../partials/header') %>
-    <main class="container"> 
+    <main class="container">
         <div class="product-form">
             <h1>Añadir producto a la lista de ventas</h1>
             <form action="/products" method="POST" enctype="multipart/form-data">
@@ -19,7 +18,7 @@
                 <input type="text" placeholder="Nombre del producto" name="name" required>
                 <textarea placeholder="Descripción" name="description" required></textarea>
                 <button type="submit" class="product-form__button">Agregar producto</button>
-            </form> 
+            </form>
         </div>
     </main>
     <%- include('../partials/footer') %>
