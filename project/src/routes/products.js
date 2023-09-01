@@ -12,5 +12,4 @@ router.get('/edit/:id', productsController.edit);
 
 router.post('/', upload.single('image'), productsController.store); // Cargar nuevo producto a la lista
 
-
 module.exports = router;

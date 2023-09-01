@@ -20,7 +20,7 @@ const controller = {
 		return res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'], product: productFound, toThousand });
 	},
 	create: function (req, res) {
-		return res.render(path.join(__dirname, '../', 'views', 'products', 'addProduct'), { styles: ['/css/index.css', '/css/productOptions.css'] });
+		return res.render(path.join(__dirname, '../', 'views', 'products', 'createProduct'), { styles: ['/css/index.css', '/css/productCreate.css'] });
 	},
 	store: function (req, res) {
 		const products = getProducts();
@@ -40,7 +40,7 @@ const controller = {
 		return res.redirect('/products');
 	},
 	edit: function (req, res) {
-		return res.render(path.join(__dirname, '../', 'views', 'products', 'editProduct'), { styles: ['/css/index.css', '/css/productOptions.css'] });
+		return res.render(path.join(__dirname, '../', 'views', 'products', 'editProduct'), { styles: ['/css/index.css', '/css/productCreate.css'] });
 	}
 }
 

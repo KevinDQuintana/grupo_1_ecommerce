@@ -12,7 +12,6 @@ app.set('view engine', 'ejs');
 const ruteIndex = require(path.join(__dirname, 'routes', 'index'));
 const ruteProducts = require(path.join(__dirname, 'routes', 'products')); // ruteProducts
 const ruteProductCart = require(path.join(__dirname, 'routes', 'productCart'));
-const ruteProductOptions = require(path.join(__dirname, 'routes', 'productOptions'));
 
 app.use('/', ruteIndex);
 app.use('/products', ruteProducts); // Nueva ruta '/products'
