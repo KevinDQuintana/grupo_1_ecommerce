@@ -1,14 +1,11 @@
 const path = require('path');
 
 const controller = {
-	// index: function (req, res) {
-	// 	res.render(path.join(__dirname, '../', 'src', 'views', 'products', ''));
-	// },
 	add: function (req, res) {
-		res.render(path.join(__dirname, '../', 'views', 'products', 'addProduct'));
+		res.render(path.join(__dirname, '../', 'views', 'products', 'addProduct'), { styles: ['/css/index.css'] });
 	},
 	edit: function (req, res) {
-		res.render(path.join(__dirname, '../', 'views', 'products', 'editProduct'));
+		res.render(path.join(__dirname, '../', 'views', 'products', 'editProduct'), { styles: ['/css/index.css'] });
 	}
 }
 

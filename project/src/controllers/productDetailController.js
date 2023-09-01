@@ -2,7 +2,7 @@ const path = require('path');
 
 const controller = {
 	index: function (req, res) {
-		res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'));
+		res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'] });
 	},
 
 	// id: function (req, res) {
