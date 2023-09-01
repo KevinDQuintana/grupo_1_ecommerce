@@ -17,6 +17,5 @@ const ruteProductOptions = require(path.join(__dirname, 'routes', 'productOption
 app.use('/', ruteIndex);
 app.use('/products', ruteProducts); // Nueva ruta '/products'
 app.use('/productCart', ruteProductCart);
-// app.use('/productOptions',ruteProductOptions);
 
 app.listen(PORT, () => console.log(`server started on port ${PORT}`));

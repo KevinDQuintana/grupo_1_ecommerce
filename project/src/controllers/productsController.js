@@ -38,6 +38,9 @@ const controller = {
 		products.push(newProduct);
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
 		return res.redirect('/products');
+	},
+	edit: function (req, res) {
+		return res.render(path.join(__dirname, '../', 'views', 'products', 'editProduct'), { styles: ['/css/index.css', '/css/productOptions.css'] });
 	}
 }
 
