@@ -23,7 +23,11 @@ const controller = {
 		return res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'], product: productFound, toThousand });
 	},
 	edit: function (req, res) {
-		return res.render(path.join(__dirname, '../', 'views', 'products', 'editProduct'), { styles: ['/css/index.css', '/css/productCreate.css'] });
+		const id = req.params.id;
+		console.log(`Edit Request with ID: ${id}`);
+		const products = getProducts();
+		const product = products.find((element) => element.id == id)
+		return res.render(path.join(__dirname, '../', 'views', 'products', 'editProduct'), { styles: ['/css/index.css', '/css/productCreate.css', '/css/editProduct.css'], id, product});
 	},
 	store: function (req, res) {
 		const products = getProducts();
@@ -39,11 +43,29 @@ const controller = {
 		};
 
 		products.push(newProduct);
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
 		return res.redirect('/products');
 	},
 	update: function (req, res) {
-		return res.redirect(`/products/detail/${res.query.id}`);
+		console.log(`Update Request with ID: ${req.params.id}`);
+		console.log('----REQUEST----');
+		console.log(req.body);
+		console.log(req.file);
+		console.log('---------------');
+		console.log('');
+		const products = getProducts();
+		const product = products.find((element) => element.id == req.params.id);
+
+		product.name = req.body.name;
+		product.price = req.body.price;
+		product.discount = req.body.discount;
+		product.category = req.body.category;
+		product.description = req.body.description;
+		product.image = req.file.filename;
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
+
+		return res.redirect(`/products/detail/${req.params.id}`);
 	}
 };
 

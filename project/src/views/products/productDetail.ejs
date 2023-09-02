@@ -1,78 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <%- include('../partials/head') %>
 
 <body>
-    <%- include('../partials/header') %>
-        <main class="container">
-            <section class="product">
-                <section class="product-photos">
-                    <div class="product-photos__more-photos">
-                        <img src="/img/products/<%= product.image %>" alt="">
-                        <img src="/img/products/<%= product.image %>" alt="">
-                        <img src="/img/products/<%= product.image %>" alt="">
-                        <img src="/img/products/<%= product.image %>" alt="">
-                    </div>
-                    <div class="product-photos__main-photo">
-                        <img src="/img/products/<%= product.image %>" alt="">
-                    </div>
-                </section>
-                <section class="product__information">
-                    <p class="product__information__nombre-del-producto"><%= product.name %></p>
-                    <p class="product__information__precio-del-producto">$<%= toThousand(product.price) %></p>
-                    <div class="product__information__descripcion-del-producto">
-                        <h3>La Jugada Definitiva</h3>
-                        <p><%= product.description %></p>
-                    </div>
-                    <p class="product__information__stock-disponible">Stock disponible:<br>100 unidades</p>
-                    <section class="product__buttons">
-                        <span>
-                            <button class="product__buttons__comprar-ahora">Comprar ahora</button>
-                            <button class="product__buttons__agregar-al-carrito">Agregar al carrito</button>
-                        </span>
-                    </section>
-                </section>
-                <section class="product__characteristics">
-                    <p class="product__characteristics__características-título">Características del producto</p>
-                    <div class="product__characteristics__características-del-producto">
-                        <p>Interfaz PCI-Express 4.0.</p>
-                        <p>Bus de memoria: 256bit.</p>
-                        <p>Cantidad de núcleos: 4864.</p>
-                        <p>Resolución máxima: 7680x4320.</p>
-                        <p>Compatible con directX y openGL.</p>
-                        <p>Requiere de 750W de alimentación.</p>
-                        <p>Con iluminación LED blanca.</p>
-                        <p>Permite la conexión de hasta 4 pantallas simultáneas.</p>
-                        <p>Formatos de conexión: HDMI, DisplayPort.</p>
-                        <p>Incluye accesorios.</p>
-                        <p>Ideal para trabajar a alta velocidad.</p>
-                    </div>
-                </section>
-            </section>
-            <section class="related-products">
-                <p class="related-products__título">Productos relacionados</p>
-                <div class="related-products__more-products">
-                    <div class="related-products__more-products__nombre-del-producto">
-                        <p>Nombre del producto</p>
-                        <img src="/img/product.jpg" alt="">
-                    </div>
-                    <div class="related-products__more-products__nombre-del-producto">
-                        <p>Nombre del producto</p>
-                        <img src="/img/product.jpg" alt="">
-                    </div>
-                    <div class="related-products__more-products__nombre-del-producto">
-                        <p>Nombre del producto</p>
-                        <img src="/img/product.jpg" alt="">
-                    </div>
-                    <div class="related-products__more-products__nombre-del-producto">
-                        <p>Nombre del producto</p>
-                        <img src="/img/product.jpg" alt="">
-                    </div>
-                </div>
-            </section>
-        </main>
-        <%- include('../partials/footer') %>
+	<%- include('../partials/header') %>
+	<main class="container">
+		<section class="product">
+			<section class="product-photos">
+				<div class="product-photos__more-photos">
+					<img src="/img/products/<%= product.image %>" alt="" />
+					<img src="/img/products/<%= product.image %>" alt="" />
+					<img src="/img/products/<%= product.image %>" alt="" />
+					<img src="/img/products/<%= product.image %>" alt="" />
+				</div>
+				<div class="product-photos__main-photo">
+					<img src="/img/products/<%= product.image %>" alt="" />
+				</div>
+			</section>
+			<section class="product__information">
+				<p class="product__information__nombre-del-producto">
+					<%= product.name %>
+				</p>
+				<p class="product__information__precio-del-producto">
+					$<%= toThousand(product.price) %>
+				</p>
+				<div class="product__information__descripcion-del-producto">
+					<h3>La Jugada Definitiva</h3>
+					<p><%= product.description %></p>
+				</div>
+				<p class="product__information__stock-disponible">
+					Stock disponible:<br />100 unidades
+				</p>
+				<section class="product__buttons">
+					<span>
+						<button class="product__buttons__comprar-ahora">
+							Comprar ahora
+						</button>
+						<button class="product__buttons__agregar-al-carrito">
+							Agregar al carrito
+						</button>
+					</span>
+				</section>
+			</section>
+			<section class="product__characteristics">
+				<p class="product__characteristics__características-título">
+					Características del producto
+				</p>
+				<div class="product__characteristics__características-del-producto">
+					<p>Interfaz PCI-Express 4.0.</p>
+					<p>Bus de memoria: 256bit.</p>
+					<p>Cantidad de núcleos: 4864.</p>
+					<p>Resolución máxima: 7680x4320.</p>
+					<p>Compatible con directX y openGL.</p>
+					<p>Requiere de 750W de alimentación.</p>
+					<p>Con iluminación LED blanca.</p>
+					<p>Permite la conexión de hasta 4 pantallas simultáneas.</p>
+					<p>Formatos de conexión: HDMI, DisplayPort.</p>
+					<p>Incluye accesorios.</p>
+					<p>Ideal para trabajar a alta velocidad.</p>
+				</div>
+			</section>
+		</section>
+		<section class="related-products">
+			<p class="related-products__título">Productos relacionados</p>
+			<div class="related-products__more-products">
+				<div class="related-products__more-products__nombre-del-producto">
+					<p>Nombre del producto</p>
+					<img src="/img/product.jpg" alt="" />
+				</div>
+				<div class="related-products__more-products__nombre-del-producto">
+					<p>Nombre del producto</p>
+					<img src="/img/product.jpg" alt="" />
+				</div>
+				<div class="related-products__more-products__nombre-del-producto">
+					<p>Nombre del producto</p>
+					<img src="/img/product.jpg" alt="" />
+				</div>
+				<div class="related-products__more-products__nombre-del-producto">
+					<p>Nombre del producto</p>
+					<img src="/img/product.jpg" alt="" />
+				</div>
+			</div>
+		</section>
+	</main>
+	<%- include('../partials/footer') %>
+</body>
+
+</html>
+</main>
+<%- include('../partials/footer') %>
 </body>
 
 </html>
