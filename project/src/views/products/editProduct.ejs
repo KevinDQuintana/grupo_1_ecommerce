@@ -5,23 +5,37 @@
 
 <body>
 	<%- include('../partials/header') %>
-		<main class="container">
-			<div class="product-form">
-				<h1>Editar producto</h1>
-				<form action="/products" method="POST" enctype="multipart/form-data">
-					<input class="product-form__image" type="file" placeholder="Imagen" name="image" required>
-					<input type="text" placeholder="Categoría" name="category" required>
-					<input type="text" placeholder="Marca" name="brand" required>
-					<input type="text" placeholder="Color (opcional)" name="brand">
-					<input type="number" placeholder="Precio" name="price" required>
-					<input type="number" placeholder="Descuento" name="discount" required>
-					<input type="text" placeholder="Nombre del producto" name="name" required>
-					<textarea placeholder="Descripción" name="description" required></textarea>
-					<button type="submit" class="product-form__button">Confirmar cambios</button>
-				</form>
-			</div>
-		</main>
-		<%- include('../partials/footer') %>
+	<main class="container">
+		<div class="product-form">
+			<h1>Editar producto</h1>
+			<form action="/products/edit/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+				<input type="text" placeholder="Nombre del producto" name="name" value="<%= product.name %>">
+				<input type="text" placeholder="Marca" name="brand" value="<%= product.brand ? product.brand : "" %>">
+
+				<input type="number" placeholder="Precio" name="price" value="<%= product.price %>">
+				<input type="number" placeholder="Descuento" name="discount" value="<%= product.discount %>">
+
+				<textarea placeholder="Descripción" name="description" rows="10"><%= product.description %></textarea>
+				<input type="number" placeholder="Stock" name="stock" value="<%= product.stock %>">
+				<textarea name="specs" id="" cols="30" rows="10"
+					placeholder="Caracteristicas"><%= product.specs %></textarea>
+
+				<input type="text" placeholder="Categoría" name="category" value="<%= product.category %>">
+				<input type="text" placeholder="Color (opcional)" name="color"
+					value="<% product.color ? product.color : "" %>">
+				<% if (product.image) { %>
+					<img src="/img/products/<%= product.image %>" alt="">
+				<% } %>
+				<div class="select-new-image">
+					<label for="image">Reemplazar imagen:</label>
+					<input class="product-form__image" type="file" name="image" id="image">
+				</div>
+
+				<button type="submit" class="product-form__button">Confirmar</button>
+			</form>
+		</div>
+	</main>
+	<%- include('../partials/footer') %>
 </body>
 
 </html>
