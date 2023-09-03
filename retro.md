@@ -54,14 +54,19 @@
 
 **1. Comenzar a hacer.**
 - Estar al día con las ejercitaciones y el proyecto integrador.
+- Volver a ver conceptos olvidados.
 
 **2. Hacer más.**
 - Mejorar aspectos del proyecto integrador.
+- Tener hecho al menos el 80% del playground.
 
 **3. Continuar haciendo.**
 - Seguir motivado.
+- Concentrarse aprendiendo nuevos conocimientos.
 
 **4. Hacer menos.**
+- No continuar con las clases en el playground
 
 **5. Dejar de hacer.**
 - Procrastinar y desperdiciar tiempo.
+- Saltarme algunas prácticas.
