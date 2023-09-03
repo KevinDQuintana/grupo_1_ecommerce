@@ -116,6 +116,53 @@ main {
 	padding: 2rem;
 }
 
+.product__edit-or-delete {
+	display: flex;
+	width: 100%;
+	margin: 50px 0px 50px 0px;
+	justify-content: center;
+}
+
+.product__edit-or-delete__button-edit {
+	font-size: 1rem;
+	font-family: 'Roboto';
+	font-weight: bold;
+	margin: 0px 15px 0px 15px;
+	font-style: none;
+	background-color: #5A189A;
+	color: #ffffff;
+	padding: 30px;
+	border-radius: 10px;
+	transition-duration: 450ms;
+	transition-timing-function: ease-in-out
+}
+
+.product__edit-or-delete__button-edit:hover {
+	background-color: #3C096C;
+	transition-duration: 450ms;
+	transition-timing-function: ease-in-out;
+}
+
+.product__edit-or-delete__button-delete {
+	font-size: 1rem;
+	font-family: 'Roboto';
+	font-weight: bold;
+	margin: 0px 15px 0px 15px;
+	background-color: #5A189A;
+	color: #ffffff;
+	padding: 30px;
+	border: none;
+	border-radius: 10px;
+	transition-duration: 450ms;
+	transition-timing-function: ease-in-out
+}
+
+.product__edit-or-delete__button-delete:hover {
+	background-color: #3C096C;
+	transition-duration: 450ms;
+	transition-timing-function: ease-in-out;
+}
+
 .related-products {
 	display: flex;
 	flex-wrap: wrap;

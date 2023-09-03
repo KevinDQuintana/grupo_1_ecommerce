@@ -50,18 +50,13 @@
 					<% (product.characteristics).forEach(paragraph => { %>
 						<p><%= paragraph %></p>
 					<% }) %>
-					<!-- <p>Interfaz PCI-Express 4.0.</p>
-					<p>Bus de memoria: 256bit.</p>
-					<p>Cantidad de núcleos: 4864.</p>
-					<p>Resolución máxima: 7680x4320.</p>
-					<p>Compatible con directX y openGL.</p>
-					<p>Requiere de 750W de alimentación.</p>
-					<p>Con iluminación LED blanca.</p>
-					<p>Permite la conexión de hasta 4 pantallas simultáneas.</p>
-					<p>Formatos de conexión: HDMI, DisplayPort.</p>
-					<p>Incluye accesorios.</p>
-					<p>Ideal para trabajar a alta velocidad.</p> -->
 				</div>
+			</section>
+			<section class="product__edit-or-delete">
+				<a href="/products/edit/<%= product.id %>" class="product__edit-or-delete__button-edit">Editar</a>
+				<form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+					<button type="submit" class="product__edit-or-delete__button-delete">Eliminar</button>
+				</form>
 			</section>
 		</section>
 		<section class="related-products">
