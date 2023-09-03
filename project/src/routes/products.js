@@ -14,4 +14,6 @@ router.post('/', upload.single('image'), productsController.store); // Cargar nu
 
 router.put('/edit/:id', upload.single('image'), productsController.update);
 
+router.delete('/delete/:id', productsController.delete);
+
 module.exports = router;

@@ -54,7 +54,7 @@
 			</section>
 			<section class="product__edit-or-delete">
 				<a href="/products/edit/<%= product.id %>" class="product__edit-or-delete__button-edit">Editar</a>
-				<form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+				<form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
 					<button type="submit" class="product__edit-or-delete__button-delete">Eliminar</button>
 				</form>
 			</section>

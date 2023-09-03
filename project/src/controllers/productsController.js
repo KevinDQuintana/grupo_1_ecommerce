@@ -3,6 +3,9 @@ const path = require('path');
 const { title } = require('process');
 const productsFilePath = path.join(__dirname, '../', 'data', 'productsDataBase.json');
 
+function writeProducts(product){
+	fs.writeFileSync(productsFilePath, JSON.stringify(product, null, '\t'))};
+
 function getProducts() {
 	return JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 }
@@ -72,7 +75,17 @@ const controller = {
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
 
 		return res.redirect(`/products/detail/${req.params.id}`);
-	}
+	},   
+    delete:function(req,res){
+	   const id = req.params.id;
+	   if(!id) return res.send('Error');
+	   const products = getProducts();
+	   writeProducts(products.filter((product) => {
+		  return product.id != req.params.id
+	}));
+
+	res.redirect('/products')
+}
 };
 
 module.exports = controller;
