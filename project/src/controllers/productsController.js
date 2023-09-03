@@ -21,8 +21,7 @@ const controller = {
 		const products = getProducts();
 		const id = req.params.id;
 		const productFound = products.find(product => product.id == id);
-		const array = (productFound.characteristics).split('\r\n')
-		return res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'], product: productFound, array, toThousand });
+		return res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'], product: productFound, toThousand });
 	},
 	edit: function (req, res) {
 		const id = req.params.id;
@@ -43,7 +42,7 @@ const controller = {
 			descriptionTitle: req.body.descriptionTitle,
 			description: req.body.description,
 			stock: req.body.stock,
-			characteristics: req.body.characteristics,
+			characteristics: (req.body.characteristics).split('\r\n'),
 			category: req.body.category,
 			brand: req.body.brand,
 			color: req.body.color

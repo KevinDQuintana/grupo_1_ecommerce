@@ -47,8 +47,8 @@
 					Características del producto
 				</p>
 				<div class="product__characteristics__características-del-producto">
-					<% array.forEach(parrafo => { %>
-						<p><%= parrafo %></p>
+					<% (product.characteristics).forEach(paragraph => { %>
+						<p><%= paragraph %></p>
 					<% }) %>
 					<!-- <p>Interfaz PCI-Express 4.0.</p>
 					<p>Bus de memoria: 256bit.</p>
