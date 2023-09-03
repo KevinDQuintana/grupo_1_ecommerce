@@ -25,11 +25,11 @@
 					$<%= toThousand(product.price) %>
 				</p>
 				<div class="product__information__descripcion-del-producto">
-					<h3>La Jugada Definitiva</h3>
+					<h3><%= product.descriptionTitle %></h3>
 					<p><%= product.description %></p>
 				</div>
 				<p class="product__information__stock-disponible">
-					Stock disponible:<br />100 unidades
+					Stock disponible:<br /><%= product.stock %>
 				</p>
 				<section class="product__buttons">
 					<span>
@@ -47,7 +47,10 @@
 					Características del producto
 				</p>
 				<div class="product__characteristics__características-del-producto">
-					<p>Interfaz PCI-Express 4.0.</p>
+					<% array.forEach(parrafo => { %>
+						<p><%= parrafo %></p>
+					<% }) %>
+					<!-- <p>Interfaz PCI-Express 4.0.</p>
 					<p>Bus de memoria: 256bit.</p>
 					<p>Cantidad de núcleos: 4864.</p>
 					<p>Resolución máxima: 7680x4320.</p>
@@ -57,7 +60,7 @@
 					<p>Permite la conexión de hasta 4 pantallas simultáneas.</p>
 					<p>Formatos de conexión: HDMI, DisplayPort.</p>
 					<p>Incluye accesorios.</p>
-					<p>Ideal para trabajar a alta velocidad.</p>
+					<p>Ideal para trabajar a alta velocidad.</p> -->
 				</div>
 			</section>
 		</section>

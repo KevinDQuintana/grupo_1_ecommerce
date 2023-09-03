@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { title } = require('process');
 const productsFilePath = path.join(__dirname, '../', 'data', 'productsDataBase.json');
 
 function getProducts() {
@@ -20,7 +21,8 @@ const controller = {
 		const products = getProducts();
 		const id = req.params.id;
 		const productFound = products.find(product => product.id == id);
-		return res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'], product: productFound, toThousand });
+		const array = (productFound.characteristics).split('\r\n')
+		return res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'], product: productFound, array, toThousand });
 	},
 	edit: function (req, res) {
 		const id = req.params.id;
@@ -34,12 +36,17 @@ const controller = {
 		const newId = products[products.length - 1].id + 1;
 		const newProduct = {
 			id: newId,
-			name: req.body.name,
-			description: req.body.description,
 			image: req.file.filename,
-			discount: Number(req.body.discount),
+			name: req.body.name,
 			price: Number(req.body.price),
+			discount: Number(req.body.discount),
+			descriptionTitle: req.body.descriptionTitle,
+			description: req.body.description,
+			stock: req.body.stock,
+			characteristics: req.body.characteristics,
 			category: req.body.category,
+			brand: req.body.brand,
+			color: req.body.color
 		};
 
 		products.push(newProduct);
