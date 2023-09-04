@@ -76,8 +76,10 @@ const controller = {
 		product.brand = req.body.brand;
 		product.color = req.body.color;
 		product.specs = req.body.specs;
-		product.image = typeof req.file != 'undefined' ? req.file.filename : product.image;
-
+		if(req.file){
+			fs.unlinkSync(path.join(__dirname, '../', '../', 'public', 'img', 'products', product.image));
+			product.image = req.file.filename;
+		}
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
 
 		return res.redirect(`/products/detail/${req.params.id}`);
