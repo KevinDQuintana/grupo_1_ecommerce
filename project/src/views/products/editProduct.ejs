@@ -24,7 +24,7 @@
 				<input type="text" placeholder="Color (opcional)" name="color"
 					value="<% product.color ? product.color : "" %>">
 				<% if (product.image) { %>
-					<img src="/img/products/<%= product.image %>" alt="">
+					<img class="product-img" src="/img/products/<%= product.image %>" alt="">
 				<% } %>
 				<div class="select-new-image">
 					<label for="image">Reemplazar imagen:</label>
