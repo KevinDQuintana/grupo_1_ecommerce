@@ -95,17 +95,17 @@ main {
 	transition-timing-function: ease-in-out;
 }
 
-.product__characteristics {
+.product__specs {
 	text-align: center;
 }
 
-.product__characteristics__características-título {
+.product__specs__características-título {
 	font-size: 25px;
 	color: #E0AAFF;
 	margin: 20px 0px;
 }
 
-.product__characteristics__características-del-producto {
+.product__specs__características-del-producto {
 	background-color: rgba(224, 170, 255, 0.5);
 	border-radius: 10px;
 	display: flex;
@@ -286,7 +286,7 @@ main {
 		padding: 10px;
 	}
 
-	.product__characteristics {
+	.product__specs {
 		margin: auto;
 		margin-top: 20px;
 	}

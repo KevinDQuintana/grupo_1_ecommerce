@@ -15,11 +15,11 @@
 				<input type="number" placeholder="Precio" name="price" value="<%= product.price %>">
 				<input type="number" placeholder="Descuento" name="discount" value="<%= product.discount %>">
 
+				<input type="text" name="descriptionTitle" id="descriptionTitle" placeholder="Titulo de la descripcion" value="<%= product.descriptionTitle %>">
 				<textarea placeholder="Descripción" name="description" rows="10"><%= product.description %></textarea>
 				<input type="number" placeholder="Stock" name="stock" value="<%= product.stock %>">
 				<textarea name="specs" id="" cols="30" rows="10"
 					placeholder="Caracteristicas"><%= product.specs %></textarea>
-
 				<input type="text" placeholder="Categoría" name="category" value="<%= product.category %>">
 				<input type="text" placeholder="Color (opcional)" name="color"
 					value="<% product.color ? product.color : "" %>">

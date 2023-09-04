@@ -42,12 +42,12 @@
 					</span>
 				</section>
 			</section>
-			<section class="product__characteristics">
-				<p class="product__characteristics__características-título">
+			<section class="product__specs">
+				<p class="product__specs__características-título">
 					Características del producto
 				</p>
-				<div class="product__characteristics__características-del-producto">
-					<% (product.characteristics).forEach(paragraph => { %>
+				<div class="product__specs__características-del-producto">
+					<% (product.specs.split('\r\n')).forEach(paragraph => { %>
 						<p><%= paragraph %></p>
 					<% }) %>
 				</div>

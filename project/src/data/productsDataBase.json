@@ -3,86 +3,56 @@
 		"id": 1,
 		"image": "Logitech-G-Series-G502-Hero.jpg",
 		"name": "Logitech G Series G502 Hero",
-		"price": 50000,
-		"discount": 0,
+		"price": "50000",
+		"discount": "0",
 		"descriptionTitle": "Mouse gamer",
 		"description": "Logitech diseña productos y experiencias que ocupan un lugar cotidiano en la vida de las personas, poniendo foco en la innovación y la calidad. Su objetivo es crear momentos verdaderamente únicos y significativos para sus usuarios. Los mouses Logitech se adaptan a la forma de tu mano para proporcionarte horas de comodidad. Sin necesidad de mover el brazo para deslizar el cursor, tu mano se fatigará menos. Son ideales para cualquier espacio de trabajo y quienes tienen la mesa llena de diversos objetos.",
 		"stock": 5,
-		"characteristics": [
-			"Utiliza cable",
-			"Posee ruedas de desplazamiento",
-			"Con luces para mejorar la experiencia de uso",
-			"Con sensor óptico",
-			"Resolución de 16000dpi"
-		],
 		"category": "Mouses",
 		"brand": "Logitech",
-		"color": "Black"
+		"color": "Black",
+		"specs": "Utiliza cable\r\n\r\nPosee ruedas de desplazamiento\r\n\r\nCon luces para mejorar la experiencia de uso\r\n\r\nCon sensor óptico\r\n\r\nResolución de 16000dpi"
 	},
 	{
 		"id": 2,
 		"image": "Amd-Ryzen-5-4600g.jpg",
 		"name": "Amd Ryzen 5 4600g",
-		"price": 129999,
-		"discount": 10,
+		"price": "129999",
+		"discount": "10",
 		"descriptionTitle": "Microprocesador Pc",
 		"description": "Clave en el rendimiento de tu computadora de escritorio, ya no tenés que pensar en cómo distribuir el tiempo y acciones porque ahora las tareas en simultáneo son posibles. AMD cuenta con un catálogo de productos que se adaptan a los requerimientos de todo tipo de usuarios: juegos en línea, edición a gran escala, contenido en múltiples plataformas y más.",
 		"stock": 10,
-		"characteristics": [
-			"Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución.",
-			"Memoria caché de 8 MB, rápida y volátil.",
-			"Procesador gráfico Radeon Graphics.",
-			"Soporta memoria RAM DDR4.",
-			"Su potencia es de 65 W.",
-			"Cuenta con 12 hilos que favorecen la ejecución de múltiples programas a la vez.",
-			"Producto en empaque original.",
-			"Procesador innovador desarrollado bajo altos estándares de calidad.",
-			"Zócalos compatibles: AM4"
-		],
 		"category": "Procesadores",
 		"brand": "AMD",
-		"color": null
+		"color": null,
+		"specs": "Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución.\r\n\r\nMemoria caché de 8 MB, rápida y volátil.\r\n\r\nProcesador gráfico Radeon Graphics.\r\n\r\nSoporta memoria RAM DDR4.\r\n\r\nSu potencia es de 65 W.\r\n\r\nCuenta con 12 hilos que favorecen la ejecución de múltiples programas a la vez.\r\n\r\nProducto en empaque original.\r\n\r\nProcesador innovador desarrollado bajo altos estándares de calidad.\r\n\r\nZócalos compatibles: AM4"
 	},
 	{
 		"id": 3,
 		"image": "Fury-Beast-DDR4-Kingston.jpg",
 		"name": "Fury Beast DDR4 Kingston",
-		"price": 20100,
-		"discount": 15,
+		"price": "20100",
+		"discount": "15",
 		"descriptionTitle": "Memoria ram gamer",
 		"description": "Si tu computadora funciona con lentitud, si un programa no responde o no se carga, lo más probable es que se trate de un problema de memoria. Estos son posibles indicios de un rendimiento defectuoso en el día a día de tus tareas. Por ello, contar con una memoria Kingston -sinónimo de trayectoria y excelencia- mejorará la productividad de tu equipo: las páginas se cargarán más rápido y la ejecución de nuevas aplicaciones resultará más ágil y simple.",
 		"stock": 15,
-		"characteristics": [
-			"Optimizá el rendimiento de tu máquina con la tecnología DDR4 SDRAM.",
-			"Memoria con formato UDIMM.",
-			"Alcanza una velocidad de 3200 MHz.",
-			"Apta para computadoras de escritorio.",
-			"Línea Fury Beast DDR4.",
-			"Cuenta con una tasa de transferencia de 25600 MB/s.",
-			"Compatible con AMD Ryzen."
-		],
 		"category": "Memoria ram",
 		"brand": "Kingston",
-		"color": null
+		"color": null,
+		"specs": "Optimizá el rendimiento de tu máquina con la tecnología DDR4 SDRAM.\r\n\r\nMemoria con formato UDIMM.\r\n\r\nAlcanza una velocidad de 3200 MHz.\r\n\r\nApta para computadoras de escritorio.\r\n\r\nLínea Fury Beast DDR4.\r\n\r\nCuenta con una tasa de transferencia de 25600 MB/s.\r\n\r\nCompatible con AMD Ryzen."
 	},
 	{
 		"id": 4,
 		"image": "Western-Digital-WD-Green-240gb.jpg",
 		"name": "Western Digital WD Green 240gb",
-		"price": 16999,
-		"discount": 19,
+		"price": "16999",
+		"discount": "19",
 		"descriptionTitle": "Disco sólido interno",
 		"description": "Este producto posee una interfaz SATA III que se encarga de transferir datos con la placa madre de tu computadora. Es de gran importancia y con su velocidad de envío de información mejora el rendimiento. Vas a poder cargar todo tipo de archivos en tu PC con rapidez.",
 		"stock": 15,
-		"characteristics": [
-			"Útil para guardar programas y documentos con su capacidad de 240 GB.",
-			"Tamaño de 2.5 ''.",
-			"Interfaz de conexión: SATA III.",
-			"Apto para PC y Notebook.",
-			"Las imágenes pueden ser ilustrativas."
-		],
 		"category": "Discos",
 		"brand": "Western Digital",
-		"color": null
+		"color": null,
+		"specs": "Útil para guardar programas y documentos con su capacidad de 240 GB.\r\n\r\nTamaño de 2.5 ''.\r\n\r\nInterfaz de conexión: SATA III.\r\n\r\nApto para PC y Notebook.\r\n\r\nLas imágenes pueden ser ilustrativas."
 	}
 ]
