@@ -6,6 +6,8 @@
         "lastName": "Martinez",
         "email": "macielmartinez@gmail.com",
         "password": "password",
+        "dni": 12345678,
+        "phone": "+5493836416123",
         "category": "buyer",
         "image": ""
     },
@@ -15,6 +17,8 @@
         "lastName": "Lopez",
         "email": "ValenLopez@gmail.com",
         "password": "password",
+        "dni": 12345678,
+        "phone": "+5493836416123",
         "category": "seller",
         "image": ""
     },
@@ -24,6 +28,8 @@
         "lastName": "Quintana",
         "email": "Quintanakevin@gmail.com",
         "password": "password",
+        "dni": 12345678,
+        "phone": "+5493836416123",
         "category": "buyer",
         "image": ""
     },
@@ -33,6 +39,8 @@
         "lastName": "Veramendi",
         "email": "gabiveramendi@gmail.com",
         "password": "password",
+        "dni": 12345678,
+        "phone": "+5493836416123",
         "category": "seller",
         "image": ""
     },
@@ -42,6 +50,8 @@
         "lastName": "Viglino",
         "email": "santinoviglino36@gmail.com",
         "password": "password",
+        "dni": 12345678,
+        "phone": "+5493836416123",
         "category": "seller",
         "image": ""
     }
