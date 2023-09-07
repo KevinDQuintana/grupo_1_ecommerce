@@ -40,10 +40,11 @@ h1 {
 
 .products-list__product__image {
     height: 200px;
+    width: 90%;
 }
 
 img {
-	width: 90%;
+	/* width: 90%; */
 	object-fit: contain;
 }
 .products-list__product__price-discount {
