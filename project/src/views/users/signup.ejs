@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<%- include('../partials/head') %>
-		<link rel="stylesheet" href="/css/signup.css">
-</head>
+<%- include('../partials/head') %>
 
 <body>
 	<%- include('../partials/header') %>
@@ -20,12 +17,14 @@
 					<input class="controlar" type="password" name="Confirmacion" id="password2"
 						placeholder="Confirmar Contraseña" required="">
 					<div>Informacion Personal</div>
-					<input class="controlar" type="text" name="nombre" id="nombre" placeholder="Nombre" required="">
-					<input class="controlar" type="text" name="apellido" id="apellido" placeholder="Apellido"
+					<input class="controlar" type="text" name="firstName" id="firstName" placeholder="firstName" required="">
+					<input class="controlar" type="text" name="lastName" id="lastName" placeholder="lastName"
 						required="">
 					<input class="controlar" type="number" name="dni" id="dni" placeholder="Numero de DNI (opcional)">
-					<input class="controlar" type="number" name="telefono" id="telefono"
+					<input class="controlar" type="number" name="phone" id="phone"
 						placeholder="Numero de telefono (opcional)">
+					<input class="controlar" type="text" name="category" id="category" placeholder="category">
+					<input class="controlar" type="file" name="image" id="image" placeholder="category">
 					<button class="boton" type="submit">Enviar</button>
 				</form>
 			</section>

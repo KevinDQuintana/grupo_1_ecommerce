@@ -37,6 +37,7 @@
     transition-duration: 450ms;
     transition-timing-function: ease-in-out
 }
+
 .product-form__button:hover {
     background-color: #3C096C;
     transition-duration: 450ms;

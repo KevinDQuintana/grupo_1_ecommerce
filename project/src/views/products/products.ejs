@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+
+<body>
+    <%- include('../partials/header') %>
+    <main class="container">
+        <h1>Lista de productos</h1>
+        <section class="products-list">
+            <% products.forEach( product => { %>
+                <a href="/products/detail/<%= product.id %>" class="products-list__product">
+                    <img class="products-list__product__image" src="/img/products/<%= product.image %>" alt="Producto">
+                    <div class="products-list__product__price-discount"><span>$<%= toThousand(product.price) %></span><span><%= product.discount %>% OFF</span></div>
+                    <div class="products-list__product__name"><%= product.name %></div>
+                </a>
+            <% }) %>
+        </section>
+        <div class="products-create">
+            <a class="products-create__button" href="/products/create">Crear producto</a>
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
