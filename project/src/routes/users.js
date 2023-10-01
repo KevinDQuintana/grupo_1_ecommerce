@@ -1,7 +1,8 @@
 const express = require('express');
+const { body } = require('express-validator');
+
 const path = require('path');
 const upload = require('../middlewares/multerUsers');
-const { body } = require('express-validator');
 
 const router = express.Router();
 const usersController = require(path.join(__dirname, '../', 'controllers', 'usersController'));
@@ -33,8 +34,15 @@ const validations = [
     })
 ];
 
+const loginValidation = [
+	body('email').notEmpty().withMessage('El email no puede estar vacio').bail().isEmail().withMessage('Escribe un formato de correo válido'),
+	body('password').notEmpty().withMessage('La contraseña no puede estar vacia'),
+]
+
 router.get('/login', usersController.login);
-router.post('/login', usersController.processLogin);
+router.post('/login', loginValidation, usersController.processLogin);
+
+router.get('/logout', usersController.logOut)
 
 router.get('/signup', usersController.signup);
 router.post('/signup', upload.single('image'), validations ,usersController.processSignup);

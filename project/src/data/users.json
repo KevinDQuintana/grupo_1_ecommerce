@@ -1,58 +1,57 @@
 [
-   
-    {
-        "id": 1,
-        "firstName": "Maciel",
-        "lastName": "Martinez",
-        "email": "macielmartinez@gmail.com",
-        "password": "password",
-        "dni": 12345678,
-        "phone": "+5493836416123",
-        "category": "buyer",
-        "image": ""
-    },
-        {
-        "id": 2,
-        "firstName": "Valentin",
-        "lastName": "Lopez",
-        "email": "ValenLopez@gmail.com",
-        "password": "password",
-        "dni": 12345678,
-        "phone": "+5493836416123",
-        "category": "seller",
-        "image": ""
-    },
-        {
-        "id": 3,
-        "firstName": "Kevin",
-        "lastName": "Quintana",
-        "email": "Quintanakevin@gmail.com",
-        "password": "password",
-        "dni": 12345678,
-        "phone": "+5493836416123",
-        "category": "buyer",
-        "image": ""
-    },
-        {
-        "id": 4,
-        "firstName": "Gabriel",
-        "lastName": "Veramendi",
-        "email": "gabiveramendi@gmail.com",
-        "password": "password",
-        "dni": 12345678,
-        "phone": "+5493836416123",
-        "category": "seller",
-        "image": ""
-    },
-    {
-        "id": 5,
-        "firstName": "Santino",
-        "lastName": "Viglino",
-        "email": "santinoviglino36@gmail.com",
-        "password": "password",
-        "dni": 12345678,
-        "phone": "+5493836416123",
-        "category": "seller",
-        "image": ""
-    }
+	{
+		"id": 1,
+		"firstName": "Maciel",
+		"lastName": "Martinez",
+		"email": "macielmartinez@gmail.com",
+		"password": "$2b$10$8jpIQKzrttIWj/xTnkqwg.4nImKXLzzGBLUUc9n5LmgkGih6lh1AC",
+		"dni": 12345678,
+		"phone": "+5493836416123",
+		"category": "buyer",
+		"image": ""
+	},
+	{
+		"id": 2,
+		"firstName": "Valentin",
+		"lastName": "Lopez",
+		"email": "valentinlopez@gmail.com",
+		"password": "$2b$10$2dYUyCOXC5gXzJmmXb6YdOHD04.XscSp2gt3xcoy0mIIGCGkAwRrq",
+		"dni": 12345678,
+		"phone": "+5493836416123",
+		"category": "seller",
+		"image": ""
+	},
+	{
+		"id": 3,
+		"firstName": "Kevin",
+		"lastName": "Quintana",
+		"email": "kevinquintana@gmail.com",
+		"password": "$2b$10$7loY6u1m8/ZrsXnuStDJ6.kaziLns56zHI1h1iYVb.K7TrjgG9x7m",
+		"dni": 12345678,
+		"phone": "+5493836416123",
+		"category": "buyer",
+		"image": ""
+	},
+	{
+		"id": 4,
+		"firstName": "Gabriel",
+		"lastName": "Veramendi",
+		"email": "gabiveramendi@gmail.com",
+		"password": "$2b$10$ENqNei7zZ7W4PuKZETmzWutUQ4I3tHxe8mt6pN74w61Fh/ie1njPa",
+		"dni": 12345678,
+		"phone": "+5493836416123",
+		"category": "seller",
+		"image": ""
+	},
+	{
+		"id": 5,
+		"firstName": "Santino",
+		"lastName": "Viglino",
+		"email": "santinoviglino36@gmail.com",
+		"password": "$2b$10$0Uu5VWUYwVXnxVPyYYkOBeUHYnxrMJJ0rwitiyvCfB2vKZ8OpUkCC",
+		"dni": 12345678,
+		"phone": "+5493836416123",
+		"category": "seller",
+		"image": ""
+	}
 ]

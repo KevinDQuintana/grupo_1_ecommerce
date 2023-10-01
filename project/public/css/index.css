@@ -137,17 +137,13 @@ footer {
 
 .header__menu ul li {
 	background-color: #10002b;
-
-	/* outline: 1px solid red; */
 }
 
-.header__menu ul li a {
+.button {
 	color: #c77dff;
 	display: block;
 	font-size: 1rem;
 	padding: 1rem 2rem;
-
-	/* outline: 1px solid red; */
 }
 
 .banner {
