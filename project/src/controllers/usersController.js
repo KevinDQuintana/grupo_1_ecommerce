@@ -36,7 +36,7 @@ const controller = {
 		};
 		users.push(newUser);
 		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, '\t'));
-		return res.redirect('/users');
+		return res.redirect('/');
 	}
 }
 
