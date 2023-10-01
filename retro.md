@@ -79,7 +79,8 @@
 
 **2. Hacer más.**
 - Seguir mejorando el proyecto integrador.
-- Ponerse al día con el rpoyecto integrador.
+- Ponerse al día con el proyecto integrador.
+- Darle mas tiempo al proyecto.
 
 **3. Continuar haciendo.**
 - Seguir motivado y con ganas de mejorar.
@@ -87,6 +88,7 @@
 
 **4. Hacer menos.**
 - procrastinar.
+- Dejar algunas ejercitaciones de playground pendientes.
 
 **5. Dejar de hacer.**
 - Procrastinar y desperdiciar tiempo.
