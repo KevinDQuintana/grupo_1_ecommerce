@@ -14,10 +14,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 const ruteIndex = require(path.join(__dirname, 'routes', 'index'));
+const ruteUsers = require(path.join(__dirname, 'routes', 'users'));
 const ruteProducts = require(path.join(__dirname, 'routes', 'products')); // ruteProducts
 const ruteProductCart = require(path.join(__dirname, 'routes', 'productCart'));
 
 app.use('/', ruteIndex);
+app.use('/', ruteUsers);
 app.use('/products', ruteProducts); // Nueva ruta '/products'
 app.use('/productCart', ruteProductCart);
 
