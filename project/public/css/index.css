@@ -132,22 +132,35 @@ footer {
 }
 
 .header__menu ul {
+	align-items: center;
 	padding: 0.5rem 1rem;
 }
 
-.header__menu ul li {
+.li-button {
 	background-color: #10002b;
-
-	/* outline: 1px solid red; */
 }
 
-.header__menu ul li a {
+.button {
 	color: #c77dff;
 	display: block;
 	font-size: 1rem;
 	padding: 1rem 2rem;
+}
 
-	/* outline: 1px solid red; */
+.user-profile {
+	align-items: center;
+	display: flex;
+	gap: 0.5rem;
+	margin-top: auto;
+	margin-bottom: auto;
+	color: #c77dff;
+	padding: 1rem 2rem;
+}
+
+.user-profile i {
+	color: #c77dff;
+	background-color: transparent;
+	font-size: 1.5rem;
 }
 
 .banner {
@@ -345,15 +358,15 @@ footer {
 		display: flex;
 	}
 
-	.header__menu ul li {
+	.li-button {
 		border-radius: 5px;
 	}
 
-	.header__menu ul li:hover {
+	.li-button:hover {
 		background-color: #c77dff;
 	}
 
-	.header__menu ul li:hover a {
+	.li-button:hover a {
 		color: #000000;
 	}
 
