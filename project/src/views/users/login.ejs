@@ -10,15 +10,22 @@
 				<div class="formulario">
 					<h3>Iniciar sesión</h3>
 					<button class="button1"><i class="fa-brands fa-google"></i>Iniciar sesión por Google</button>
-					<form action="/" method="post">
+					<form action="/users/login" method="post">
 						<hr>
 						<span class="texto-rayita">O bien por</span>
 						<input class="controlar" type="email" name="email" id="email" placeholder="Email" required>
-						<input class="controlar" type="password" name="contrasena" id="password"
+						<input class="controlar" type="password" name="password" id="password"
 							placeholder="Contraseña" required="">
-						<a href="#">
-							<div class="olvidar-contraseña">He olvidado mi contraseña</div>
-						</a>
+						<div class="user-options">
+							<div class="rememberMe">
+								<label for="rememberMe">Recuérdame</label>
+								<input type="checkbox" name="rememberMe" id="rememberMe" value="true" checked>
+							</div>
+
+							<a href="#">
+								<div class="olvidar-contraseña">He olvidado mi contraseña</div>
+							</a>
+						</div>
 						<a><button class="boton" type="submit">Iniciar sesión</button></a>
 						<hr>
 						<span class="texto-rayita2">¿Eres nuevo cliente?</span>

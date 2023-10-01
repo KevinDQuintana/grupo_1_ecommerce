@@ -10,7 +10,7 @@ const app = express();
 app.use(express.static(publicPath));
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const ruteIndex = require(path.join(__dirname, 'routes', 'index'));

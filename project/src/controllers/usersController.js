@@ -16,10 +16,14 @@ const controller = {
 	signup: function (req, res) {
 		return res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'] });
 	},
-	processSignup: function (req,res) {
+	processLogin: function (req, res) {
+		console.log(req.body);
+		res.redirect('/')
+	},
+	processSignup: function (req, res) {
 		const resultValidation = validationResult(req);
 		if (resultValidation.errors.length > 0) {
-			res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'] , errors: resultValidation.mapped() , oldData: req.body});
+			res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'], errors: resultValidation.mapped(), oldData: req.body });
 		}
 		const users = getUsers();
 		const newId = users[users.length - 1].id + 1;
