@@ -14,8 +14,9 @@ const controller = {
 		res.render(path.join(__dirname, '../', 'views', 'users', 'login'), { styles: ['/css/index.css', '/css/login.css'] });
 	},
 	logOut: function (req, res) {
+		console.log('User Wants to LogOut')
 		req.session.destroy();
-		res.clearCookie('cookie');
+		res.clearCookie('session');
 		res.redirect('/');
 	},
 	processLogin: function (req, res) {
@@ -52,7 +53,7 @@ const controller = {
 
 			if (req.body.rememberMe) {
 				console.log('The user wants to be remembered.');
-				res.cookie('cookie', req.session.user, { maxAge: 900000 });
+				res.cookie('session', req.session.user, { maxAge: 900000 });
 				console.log('Cookie Set');
 			}
 			return res.redirect('/')
