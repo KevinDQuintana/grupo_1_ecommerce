@@ -35,6 +35,6 @@ const validations = [
 
 router.get('/login', usersController.login);
 router.get('/signup', usersController.signup);
-router.post('/signup', upload.single('image'), validations ,usersController.processRegister); 
+router.post('/signup', upload.single('image'), validations ,usersController.processSignup); 
 
 module.exports = router;

@@ -16,7 +16,7 @@ const controller = {
 	signup: function (req, res) {
 		return res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'] });
 	},
-	processRegister: function (req,res) {
+	processSignup: function (req,res) {
 		const resultValidation = validationResult(req);
 		if (resultValidation.errors.length > 0) {
 			res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'] , errors: resultValidation.mapped() , oldData: req.body});
