@@ -70,3 +70,19 @@
 **5. Dejar de hacer.**
 - Procrastinar y desperdiciar tiempo.
 - Saltarme algunas prácticas.
+
+## Restrospectiva Sprint 5
+
+**1. Comenzar a hacer.**
+- Estar al día con las ejercitaciones y el proyecto integrador.
+
+**2. Hacer más.**
+- Seguir mejorando el proyecto integrador.
+
+**3. Continuar haciendo.**
+- Seguir motivado y con ganas de mejorar.
+
+**4. Hacer menos.**
+
+**5. Dejar de hacer.**
+- Procrastinar y desperdiciar tiempo.
