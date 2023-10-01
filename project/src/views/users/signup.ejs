@@ -9,22 +9,46 @@
 			<section class="registro">
 				<h2>Registro de usuario</h2>
 				<hr>
-				<form action="/" method="post">
-					<input class="controlar" type="email" name="email" id="email" placeholder="Email"
-						pattern="[a-z-@]+">
-					<input class="controlar" type="password" name="contrasena" id="password" placeholder="Contraseña"
-						required="">
-					<input class="controlar" type="password" name="Confirmacion" id="password2"
-						placeholder="Confirmar Contraseña" required="">
+				<form method="POST" action="/users/register" enctype="multipart/form-data">
+					<input class="controlar" name="email" id="email" placeholder="Email" pattern="[a-z-@]+" value="<%= locals.oldData ? oldData.email : null %>">
+					<% if (locals.errors && errors.email) { %>
+						<div><%= errors.email.msg %></div>
+					<% } %>
+					<input class="controlar" name="password" id="password" placeholder="Contraseña">
+					<% if (locals.errors && errors.password) { %>
+						<div><%= errors.password.msg %></div>
+					<% } %>
 					<div>Informacion Personal</div>
-					<input class="controlar" type="text" name="firstName" id="firstName" placeholder="firstName" required="">
-					<input class="controlar" type="text" name="lastName" id="lastName" placeholder="lastName"
-						required="">
-					<input class="controlar" type="number" name="dni" id="dni" placeholder="Numero de DNI (opcional)">
-					<input class="controlar" type="number" name="phone" id="phone"
-						placeholder="Numero de telefono (opcional)">
-					<input class="controlar" type="text" name="category" id="category" placeholder="category">
-					<input class="controlar" type="file" name="image" id="image" placeholder="category">
+					<input class="controlar" name="firstName" id="firstName" placeholder="Nombre"  value="<%= locals.oldData ? oldData.firstName : null %>">
+					<% if (locals.errors && errors.firstName) { %>
+						<div><%= errors.firstName.msg %></div>
+					<% } %>
+					<input class="controlar" name="lastName" id="lastName" placeholder="Apellido"  value="<%= locals.oldData ? oldData.lastName : null %>">
+					<% if (locals.errors && errors.lastName) { %>
+						<div><%= errors.lastName.msg %></div>
+					<% } %>
+					<input class="controlar" name="dni" id="dni" placeholder="Numero de DNI"  value="<%= locals.oldData ? oldData.dni : null %>">
+					<% if (locals.errors && errors.dni) { %>
+						<div><%= errors.dni.msg %></div>
+					<% } %>
+					<input class="controlar" name="phone" id="phone" placeholder="Numero de telefono"  value="<%= locals.oldData ? oldData.phone : null %>">
+					<% if (locals.errors && errors.phone) { %>
+						<div><%= errors.phone.msg %></div>
+					<% } %>
+					<select class="controlar" name="category" id="category" >
+						<option value="">Elegí una categoría:</option>
+						<% const categories = ['Vendedor','Comprador','Empresa'] %>
+						<% for(const oneCategory of categories) { %>
+							<option value="<%= oneCategory %>" <%= locals.oldData && (oneCategory === oldData.category) ? 'selected' : null %>> <%= oneCategory %> </option>
+						<% } %>
+					</select>
+					<% if (locals.errors && errors.category) { %>
+						<div><%= errors.category.msg %></div>
+					<% } %>
+					<input class="controlar" type="file" name="image" id="image">
+					<% if (locals.errors && errors.image) { %>
+						<div><%= errors.image.msg %></div>
+					<% } %>
 					<button class="boton" type="submit">Enviar</button>
 				</form>
 			</section>
