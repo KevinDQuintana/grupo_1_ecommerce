@@ -79,7 +79,7 @@ const controller = {
 			firstName: req.body.firstName,
 			lastName: req.body.lastName,
 			email: req.body.email,
-			password: req.body.password,
+			password: bcrypt.hashSync("req.body.password", 10),
 			dni: req.body.dni,
 			phone: req.body.phone,
 			category: req.body.category,
