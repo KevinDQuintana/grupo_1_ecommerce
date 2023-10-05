@@ -13,8 +13,32 @@
 				<form action="/users/login" method="post">
 					<hr>
 					<span class="texto-rayita">O bien por</span>
-					<input class="controlar" type="email" name="email" id="email" placeholder="Email">
-					<input class="controlar" type="password" name="password" id="password" placeholder="Contraseña">
+					<% if (locals.errors) {%>
+                        <% if (errors.email) {%>
+                            <input class="controlar" name="email" id="email" placeholder="Email">
+                            <div class="error"><%= errors.email.msg %></div>
+                        <% } else {%>
+                            <input class="controlar" name="email" id="email" placeholder="Email">
+                        <% } %>
+                        <% if (errors.password) {%>
+                            <input class="controlar" type="password" name="password" id="password" placeholder="Contraseña">
+                            <div class="error"><%= errors.password.msg %></div>
+                        <% } else{%>
+                            <input class="controlar" type="password" name="password" id="password" placeholder="Contraseña">
+                        <% } %>
+                    <% } else {%>
+                        <% if (locals.validation) {%>
+                            <% if (validation.email) {%>
+                                <div class="error"><%= validation.email.msg %></div>
+                                <input class="controlar" name="email" id="email" placeholder="Email">
+                                <input class="controlar" type="password" name="password" id="password" placeholder="Contraseña">
+                            <% } %>
+                        <% } else {%>
+                            <input class="controlar" name="email" id="email" placeholder="Email">
+                                <input class="controlar" type="password" name="password" id="password" placeholder="Contraseña">
+                        <% } %>
+                    <% } %>
+					
 					<div class="user-options">
 						<div class="rememberMe">
 							<label for="rememberMe">Recuérdame</label>

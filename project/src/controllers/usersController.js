@@ -41,11 +41,11 @@ const controller = {
 				 req.session.userLogged = requiredUser;
 				} else {
 					console.log('User Password is Incorrect')
-					return res.redirect('/users/login')
+					return res.render(path.join(__dirname,'..','views','users','login'),{ styles: ['/css/index.css', '/css/login.css'] , validation: { email: { msg: 'Credenciales inválidas' } }, oldData: req.body });
 				}
 			} else {
 				console.log('User Not Found')
-				return res.redirect('/users/login')
+				return res.render(path.join(__dirname,'..','views','users','login'),{ styles: ['/css/index.css', '/css/login.css'], validation: { email: { msg: 'No se encuentra este email' } }, oldData: req.body });
 			}
 			console.log('Successful Login')
 			req.session.user = {
