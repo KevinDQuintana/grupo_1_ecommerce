@@ -64,7 +64,7 @@ const controller = {
 		} else {
 			console.log('Login Errors:');
 			console.log(errors);
-			return res.redirect('/users/login')
+			return res.render(path.join(__dirname, '../', 'views', 'users', 'login'), { styles: ['/css/index.css', '/css/login.css'], errors: errors.mapped(), oldData: req.body })
 		}
 
 	},
