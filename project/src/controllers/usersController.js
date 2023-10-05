@@ -36,11 +36,9 @@ const controller = {
 				console.log('User Found')
 				console.log(`Required User Password: ${requiredUser.password}`);
 
-				if (bcrypt.compareSync(req.body.password, requiredUser.password)) {
-
-					req.session.userLogged = requiredUser;
-
-					console.log('User Password is Correct')
+			if (bcrypt.compareSync(req.body.password, requiredUser.password)) {
+                 console.log('User Password is Correct')
+				 req.session.userLogged = requiredUser;
 				} else {
 					console.log('User Password is Incorrect')
 					return res.redirect('/users/login')
