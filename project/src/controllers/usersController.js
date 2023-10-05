@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 
 const usersFilePath = path.join(__dirname, '../', 'data', 'users.json');
 
@@ -36,7 +36,7 @@ const controller = {
 				console.log('User Found')
 				console.log(`Required User Password: ${requiredUser.password}`);
 
-			if (bcrypt.compareSync(req.body.password, requiredUser.password)) {
+			if (bcryptjs.compareSync(req.body.password, requiredUser.password)) {
                  console.log('User Password is Correct')
 				 req.session.userLogged = requiredUser;
 				} else {
@@ -83,7 +83,7 @@ const controller = {
 			firstName: req.body.firstName,
 			lastName: req.body.lastName,
 			email: req.body.email,
-			password: bcrypt.hashSync("req.body.password", 10),
+			password: bcryptjs.hashSync(req.body.password, 10),
 			dni: req.body.dni,
 			phone: req.body.phone,
 			category: req.body.category,
