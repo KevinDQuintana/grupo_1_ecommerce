@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const User = require('../models/User');
 const { validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 const usersFilePath = path.join(__dirname, '../', 'data', 'users.json');
 
@@ -21,54 +20,34 @@ const controller = {
 		res.redirect('/');
 	},
 	profile: function (req,res) {
-		return res.render(path.join(__dirname, '..', 'views', 'users', 'profile'), { styles: ['/css/index.css'], user: req.session.userLogged});
-	},
-	processLogin: function (req, res) {
+		return res.render(path.join(__dirname, '..', 'views', 'users', 'profile'), { styles: ['/css/index.css'], user: req.session.userLogged})},
+
+    processLogin: function (req, res) {
 		console.log('POST Request');
 		console.log(req.body);
 
 		const errors = validationResult(req);
 
-
-
 		if (errors.isEmpty()) {
+			const users = getUsers();
+			const requiredUser = users.find(user => user.email === req.body.email);
 
-			let userToLogin = User.findByField('email',req.body.email);
-
-			if (userToLogin) {
+			if (requiredUser) {
 				console.log('User Found')
-				console.log(`Required User Password: ${userToLogin.password}`);
-				console.log(req.body.password);
-				console.log(bcrypt.compareSync((req.body.password), (userToLogin.password)));
-				if (bcrypt.compare(req.body.password, userToLogin.password)) {
-					console.log('User Password is Correct');
-					console.log('Successful Login')
-					delete userToLogin.password;
-					req.session.userLogged = userToLogin;
-					return res.redirect('/users/profile');
+				console.log(`Required User Password: ${requiredUser.password}`);
+
+				if (bcrypt.compareSync(req.body.password, requiredUser.password)) {
+
+					req.session.userLogged = requiredUser;
+
+					console.log('User Password is Correct')
 				} else {
 					console.log('User Password is Incorrect')
-					return res.render(path.join(__dirname, '../', 'views', 'users', 'login'),
-			 		{ 
-						styles: ['/css/index.css', '/css/login.css'],
-						errors: 
-			 				{ email: 
-								{ msg: 'Credenciales inválidas' } 
-							}, 
-								oldData: req.body 
-					});
+					return res.redirect('/users/login')
 				}
 			} else {
 				console.log('User Not Found')
-				return res.render(path.join(__dirname, '../', 'views', 'users', 'login'),
-			 		{ 
-						styles: ['/css/index.css', '/css/login.css'],
-						errors: 
-			 				{ email: 
-								{ msg: 'No se encuentra este email' } 
-							}, 
-								oldData: req.body 
-					});
+				return res.redirect('/users/login')
 			}
 			console.log('Successful Login')
 			req.session.user = {
@@ -97,13 +76,12 @@ const controller = {
 	processSignup: function (req, res) {
 		const resultValidation = validationResult(req);
 		if (resultValidation.errors.length > 0) {
-			return res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'], errors: resultValidation.mapped(), oldData: req.body });
+			res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'], errors: resultValidation.mapped(), oldData: req.body });
 		}
-		let userInDB = User.findByField('email',req.body.email);
-		if (userInDB) {
-			return res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'], errors: { email: { msg: 'Este email ya esta registrado' } }, oldData: req.body });
-		}
+		const users = getUsers();
+		const newId = users[users.length - 1].id + 1;
 		const newUser = {
+			id: newId,
 			firstName: req.body.firstName,
 			lastName: req.body.lastName,
 			email: req.body.email,
@@ -113,7 +91,8 @@ const controller = {
 			category: req.body.category,
 			image: req.file.filename
 		};
-		let userCreated = User.create(newUser);
+		users.push(newUser);
+		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, '\t'));
 		return res.redirect('/');
 	}
 }
