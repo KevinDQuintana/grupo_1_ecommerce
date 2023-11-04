@@ -20,18 +20,6 @@ CREATE TABLE `brands` (
   PRIMARY KEY (`brand_id`)
 );
 
-CREATE TABLE `colors` (
-  `color_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL UNIQUE,
-  PRIMARY KEY (`color_id`)
-);
-
-CREATE TABLE `images` (
-  `image_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `location` text NOT NULL UNIQUE,
-  PRIMARY KEY (`image_id`)
-);
-
 CREATE TABLE `users` (
   `user_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `first_name` varchar(100) NOT NULL,
@@ -58,16 +46,26 @@ CREATE TABLE `products` (
   `stock` int UNSIGNED NOT NULL,
   `category_id` int UNSIGNED NOT NULL,
   `brand_id` int UNSIGNED NOT NULL,
-  `color_id` int UNSIGNED NOT NULL,
   `specs` text NOT NULL,
-  `image_id` int UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`product_id`),
   FOREIGN KEY (`category_id`) REFERENCES `products_categories` (`category_id`),
-  FOREIGN KEY (`brand_id`) REFERENCES `brands` (`brand_id`),
-  FOREIGN KEY (`color_id`) REFERENCES `colors` (`color_id`),
-  FOREIGN KEY (`image_id`) REFERENCES  `images` (`image_id`)
+  FOREIGN KEY (`brand_id`) REFERENCES `brands` (`brand_id`)
+);
+
+CREATE TABLE `colors` (
+  `product_id` int UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL UNIQUE,
+  PRIMARY KEY (`product_id`),
+  FOREIGN KEY (`product_id`) REFERENCES  `products` (`product_id`)
+);
+
+CREATE TABLE `images` (
+  `product_id` int UNSIGNED NOT NULL,
+  `location` text NOT NULL UNIQUE,
+  PRIMARY KEY (`product_id`),
+  FOREIGN KEY (`product_id`) REFERENCES  `products` (`product_id`)
 );
 
 CREATE TABLE `shopping_cart` (
