@@ -26,6 +26,12 @@ CREATE TABLE `colors` (
   PRIMARY KEY (`color_id`)
 );
 
+CREATE TABLE `images` (
+  `image_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `location` text NOT NULL UNIQUE,
+  PRIMARY KEY (`image_id`)
+);
+
 CREATE TABLE `users` (
   `user_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `first_name` varchar(100) NOT NULL,
@@ -54,13 +60,14 @@ CREATE TABLE `products` (
   `brand_id` int UNSIGNED NOT NULL,
   `color_id` int UNSIGNED NOT NULL,
   `specs` text NOT NULL,
-  `image` text NOT NULL,
+  `image_id` int UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`product_id`),
   FOREIGN KEY (`category_id`) REFERENCES `products_categories` (`category_id`),
   FOREIGN KEY (`brand_id`) REFERENCES `brands` (`brand_id`),
-  FOREIGN KEY (`color_id`) REFERENCES `colors` (`color_id`)
+  FOREIGN KEY (`color_id`) REFERENCES `colors` (`color_id`),
+  FOREIGN KEY (`image_id`) REFERENCES  `images` (`image_id`)
 );
 
 CREATE TABLE `shopping_cart` (
