@@ -3,11 +3,15 @@ const path = require('path');
 const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
 
+/* deprecated function, marked to be removed */
 const usersFilePath = path.join(__dirname, '../', 'data', 'users.json');
+/* END */
 
+/* deprecated function, marked to be removed */
 function getUsers() {
 	return JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 }
+/* END */
 
 const controller = {
 	login: function (req, res) {
