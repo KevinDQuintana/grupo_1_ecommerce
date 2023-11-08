@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
+let db = require('../database/models');
 
 /* deprecated function, marked to be removed */
 const usersFilePath = path.join(__dirname, '../', 'data', 'users.json');
@@ -23,10 +24,11 @@ const controller = {
 		res.clearCookie('session');
 		res.redirect('/');
 	},
-	profile: function (req,res) {
-		return res.render(path.join(__dirname, '..', 'views', 'users', 'profile'), { styles: ['/css/index.css'], user: req.session.userLogged})},
+	profile: function (req, res) {
+		return res.render(path.join(__dirname, '..', 'views', 'users', 'profile'), { styles: ['/css/index.css'], user: req.session.userLogged })
+	},
 
-    processLogin: function (req, res) {
+	processLogin: function (req, res) {
 		console.log('POST Request');
 		console.log(req.body);
 
@@ -40,16 +42,16 @@ const controller = {
 				console.log('User Found')
 				console.log(`Required User Password: ${requiredUser.password}`);
 
-			if (bcryptjs.compareSync(req.body.password, requiredUser.password)) {
-                 console.log('User Password is Correct')
-				 req.session.userLogged = requiredUser;
+				if (bcryptjs.compareSync(req.body.password, requiredUser.password)) {
+					console.log('User Password is Correct')
+					req.session.userLogged = requiredUser;
 				} else {
 					console.log('User Password is Incorrect')
-					return res.render(path.join(__dirname,'..','views','users','login'),{ styles: ['/css/index.css', '/css/login.css'] , validation: { email: { msg: 'Credenciales inválidas' } }, oldData: req.body });
+					return res.render(path.join(__dirname, '..', 'views', 'users', 'login'), { styles: ['/css/index.css', '/css/login.css'], validation: { email: { msg: 'Credenciales inválidas' } }, oldData: req.body });
 				}
 			} else {
 				console.log('User Not Found')
-				return res.render(path.join(__dirname,'..','views','users','login'),{ styles: ['/css/index.css', '/css/login.css'], validation: { email: { msg: 'No se encuentra este email' } }, oldData: req.body });
+				return res.render(path.join(__dirname, '..', 'views', 'users', 'login'), { styles: ['/css/index.css', '/css/login.css'], validation: { email: { msg: 'No se encuentra este email' } }, oldData: req.body });
 			}
 			console.log('Successful Login')
 			req.session.user = {
@@ -71,6 +73,42 @@ const controller = {
 			return res.render(path.join(__dirname, '../', 'views', 'users', 'login'), { styles: ['/css/index.css', '/css/login.css'], errors: errors.mapped(), oldData: req.body })
 		}
 
+	},
+	processLogin: function (req, res) {
+		console.log('POST Request');
+		console.log(req.body);
+
+		db.Users.findOne({
+			where: {
+				email: req.body.email
+			}
+		}).then(user => {
+			console.log('User Found');
+			// console.log(user)
+			console.log(`Required User Password: ${user.password}`);
+
+			if (bcryptjs.compareSync(req.body.password, user.password)) {
+				console.log('User Password is Correct')
+				req.session.userLogged = user;
+				req.session.user = {
+					id: user.user_id,
+					email: user.email,
+					fName: user.first_name,
+					lName: user.last_name,
+				};
+				console.log('Successful Login')
+
+				if (req.body.rememberMe) {
+					console.log('The user wants to be remembered.');
+					res.cookie('session', req.session.user, { maxAge: 900000 });
+					console.log('Cookie Set');
+				}
+				return res.redirect('/')
+			} else {
+				console.log('User Password is Incorrect')
+				return res.render(path.join(__dirname, '..', 'views', 'users', 'login'), { styles: ['/css/index.css', '/css/login.css'], validation: { email: { msg: 'Credenciales inválidas' } }, oldData: req.body });
+			}
+		})
 	},
 	signup: function (req, res) {
 		return res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'] });

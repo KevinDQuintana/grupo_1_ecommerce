@@ -6,7 +6,7 @@ module.exports = (sequelize, dataTypes) => {
         product_id : {
             type : dataTypes.INTEGER(10).UNSIGNED,
             autoIncrement : true,
-            primeryKey : true,
+            primaryKey : true,
             allowNull : false
         },
         location : {

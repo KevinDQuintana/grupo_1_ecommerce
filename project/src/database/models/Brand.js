@@ -6,11 +6,11 @@ module.exports = (sequelize, dataTypes) => {
         brand_id : {
             type : dataTypes.INTEGER(10).UNSIGNED,
             autoIncrement : true,
-            primeryKey : true,
+            primaryKey : true,
             allowNull : false
         },
         name : {
-            type : dataTypes.VARCHAR(100),
+            type : dataTypes.STRING(100),
             allowNull : false
         }
     }

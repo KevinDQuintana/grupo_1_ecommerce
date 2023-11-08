@@ -6,27 +6,27 @@ module.exports = (sequelize , dataTypes) => {
         user_id : {
             type : dataTypes.INTEGER(10).UNSIGNED,
             autoIncrement : true,
-            primeryKey : true,
+            primaryKey : true,
             allowNull : false
         },
         first_name : {
-            type : dataTypes.VARCHAR(100),
+            type : dataTypes.STRING(100),
             allowNull : false
         },
         last_name : {
-            type : dataTypes.VARCHAR(100),
+            type : dataTypes.STRING(100),
             allowNull : false
         },
         email : {
-            type : dataTypes.VARCHAR(255),
+            type : dataTypes.STRING(255),
             allowNull : false
         },
         password : {
-            type : dataTypes.VARCHAR(255),
+            type : dataTypes.STRING(255),
             allowNull : false
         },
         dni : {
-            type : dataTypes.VARCHAR(8),
+            type : dataTypes.STRING(8),
             allowNull : false
         },
         phone : {
@@ -45,9 +45,11 @@ module.exports = (sequelize , dataTypes) => {
 
     let config = {
         tableName : 'users',
-        timestamps : true
+        timestamps : true,
+		createdAt: 'created_at',
+  		updatedAt: 'updated_at',
     }
-    
+
     const user = sequelize.define(alias, cols, config);
 
     user.associate = function(models){
@@ -57,7 +59,7 @@ module.exports = (sequelize , dataTypes) => {
         })
     }
     user.associate = function(models){
-        user.belongTo(models.Shoppings_carts, {
+        user.belongsTo(models.Shoppings_carts, {
             as : 'shopping_cart',
             foreignKey : 'user_id'
         })

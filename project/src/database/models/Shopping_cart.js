@@ -8,7 +8,7 @@ module.exports = (sequelize, dataTypes) => {
         shopping_cart_id : {
             type : dataTypes.INTEGER(10).UNSIGNED,
             autoIncrement : true,
-            primeryKey : true,
+            primaryKey : true,
             allowNull : false
         },
         user_id : {
@@ -33,7 +33,7 @@ module.exports = (sequelize, dataTypes) => {
     const shoppingCart = sequelize.define(alias, cols, config);
 
     shoppingCart.associate = function(models){
-        shoppingCart.hasMany(models.User, {
+        shoppingCart.hasMany(models.Users, {
             as : 'users',
             foreignKey : 'user_id'
         })

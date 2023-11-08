@@ -6,11 +6,11 @@ module.exports = (sequelize, dataTypes) => {
         product_id : {
             type : dataTypes.INTEGER(10).UNSIGNED,
             autoIncrement : true,
-            primeryKey : true,
+            primaryKey : true,
             allowNull : false
         },
         name : {
-            type : dataTypes.VARCHAR(255),
+            type : dataTypes.STRING(255),
             allowNull : false
         },
         price : {
@@ -22,7 +22,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull : false
         },
         description_title : {
-            type : dataTypes.VARCHAR(255),
+            type : dataTypes.STRING(255),
             allowNull : false
         },
         description : {
