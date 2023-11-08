@@ -27,9 +27,12 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL UNIQUE,
   `password` varchar(255) NOT NULL,
   `dni` varchar(8) NOT NULL UNIQUE,
-  `phone` int UNSIGNED NOT NULL,
-  `category_id` int UNSIGNED NOT NULL UNIQUE,
-  `image` text NOT NULL,
+--   `phone` int UNSIGNED NOT NULL,
+  `phone` varchar(10) NOT NULL,
+--   `category_id` int UNSIGNED NOT NULL UNIQUE,
+  `category_id` int UNSIGNED NOT NULL,
+--   `image` text NOT NULL,
+  `image` text NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`),
@@ -86,3 +89,28 @@ CREATE TABLE `shopping_cart_products` (
   FOREIGN KEY (`shopping_cart_id`) REFERENCES `shopping_cart` (`shopping_cart_id`),
   FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`)
 );
+
+/* delete if needed */
+
+/* user_categories */
+INSERT INTO users_categories(name) VALUE("admin");
+INSERT INTO users_categories(name) VALUE("seller");
+INSERT INTO users_categories(name) VALUE("buyer");
+/* END */
+
+/* users */
+insert into users (first_name, last_name, email, password, dni, phone, category_id, image)
+values ("Maciel", "Martinez", "macielmartinez@gmail.com", "$2b$10$8jpIQKzrttIWj/xTnkqwg.4nImKXLzzGBLUUc9n5LmgkGih6lh1AC", "12345678", "3881234567", 3, null);
+
+insert into users (first_name, last_name, email, password, dni, phone, category_id, image)
+values ("Valentin", "Lopez", "valentinlopez@gmail.com", "$2b$10$2dYUyCOXC5gXzJmmXb6YdOHD04.XscSp2gt3xcoy0mIIGCGkAwRrq", "13245678", "3881234567", 2, null);
+
+insert into users (first_name, last_name, email, password, dni, phone, category_id, image)
+values ("Kevin", "Quintana", "kevinquintana@gmail.com", "$2b$10$7loY6u1m8/ZrsXnuStDJ6.kaziLns56zHI1h1iYVb.K7TrjgG9x7m", "12354678", "3881234567", 3, null);
+
+insert into users (first_name, last_name, email, password, dni, phone, category_id, image)
+values ("Gabriel", "Veramendi", "gabiveramendi@gmail.com", "$2b$10$ENqNei7zZ7W4PuKZETmzWutUQ4I3tHxe8mt6pN74w61Fh/ie1njPa", "12346578", "3881234567", 2, null);
+
+insert into users (first_name, last_name, email, password, dni, phone, category_id, image)
+values ("Santino", "Viglino", "santinoviglino36@gmail.com", "$2b$10$0Uu5VWUYwVXnxVPyYYkOBeUHYnxrMJJ0rwitiyvCfB2vKZ8OpUkCC", "12345768", "3881234567", 2, null);
+/* END */
