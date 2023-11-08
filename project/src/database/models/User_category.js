@@ -6,11 +6,11 @@ module.exports = (sequelize, dataTypes) => {
         category_id : {
             type : dataTypes.INTEGER(10).UNSIGNED,
             autoIncrement : true,
-            primeryKey : true,
+            primaryKey : true,
             allowNull : false
         },
         name : {
-            type : dataTypes.VARCHAR(100),
+            type : dataTypes.STRING(100),
             allowNull : false
         }
     }
@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
     let userCategory = sequelize.define(alias, cols, config);
 
     userCategory.associate = function(models){
-        userCategory.belongsTo(models.User, {
+        userCategory.belongsTo(models.Users, {
             as : 'users',
             foreignKey : 'category_id'
         })

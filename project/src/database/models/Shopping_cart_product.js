@@ -6,7 +6,7 @@ module.exports = (sequelize, dataTypes) => {
         shopping_cart_id : {
             type : dataTypes.INTEGER(10).UNSIGNED,
             autoIncrement : true,
-            primeryKey : true,
+            primaryKey : true,
             allowNull : false
         },
         product_id : {
@@ -15,6 +15,8 @@ module.exports = (sequelize, dataTypes) => {
     
         }
     }
+	
+	let config = {}
     let shoppingCartProduct = sequelize.define(alias, cols, config);
 
     return shoppingCartProduct
