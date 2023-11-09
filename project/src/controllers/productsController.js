@@ -3,6 +3,8 @@ const path = require('path');
 const { title } = require('process');
 const productsFilePath = path.join(__dirname, '../', 'data', 'productsDataBase.json');
 
+const db = require('../database/models');
+
 /* deprecated function, marked to be removed */
 function writeProducts(product) {
 	fs.writeFileSync(productsFilePath, JSON.stringify(product, null, '\t'))
@@ -21,8 +23,10 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 	index: function (req, res) {
-		const products = getProducts();
-		return res.render(path.join(__dirname, '../', 'views', 'products', 'products'), { styles: ['/css/index.css', '/css/products.css'], products, toThousand });
+		db.Products.findAll({include: {association: 'images'}})
+		.then(products => {
+			return res.render(path.join(__dirname, '../', 'views', 'products', 'products'), { styles: ['/css/index.css', '/css/products.css'], products, toThousand });
+		});
 	},
 	create: function (req, res) {
 		return res.render(path.join(__dirname, '../', 'views', 'products', 'createProduct'), { styles: ['/css/index.css', '/css/productCreate.css'] });

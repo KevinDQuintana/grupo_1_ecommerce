@@ -5,7 +5,6 @@ module.exports = (sequelize, dataTypes) => {
     let cols = {
         product_id : {
             type : dataTypes.INTEGER(10).UNSIGNED,
-            autoIncrement : true,
             primaryKey : true,
             allowNull : false
         },
@@ -17,7 +16,7 @@ module.exports = (sequelize, dataTypes) => {
 
     let config = {
         tableName : 'images',
-        timestamps : true
+        timestamps : false
     }
 
     let image = sequelize.define(alias, cols, config);

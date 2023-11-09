@@ -40,7 +40,7 @@ CREATE TABLE `users` (
 );
 
 CREATE TABLE `products` (
-  `product_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `product_id` integer UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `price` int UNSIGNED NOT NULL,
   `discount` int UNSIGNED NOT NULL,
@@ -142,4 +142,17 @@ VALUES('Logitech G Series G502 Hero', 50000, 0, 'Logitech G Series G502 Hero', '
 ('Monitor Samsung LED 22"', 90000, 10, 'Monitor Samsung led 22', 'Diseño minimalista, máxima concentración, la pantalla sin bordes en tres de sus lados aporta una estética clara y moderna a cualquier entorno de trabajo, en una en torno de varios monitores, las pantallas se alinean a la perfección para una vista prácticamente sin espacios y sin distracciones.', 10, 8, 29, 'Pantalla led de 24".\r\n\r\nTiene una resolución de 1920px-1080px.\r\n\r\nRelación de aspecto de 16:9.\r\n\r\nPanel IPS.\r\n\r\nSu brillo es de 250cd/m².\r\n\r\nTipos de conexión: D-Sub, HDMI 1.4.\r\n\r\nEs reclinable.'),
 
 ('Fuente de Alimentación para PC 650w Gigabyte', 75000, 5, 'Fuente de Alimentación para PC 650w Gigabyte', 'Con la fuente de alimentación Giga-Byte Technology P650B podrás asegurar la corriente continua y estable de tu computadora de escritorio y optimizar el funcionamiento de sus componentes.', 4, 5, 16, 'Potencia de salida de 650W.\r\n\r\nFuente de tipo ATX.\r\n\r\nCon certificación de eficiencia 80 Plus Bronze.\r\n\r\nDiámetro del ventilador de 120mm.\r\n\r\nTransforma la energía.\r\n\r\nDe uso imprescindible para el buen funcionamiento de la PC.\r\n');
+/* END */
+
+/* images */
+INSERT INTO images (product_id,location) VALUES
+(1,'Logitech-G-Series-G502-Hero.jpg'),
+(2,'Amd-Ryzen-5-4600g.jpg'),
+(3,'Fury-Beast-DDR4-Kingston.jpg'),
+(4,'Western-Digital-WD-Green-240gb.jpg'),
+(5,'image-1693868532620-311805739.webp'),
+(6,'image-1693869009766-715204939.webp'),
+(7,'image-1693869429132-950724607.jpg'),
+(8,'image-1693869756662-802649085.webp'),
+(9,'image-1693870206196-311038189.jpg');
 /* END */
