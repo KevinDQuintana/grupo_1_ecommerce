@@ -11,7 +11,11 @@
             <% products.forEach( product => { %>
                 <a href="/products/detail/<%= product.product_id %>" class="products-list__product">
                     <img class="products-list__product__image" src="/img/products/<%= product.images.location %>" alt="Producto">
-                    <div class="products-list__product__price-discount"><span>$<%= toThousand(product.price) %></span><span><%= product.discount %>% OFF</span></div>
+                    <div class="products-list__product__price-discount"><span>$<%= toThousand(product.price) %></span>
+                        <% if(product.discount !== 0){ %>
+                            <span><%= product.discount %>% %>OFF</span>
+                        <% } %>
+                    </div>
                     <div class="products-list__product__name"><%= product.name %></div>
                 </a>
             <% }) %>
