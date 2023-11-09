@@ -33,37 +33,50 @@ const controller = {
 		console.log('POST Request');
 		console.log(req.body);
 
-		db.Users.findOne({
-			where: {
-				email: req.body.email
-			}
-		}).then(user => {
-			console.log('User Found');
-			// console.log(user)
-			console.log(`Required User Password: ${user.password}`);
+		const errors = validationResult(req);
 
-			if (bcryptjs.compareSync(req.body.password, user.password)) {
-				console.log('User Password is Correct')
-				req.session.userLogged = user;
-				req.session.user = {
-					id: user.user_id,
-					email: user.email,
-					fName: user.first_name,
-					lName: user.last_name,
-				};
-				console.log('Successful Login')
-
-				if (req.body.rememberMe) {
-					console.log('The user wants to be remembered.');
-					res.cookie('session', req.session.user, { maxAge: 900000 });
-					console.log('Cookie Set');
+		if (errors.isEmpty()) {
+			db.Users.findOne({
+				where: {
+					email: req.body.email
 				}
-				return res.redirect('/')
-			} else {
-				console.log('User Password is Incorrect')
-				return res.render(path.join(__dirname, '..', 'views', 'users', 'login'), { styles: ['/css/index.css', '/css/login.css'], validation: { email: { msg: 'Credenciales inválidas' } }, oldData: req.body });
-			}
-		})
+			}).then(user => {
+				if (user) {
+					console.log('User Found');
+					// console.log(user)
+					console.log(`Required User Password: ${user.password}`);
+		
+					if (bcryptjs.compareSync(req.body.password, user.password)) {
+						console.log('User Password is Correct')
+						req.session.userLogged = user;
+						req.session.user = {
+							id: user.user_id,
+							email: user.email,
+							fName: user.first_name,
+							lName: user.last_name,
+						};
+						console.log('Successful Login')
+		
+						if (req.body.rememberMe) {
+							console.log('The user wants to be remembered.');
+							res.cookie('session', req.session.user, { maxAge: 900000 });
+							console.log('Cookie Set');
+						}
+						return res.redirect('/')
+					} else {
+						console.log('User Password is Incorrect')
+						return res.render(path.join(__dirname, '..', 'views', 'users', 'login'), { styles: ['/css/index.css', '/css/login.css'], validation: { email: { msg: 'Credenciales invÃ¡lidas' } }, oldData: req.body });
+					}
+				}else{
+					console.log('User Not Found')
+					return res.render(path.join(__dirname,'..','views','users','login'),{ styles: ['/css/index.css', '/css/login.css'], validation: { email: { msg: 'No se encuentra este email' } }, oldData: req.body });
+				}
+			})
+		}else{
+			console.log('Login Errors:');
+			console.log(errors);
+			return res.render(path.join(__dirname, '../', 'views', 'users', 'login'), { styles: ['/css/index.css', '/css/login.css'], errors: errors.mapped(), oldData: req.body })
+		}
 	},
 	signup: function (req, res) {
 		return res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'] });
