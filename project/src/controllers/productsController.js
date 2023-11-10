@@ -60,25 +60,28 @@ const controller = {
 		return res.render(path.join(__dirname, '../', 'views', 'products', 'editProduct'), { styles: ['/css/index.css', '/css/productCreate.css', '/css/editProduct.css'], id, product });
 	},
 	store: function (req, res) {
-		const products = getProducts();
-		const newId = products[products.length - 1].id + 1;
-		const newProduct = {
-			id: newId,
-			image: req.file.filename,
-			name: req.body.name,
-			price: Number(req.body.price),
-			discount: Number(req.body.discount),
-			descriptionTitle: req.body.descriptionTitle,
-			description: req.body.description,
-			stock: req.body.stock,
-			specs: req.body.specs,
-			category: req.body.category,
-			brand: req.body.brand,
-			color: req.body.color
-		};
+		console.log('POST Request')
+		// console.log(req)
 
-		products.push(newProduct);
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
+		// const products = getProducts();
+		// const newId = products[products.length - 1].id + 1;
+		// const newProduct = {
+		// 	id: newId,
+		// 	image: req.file.filename,
+		// 	name: req.body.name,
+		// 	price: Number(req.body.price),
+		// 	discount: Number(req.body.discount),
+		// 	descriptionTitle: req.body.descriptionTitle,
+		// 	description: req.body.description,
+		// 	stock: req.body.stock,
+		// 	specs: req.body.specs,
+		// 	category: req.body.category,
+		// 	brand: req.body.brand,
+		// 	color: req.body.color
+		// };
+
+		// products.push(newProduct);
+		// fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
 		return res.redirect('/products');
 	},
 	update: function (req, res) {
