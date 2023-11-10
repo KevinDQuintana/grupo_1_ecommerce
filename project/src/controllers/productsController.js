@@ -29,7 +29,9 @@ const controller = {
 		});
 	},
 	create: function (req, res) {
-		return res.render(path.join(__dirname, '../', 'views', 'products', 'createProduct'), { styles: ['/css/index.css', '/css/productCreate.css'] });
+		db.Products_categories.findAll().then(productsCategories => {
+			return res.render(path.join(__dirname, '../', 'views', 'products', 'createProduct'), { styles: ['/css/index.css', '/css/productCreate.css'] , productsCategories});
+		})
 	},
 	/* deprecated function, marked to be removed */
 	// detail: function (req, res) {
