@@ -64,6 +64,15 @@ CREATE TABLE `colors` (
   FOREIGN KEY (`product_id`) REFERENCES  `products` (`product_id`)
 );
 
+/* test */
+-- CREATE TABLE `colors` (
+--   `color_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+--   `name` varchar(100) NOT NULL UNIQUE,
+--   `hex_values` varchar(100) NOT NULL UNIQUE,
+--   PRIMARY KEY (`color_id`)
+-- );
+/* END */
+
 CREATE TABLE `images` (
   `product_id` int UNSIGNED NOT NULL,
   `location` text NOT NULL UNIQUE,
@@ -76,7 +85,7 @@ CREATE TABLE `shopping_cart` (
   `user_id` int UNSIGNED NOT NULL,
   `number_of_items` int UNSIGNED NOT NULL,
   `total_price` int UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL, 
+  `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`shopping_cart_id`),
   FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
@@ -117,10 +126,8 @@ INSERT INTO users (first_name, last_name, email, password, dni, phone, category_
 VALUES	('Maciel', 'Martinez', 'macielmartinez@gmail.com', '$2b$10$8jpIQKzrttIWj/xTnkqwg.4nImKXLzzGBLUUc9n5LmgkGih6lh1AC', '12345678', '3881234567', 3, null),
 		('Valentin', 'Lopez', 'valentinlopez@gmail.com', '$2b$10$2dYUyCOXC5gXzJmmXb6YdOHD04.XscSp2gt3xcoy0mIIGCGkAwRrq', '13245678', '3881234567', 2, null),
 		('Kevin', 'Quintana', 'kevinquintana@gmail.com', '$2b$10$7loY6u1m8/ZrsXnuStDJ6.kaziLns56zHI1h1iYVb.K7TrjgG9x7m', '12354678', '3881234567', 3, null),
-		('Gabriel', 'Veramendi', 'gabiveramendi@gmail.com', '$2b$10$ENqNei7zZ7W4PuKZETmzWutUQ4I3tHxe8mt6pN74w61Fh/ie1njPa', '12346578', '3881234567', 2, null);
-
-INSERT INTO users (first_name, last_name, email, password, dni, phone, category_id, image)
-VALUES ('Santino', 'Viglino', 'santinoviglino36@gmail.com', '$2b$10$0Uu5VWUYwVXnxVPyYYkOBeUHYnxrMJJ0rwitiyvCfB2vKZ8OpUkCC', '12345768', '3881234567', 2, null);
+		('Gabriel', 'Veramendi', 'gabiveramendi@gmail.com', '$2b$10$ENqNei7zZ7W4PuKZETmzWutUQ4I3tHxe8mt6pN74w61Fh/ie1njPa', '12346578', '3881234567', 2, null),
+		('Santino', 'Viglino', 'santinoviglino36@gmail.com', '$2b$10$0Uu5VWUYwVXnxVPyYYkOBeUHYnxrMJJ0rwitiyvCfB2vKZ8OpUkCC', '12345768', '3881234567', 2, null);
 /* END */
 
 /* products */
@@ -155,4 +162,35 @@ INSERT INTO images (product_id,location) VALUES
 (7,'image-1693869429132-950724607.jpg'),
 (8,'image-1693869756662-802649085.webp'),
 (9,'image-1693870206196-311038189.jpg');
+/* END */
+
+/* colors_test */
+-- INSERT INTO colors(name, hex_values)
+-- VALUES('Amarillo', '#FFFF00'),
+-- ('Amarillo limón', '#FFF700'),
+-- ('Azul', '#0000FF'),
+-- ('Azul eléctrico', '#00FFFF'),
+-- ('Blanco', '#FFFFFF'),
+-- ('Gris', '#808080'),
+-- ('Gris grafito', '#2F4F4F'),
+-- ('Morado', '#800080'),
+-- ('Morado profundo', '#4B0082'),
+-- ('Naranja', '#FFA500'),
+-- ('Naranja brillante', '#FFD700'),
+-- ('Negro', '#000000'),
+-- ('Plateado', '#E3E4E5'),
+-- ('Rojo', '#FF0000'),
+-- ('Rojo fuego', '#FF4500'),
+-- ('Verde', '#008000'),
+-- ('Verde neón', '#39FF14');
+/* END */
+
+/* product_color_test */
+-- CREATE TABLE product_colors (
+-- 	product_id INT UNSIGNED NOT NULL,
+-- 	color_id INT UNSIGNED NOT NULL,
+-- 	PRIMARY KEY (product_id, color_id),
+-- 	FOREIGN KEY (product_id) REFERENCES products(product_id),
+-- 	FOREIGN KEY (color_id) REFERENCES colors(color_id)
+-- );
 /* END */

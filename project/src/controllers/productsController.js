@@ -23,7 +23,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 	index: function (req, res) {
-		db.Products.findAll({include: {association: 'images'}})
+		db.Products.findAll({include: { association: 'images' }})
 		.then(products => {
 			return res.render(path.join(__dirname, '../', 'views', 'products', 'products'), { styles: ['/css/index.css', '/css/products.css'], products, toThousand });
 		});
@@ -31,11 +31,26 @@ const controller = {
 	create: function (req, res) {
 		return res.render(path.join(__dirname, '../', 'views', 'products', 'createProduct'), { styles: ['/css/index.css', '/css/productCreate.css'] });
 	},
-	detail: (req, res) => {
-		const products = getProducts();
-		const id = req.params.id;
-		const productFound = products.find(product => product.id == id);
-		return res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'], product: productFound, toThousand });
+	/* deprecated function, marked to be removed */
+	// detail: function (req, res) {
+	// 	const products = getProducts();
+	// 	const id = req.params.id;
+	// 	const productFound = products.find(product => product.id == id);
+	// 	return res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'], product: productFound, toThousand });
+	// },
+	/* END */
+	detail: function (req, res) {
+		// db.Products.findByPk(req.params.id).then(product => {
+		// 	return res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'], product, toThousand });
+		// })
+		db.Products.findOne({
+			where: {
+				product_id: req.params.id
+			},
+			include: { association: 'images' }
+		}).then(product => {
+			return res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'], product, toThousand });
+		})
 	},
 	edit: function (req, res) {
 		const id = req.params.id;
