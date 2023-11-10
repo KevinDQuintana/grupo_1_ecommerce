@@ -23,8 +23,19 @@
                         <option value="<%= oneCategory.name %>"> <%= oneCategory.name %> </option>
                     <% } %>	
                 </select>
-                <input type="text" placeholder="Marca" name="brand" required>
+                <select class="controlar" name="brand" id="brand" >
+                    <option value="">Elegí una marca:</option>
+                    <% for(const oneBrand of productsBrands) { %>
+                        <option value="<%= oneBrand.name %>"> <%= oneBrand.name %> </option>
+                    <% } %>	
+                </select>
                 <input type="text" placeholder="Color (opcional)" name="color">
+                <!-- <select class="controlar" name="color" id="color" >
+                    <option value="">Elegí una marca:</option>
+                    <% for(const oneColor of productsColors) { %>
+                        <option value="<%= oneColor.name %>"> <%= oneColor.name %> </option>
+                    <% } %>	
+                </select> -->
                 <button type="submit" class="product-form__button">Agregar producto</button>
             </form>
         </div>
