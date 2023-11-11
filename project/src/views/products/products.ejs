@@ -9,9 +9,18 @@
         <h1>Lista de productos</h1>
         <section class="products-list">
             <% products.forEach( product => { %>
-                <a href="/products/detail/<%= product.id %>" class="products-list__product">
-                    <img class="products-list__product__image" src="/img/products/<%= product.image %>" alt="Producto">
-                    <div class="products-list__product__price-discount"><span>$<%= toThousand(product.price) %></span><span><%= product.discount %>% OFF</span></div>
+                <a href="/products/detail/<%= product.product_id %>" class="products-list__product">
+                    <% if (product.images.location) { %>
+                        <img class="products-list__product__image" src="/images/<%= product.images.location %>" onerror="this.src='/images/default.jpg'" alt="Producto">
+                    <% } else { %>
+                        <img class="products-list__product__image" src="/images/default.jpg %>" alt="Producto">
+                    <% } %>
+                    <div class="products-list__product__price-discount">
+                        <span>$<%= toThousand(Math.trunc(product.price - (product.price * (product.discount / 100)))) %></span>
+                        <% if(product.discount !== 0){ %>
+                            <span><%= product.discount %>% %>OFF</span>
+                        <% } %>
+                    </div>
                     <div class="products-list__product__name"><%= product.name %></div>
                 </a>
             <% }) %>

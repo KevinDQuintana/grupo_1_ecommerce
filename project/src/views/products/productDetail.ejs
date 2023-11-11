@@ -8,13 +8,13 @@
 		<section class="product">
 			<section class="product-photos">
 				<div class="product-photos__more-photos">
-					<img src="/img/products/<%= product.image %>" alt="" />
-					<img src="/img/products/<%= product.image %>" alt="" />
-					<img src="/img/products/<%= product.image %>" alt="" />
-					<img src="/img/products/<%= product.image %>" alt="" />
+					<img src="/images/<%= product.images.location %>" alt="" />
+					<img src="/images/<%= product.images.location %>" alt="" />
+					<img src="/images/<%= product.images.location %>" alt="" />
+					<img src="/images/<%= product.images.location %>" alt="" />
 				</div>
 				<div class="product-photos__main-photo">
-					<img src="/img/products/<%= product.image %>" alt="" />
+					<img src="/images/<%= product.images.location %>" alt="" />
 				</div>
 			</section>
 			<section class="product__information">
@@ -53,8 +53,8 @@
 				</div>
 			</section>
 			<section class="product__edit-or-delete">
-				<a href="/products/edit/<%= product.id %>" class="product__edit-or-delete__button-edit">Editar</a>
-				<form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
+				<a href="/products/edit/<%= product.product_id %>" class="product__edit-or-delete__button-edit">Editar</a>
+				<form action="/products/delete/<%= product.product_id %>?_method=DELETE" method="POST">
 					<button type="submit" class="product__edit-or-delete__button-delete">Eliminar</button>
 				</form>
 			</section>
@@ -82,11 +82,6 @@
 		</section>
 	</main>
 	<%- include('../partials/footer') %>
-</body>
-
-</html>
-</main>
-<%- include('../partials/footer') %>
 </body>
 
 </html>

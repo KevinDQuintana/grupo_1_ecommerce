@@ -44,6 +44,14 @@
     transition-timing-function: ease-in-out
 }
 
+.controlar {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+    border-radius: 5px;
+}
+
 
 @media(min-width: 768px) {
     .product-form form {
@@ -53,6 +61,9 @@
         width: 80%;
     }
     .product-form form textarea {
+        width: 80%;
+    }
+    .controlar {
         width: 80%;
     }
 }
