@@ -150,6 +150,27 @@ const controller = {
 		}));
 
 		res.redirect('/products')
+	},
+	delete: function (req, res) {
+		const promDeleteImage = db.Images.destroy({
+			where: {
+				product_id: req.params.id
+			}
+		})
+		const promDeleteProduct = db.Products.destroy({
+			where: {
+				product_id: req.params.id
+			}
+		})
+
+		Promise.all([promDeleteImage, promDeleteProduct])
+			.then(() => {
+				console.log('[INFO] product deleted succesfully');
+				res.redirect('/products')
+			})
+			.catch(err => {
+				console.log(`[ERROR] can\'t delete product: ${err}`);
+			})
 	}
 };
 
