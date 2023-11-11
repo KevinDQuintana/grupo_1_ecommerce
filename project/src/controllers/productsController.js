@@ -5,18 +5,6 @@ const productsFilePath = path.join(__dirname, '../', 'data', 'productsDataBase.j
 
 const db = require('../database/models');
 
-/* deprecated function, marked to be removed */
-// function writeProducts(product) {
-// 	fs.writeFileSync(productsFilePath, JSON.stringify(product, null, '\t'))
-// };
-/* END */
-
-/* deprecated function, marked to be removed */
-// function getProducts() {
-// 	return JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-// }
-/* END */
-
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
