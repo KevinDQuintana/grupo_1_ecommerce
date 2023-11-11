@@ -31,7 +31,16 @@ const controller = {
 		});
 	},
 	create: function (req, res) {
-		return res.render(path.join(__dirname, '../', 'views', 'products', 'createProduct'), { styles: ['/css/index.css', '/css/productCreate.css'] });
+		db.Products_categories.findAll()
+			.then(productsCategories => {
+				db.Brands.findAll()
+					.then(productsBrands => {
+					db.Colors.findAll()
+						.then(productsColors => {
+							return res.render(path.join(__dirname, '../', 'views', 'products', 'createProduct'), { styles: ['/css/index.css', '/css/productCreate.css'] , productsCategories, productsBrands, productsColors});
+					})
+				})
+			})
 	},
 	/* deprecated function, marked to be removed */
 	// detail: function (req, res) {
