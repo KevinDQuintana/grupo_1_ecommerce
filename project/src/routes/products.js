@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
 const upload = require('../middlewares/multer');
-const processProductSingleImage = require('../middlewares/processProductSingleImage');
 
 const router = express.Router();
 const productsController = require(path.join(__dirname, '../', 'controllers', 'productsController'));
+const processProductSingleImage = require('../middlewares/processProductSingleImage');
 
 router.get('/', productsController.index); // Listado de productos
 router.get('/create', productsController.create); // Formulario de creación de productos

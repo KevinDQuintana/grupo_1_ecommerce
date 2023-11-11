@@ -11,4 +11,5 @@ module.exports = (req, res, next) => {
 			.then(() => console.log('[INFO] temp image removed succesfully'))
 			.catch(err => console.log(`[ERROR] can\'t remove image from temp folder: ${err}`))
 	});
+	next();
 }

@@ -25,6 +25,8 @@ const controller = {
 	index: function (req, res) {
 		db.Products.findAll({include: { association: 'images' }})
 		.then(products => {
+			// console.log('List All Products Query')
+			// console.log(products)
 			return res.render(path.join(__dirname, '../', 'views', 'products', 'products'), { styles: ['/css/index.css', '/css/products.css'], products, toThousand });
 		});
 	},
@@ -61,28 +63,32 @@ const controller = {
 	},
 	store: function (req, res) {
 		console.log('POST Request')
-		// console.log(req)
-
-		// const products = getProducts();
-		// const newId = products[products.length - 1].id + 1;
-		// const newProduct = {
-		// 	id: newId,
-		// 	image: req.file.filename,
-		// 	name: req.body.name,
-		// 	price: Number(req.body.price),
-		// 	discount: Number(req.body.discount),
-		// 	descriptionTitle: req.body.descriptionTitle,
-		// 	description: req.body.description,
-		// 	stock: req.body.stock,
-		// 	specs: req.body.specs,
-		// 	category: req.body.category,
-		// 	brand: req.body.brand,
-		// 	color: req.body.color
-		// };
-
-		// products.push(newProduct);
-		// fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
-		return res.redirect('/products');
+		console.log(req.body);
+		db.Products.create({
+			name: req.body.name,
+			price: Number(req.body.price),
+			discount: Number(req.body.discount),
+			description_title: req.body.descriptionTitle,
+			description: req.body.description,
+			stock: Number(req.body.stock),
+			category_id: 1,
+			brand_id: 1,
+			specs: req.body.specs
+		})
+		.then((product) => {
+			console.log('[INFO] new product created succesfully');
+			db.Images.create({
+				product_id: product.product_id,
+				location: req.file.filename
+			}).then(() => {
+				console.log('[INFO] new image created succesfully');
+				res.redirect('/products');
+			})
+		})
+		.catch(err => {
+			console.log(`[ERROR] can\'t create product: ${err}`);
+			return res.redirect('/products/create');
+		})
 	},
 	update: function (req, res) {
 		console.log(`Update Request with ID: ${req.params.id}`);
