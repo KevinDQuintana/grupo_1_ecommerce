@@ -11,8 +11,6 @@ const controller = {
 	index: function (req, res) {
 		db.Products.findAll({ include: { association: 'images' } })
 			.then(products => {
-				// console.log('List All Products Query')
-				// console.log(products)
 				return res.render(path.join(__dirname, '../', 'views', 'products', 'products'), { styles: ['/css/index.css', '/css/products.css'], products, toThousand });
 			});
 	},
@@ -28,18 +26,7 @@ const controller = {
 					})
 			})
 	},
-	/* deprecated function, marked to be removed */
-	// detail: function (req, res) {
-	// 	const products = getProducts();
-	// 	const id = req.params.id;
-	// 	const productFound = products.find(product => product.id == id);
-	// 	return res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'], product: productFound, toThousand });
-	// },
-	/* END */
 	detail: function (req, res) {
-		// db.Products.findByPk(req.params.id).then(product => {
-		// 	return res.render(path.join(__dirname, '../', 'views', 'products', 'productDetail'), { styles: ['/css/index.css', '/css/productDetail.css'], product, toThousand });
-		// })
 		db.Products.findOne({
 			where: {
 				product_id: req.params.id
@@ -50,7 +37,6 @@ const controller = {
 		})
 	},
 	edit: function (req, res) {
-		console.log(`Edit Request with ID: ${req.params.id}`);
 		const promCategories = db.Products_categories.findAll();
 		const promBrands = db.Brands.findAll();
 		const promColors = db.Colors.findAll();
@@ -63,8 +49,6 @@ const controller = {
 			})
 	},
 	store: function (req, res) {
-		console.log('POST Request')
-		console.log(req.body);
 		db.Products.create({
 			name: req.body.name,
 			price: Number(req.body.price),
@@ -126,16 +110,6 @@ const controller = {
 				return res.redirect(`/products/detail/${req.params.id}`);
 			})
 			.catch(err => console.log(`[ERROR] can\'t update product: ${err}`))
-	},
-	delete: function (req, res) {
-		const id = req.params.id;
-		if (!id) return res.send('Error');
-		const products = getProducts();
-		writeProducts(products.filter((product) => {
-			return product.id != req.params.id
-		}));
-
-		res.redirect('/products')
 	},
 	delete: function (req, res) {
 		console.log('DELETE Request');
