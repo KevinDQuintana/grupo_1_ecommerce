@@ -23,23 +23,23 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 	index: function (req, res) {
-		db.Products.findAll({include: { association: 'images' }})
-		.then(products => {
-			// console.log('List All Products Query')
-			// console.log(products)
-			return res.render(path.join(__dirname, '../', 'views', 'products', 'products'), { styles: ['/css/index.css', '/css/products.css'], products, toThousand });
-		});
+		db.Products.findAll({ include: { association: 'images' } })
+			.then(products => {
+				// console.log('List All Products Query')
+				// console.log(products)
+				return res.render(path.join(__dirname, '../', 'views', 'products', 'products'), { styles: ['/css/index.css', '/css/products.css'], products, toThousand });
+			});
 	},
 	create: function (req, res) {
 		db.Products_categories.findAll()
 			.then(productsCategories => {
 				db.Brands.findAll()
 					.then(productsBrands => {
-					db.Colors.findAll()
-						.then(productsColors => {
-							return res.render(path.join(__dirname, '../', 'views', 'products', 'createProduct'), { styles: ['/css/index.css', '/css/productCreate.css'] , productsCategories, productsBrands, productsColors});
+						db.Colors.findAll()
+							.then(productsColors => {
+								return res.render(path.join(__dirname, '../', 'views', 'products', 'createProduct'), { styles: ['/css/index.css', '/css/productCreate.css'], productsCategories, productsBrands, productsColors });
+							})
 					})
-				})
 			})
 	},
 	/* deprecated function, marked to be removed */
@@ -64,11 +64,17 @@ const controller = {
 		})
 	},
 	edit: function (req, res) {
-		const id = req.params.id;
-		console.log(`Edit Request with ID: ${id}`);
-		const products = getProducts();
-		const product = products.find((element) => element.id == id)
-		return res.render(path.join(__dirname, '../', 'views', 'products', 'editProduct'), { styles: ['/css/index.css', '/css/productCreate.css', '/css/editProduct.css'], id, product });
+		console.log(`Edit Request with ID: ${req.params.id}`);
+		const promCategories = db.Products_categories.findAll();
+		const promBrands = db.Brands.findAll();
+		const promColors = db.Colors.findAll();
+
+		Promise.all([promCategories, promBrands, promColors])
+			.then(results => {
+				db.Products.findByPk(req.params.id).then(product => {
+					return res.render(path.join(__dirname, '../', 'views', 'products', 'editProduct'), { styles: ['/css/index.css', '/css/productCreate.css', '/css/editProduct.css'], product, productsCategories: results[0], productsBrands: results[1], productsColors: results[2] });
+				})
+			})
 	},
 	store: function (req, res) {
 		console.log('POST Request')
@@ -84,48 +90,56 @@ const controller = {
 			brand_id: 1,
 			specs: req.body.specs
 		})
-		.then((product) => {
-			console.log('[INFO] new product created succesfully');
-			db.Images.create({
-				product_id: product.product_id,
-				location: req.file.filename
-			}).then(() => {
-				console.log('[INFO] new image created succesfully');
-				res.redirect('/products');
+			.then((product) => {
+				console.log('[INFO] new product created succesfully');
+				db.Images.create({
+					product_id: product.product_id,
+					location: req.file.filename
+				}).then(() => {
+					console.log('[INFO] new image created succesfully');
+					res.redirect('/products');
+				})
 			})
-		})
-		.catch(err => {
-			console.log(`[ERROR] can\'t create product: ${err}`);
-			return res.redirect('/products/create');
-		})
+			.catch(err => {
+				console.log(`[ERROR] can\'t create product: ${err}`);
+				return res.redirect('/products/create');
+			})
 	},
 	update: function (req, res) {
-		console.log(`Update Request with ID: ${req.params.id}`);
-		console.log('----REQUEST----');
-		console.log(req.body);
-		typeof req.file != 'undefined' ? console.log(req.file) : 'No file';
-		console.log('---------------');
-		console.log('');
-		const products = getProducts();
-		const product = products.find((element) => element.id == req.params.id);
-
-		product.name = req.body.name;
-		product.price = req.body.price;
-		product.discount = req.body.discount;
-		product.descriptionTitle = req.body.descriptionTitle;
-		product.description = req.body.description;
-		product.stock = req.body.stock;
-		product.category = req.body.category;
-		product.brand = req.body.brand;
-		product.color = req.body.color;
-		product.specs = req.body.specs;
-		if(req.file){
-			fs.unlinkSync(path.join(__dirname, '../', '../', 'public', 'img', 'products', product.image));
-			product.image = req.file.filename;
-		}
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, '\t'));
-
-		return res.redirect(`/products/detail/${req.params.id}`);
+		const promImage = db.Images.update(
+			{
+				location: req.file.filename
+			},
+			{
+				where: {
+					product_id: req.params.id
+				}
+			}
+		)
+		const promProductUpdate = db.Products.update(
+			{
+				name: req.body.name,
+				price: Number(req.body.price),
+				discount: Number(req.body.discount),
+				description_title: req.body.descriptionTitle,
+				description: req.body.description,
+				stock: Number(req.body.stock),
+				category_id: 1,
+				brand_id: 1,
+				specs: req.body.specs
+			},
+			{
+				where: {
+					product_id: req.params.id
+				}
+			}
+		)
+		Promise.all([promImage, promProductUpdate])
+			.then(() => {
+				console.log('[INFO] product updated succesfully');
+				return res.redirect(`/products/detail/${req.params.id}`);
+			})
+			.catch(err => console.log(`[ERROR] can\'t update product: ${err}`))
 	},
 	delete: function (req, res) {
 		const id = req.params.id;

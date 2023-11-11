@@ -13,7 +13,7 @@ router.get('/edit/:id', productsController.edit);
 
 router.post('/', upload.single('image'), processProductSingleImage, productsController.store); // Cargar nuevo producto a la lista
 
-router.put('/edit/:id', upload.single('image'), productsController.update);
+router.put('/edit/:id', upload.single('image'), processProductSingleImage, productsController.update);
 
 router.delete('/delete/:id', productsController.delete);
 
