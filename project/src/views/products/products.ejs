@@ -10,7 +10,11 @@
         <section class="products-list">
             <% products.forEach( product => { %>
                 <a href="/products/detail/<%= product.product_id %>" class="products-list__product">
-                    <img class="products-list__product__image" src="/images/<%= product.images.location %>" alt="Producto">
+                    <% if (product.images.location) { %>
+                        <img class="products-list__product__image" src="/images/<%= product.images.location %>" onerror="this.src='/images/default.jpg'" alt="Producto">
+                    <% } else { %>
+                        <img class="products-list__product__image" src="/images/default.jpg %>" alt="Producto">
+                    <% } %>
                     <div class="products-list__product__price-discount">
                         <span>$<%= toThousand(Math.trunc(product.price - (product.price * (product.discount / 100)))) %></span>
                         <% if(product.discount !== 0){ %>

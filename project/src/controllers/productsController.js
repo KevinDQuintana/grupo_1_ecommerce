@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs/promises');
 const path = require('path');
 const { title } = require('process');
 const productsFilePath = path.join(__dirname, '../', 'data', 'productsDataBase.json');
@@ -6,20 +6,18 @@ const productsFilePath = path.join(__dirname, '../', 'data', 'productsDataBase.j
 const db = require('../database/models');
 
 /* deprecated function, marked to be removed */
-function writeProducts(product) {
-	fs.writeFileSync(productsFilePath, JSON.stringify(product, null, '\t'))
-};
+// function writeProducts(product) {
+// 	fs.writeFileSync(productsFilePath, JSON.stringify(product, null, '\t'))
+// };
 /* END */
 
 /* deprecated function, marked to be removed */
-function getProducts() {
-	return JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-}
+// function getProducts() {
+// 	return JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+// }
 /* END */
 
-/* deprecated function, marked to be removed */
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-/* END */
 
 const controller = {
 	index: function (req, res) {
@@ -152,24 +150,42 @@ const controller = {
 		res.redirect('/products')
 	},
 	delete: function (req, res) {
-		const promDeleteImage = db.Images.destroy({
+		console.log('DELETE Request');
+		db.Images.findOne({
 			where: {
 				product_id: req.params.id
 			}
 		})
-		const promDeleteProduct = db.Products.destroy({
-			where: {
-				product_id: req.params.id
-			}
-		})
-
-		Promise.all([promDeleteImage, promDeleteProduct])
-			.then(() => {
-				console.log('[INFO] product deleted succesfully');
-				res.redirect('/products')
+			.then((image) => {
+				const pathRemoveFile = path.join(__dirname, '../', '../', 'uploads', 'products', image.location);
+				fs.unlink(pathRemoveFile)
+				console.log('[INFO] image file removed succesfully');
+				db.Images.destroy({
+					where: {
+						product_id: req.params.id
+					}
+				})
+					.then(() => {
+						console.log('[INFO] image entry deleted succesfully');
+						db.Products.destroy({
+							where: {
+								product_id: req.params.id
+							}
+						})
+							.then(() => {
+								console.log('[INFO] product entry deleted succesfully');
+								res.redirect('/products')
+							})
+							.catch(err => {
+								console.log(`[ERROR] can\'t delete product entry from table: ${err}`);
+							})
+					})
+					.catch(err => {
+						console.log(`[ERROR] can\'t delete image entry from table: ${err}`);
+					})
 			})
 			.catch(err => {
-				console.log(`[ERROR] can\'t delete product: ${err}`);
+				console.log(`[ERROR] can\'t remove image file: ${err}`);
 			})
 	}
 };
