@@ -56,8 +56,8 @@ const controller = {
 			description_title: req.body.descriptionTitle,
 			description: req.body.description,
 			stock: Number(req.body.stock),
-			category_id: 1,
-			brand_id: 1,
+			category_id: Number(req.body.category),
+			brand_id: Number(req.body.brand),
 			specs: req.body.specs
 		})
 			.then((product) => {

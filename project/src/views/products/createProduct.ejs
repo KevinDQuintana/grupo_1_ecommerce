@@ -20,13 +20,13 @@
                 <select class="controlar" name="category" id="category" >
                     <option value="">Elegí una categoría:</option>
                     <% for(const oneCategory of productsCategories) { %>
-                        <option value="<%= oneCategory.name %>"> <%= oneCategory.name %> </option>
+                        <option value="<%= oneCategory.category_id %>"> <%= oneCategory.name %> </option>
                     <% } %>	
                 </select>
                 <select class="controlar" name="brand" id="brand" >
                     <option value="">Elegí una marca:</option>
                     <% for(const oneBrand of productsBrands) { %>
-                        <option value="<%= oneBrand.name %>"> <%= oneBrand.name %> </option>
+                        <option value="<%= oneBrand.brand_id %>"> <%= oneBrand.name %> </option>
                     <% } %>	
                 </select>
                 <input type="text" placeholder="Color (opcional)" name="color">
