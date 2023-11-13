@@ -52,18 +52,16 @@
 						<% if (locals.errors && errors.category) { %>
 							<select style="border: red solid 2px;" class="controlar" name="category" id="category" >
 								<option value="">Elegí una categoría:</option>
-								<% const categories = ['Vendedor','Comprador','Empresa'] %>
-								<% for(const oneCategory of categories) { %>
-									<option value="<%= oneCategory %>" <%= locals.oldData && (oneCategory === oldData.category) ? 'selected' : null %>> <%= oneCategory %> </option>
+								<% for(const oneCategory of usersCategories) { %>
+									<option value="<%= oneCategory.category_id %>" <%= locals.oldData && (oneCategory.name === oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
 								<% } %>
 							</select>
 						<div class="error"><%= errors.category.msg %></div>
 					<% } else { %>
 						<select  class="controlar" name="category" id="category" >
 							<option value="">Elegí una categoría:</option>
-							<% const categories = ['Vendedor','Comprador','Empresa'] %>
-							<% for(const oneCategory of categories) { %>
-								<option value="<%= oneCategory %>" <%= locals.oldData && (oneCategory === oldData.category) ? 'selected' : null %>> <%= oneCategory %> </option>
+							<% for(const oneCategory of usersCategories) { %>
+								<option value="<%= oneCategory.category_id %>" <%= locals.oldData && (oneCategory.name === oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
 							<% } %>
 						</select>
 						<% } %>

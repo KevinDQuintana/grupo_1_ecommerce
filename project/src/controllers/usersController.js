@@ -79,25 +79,15 @@ const controller = {
 		}
 	},
 	signup: function (req, res) {
-		return res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'] });
+		db.User_categories.findAll()
+			.then(usersCategories => {
+				return res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'] , usersCategories});
+			})
 	},
 	processSignup: function (req, res) {
 		const resultValidation = validationResult(req);
 		if (resultValidation.errors.length > 0) {
 			return res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'], errors: resultValidation.mapped(), oldData: req.body });
-		}
-		let categoryId = '';
-		if(req.body.category == 'Admin'){
-			categoryId = 1
-		}
-		if(req.body.category == 'Vendedor'){
-			categoryId = 2
-		}
-		if(req.body.category == 'Comprador'){
-			categoryId = 3
-		}
-		if(req.body.category == 'Empresa'){
-			categoryId = 4
 		}
 		db.Users.create({
 			first_name: req.body.firstName,
@@ -106,10 +96,10 @@ const controller = {
 			password: bcryptjs.hashSync(req.body.password, 10),
 			dni: req.body.dni,
 			phone: req.body.phone,
-			category_id: categoryId,
+			category_id: Number(req.body.category),
 			image: req.file.filename
 		})
-		.then(()=>{return res.redirect('/')})
+		.then(()=>res.redirect('/'))
 	}
 }
 
