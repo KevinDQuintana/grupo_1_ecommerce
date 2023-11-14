@@ -15,7 +15,7 @@ const controller = {
 			});
 	},
 	create: function (req, res) {
-		db.Products_categories.findAll()
+		db.Products_Categories.findAll()
 			.then(productsCategories => {
 				db.Brands.findAll()
 					.then(productsBrands => {
@@ -37,7 +37,7 @@ const controller = {
 		})
 	},
 	edit: function (req, res) {
-		const promCategories = db.Products_categories.findAll();
+		const promCategories = db.Products_Categories.findAll();
 		const promBrands = db.Brands.findAll();
 		const promColors = db.Colors.findAll();
 
