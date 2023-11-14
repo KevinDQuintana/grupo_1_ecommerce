@@ -57,20 +57,20 @@ CREATE TABLE `products` (
   FOREIGN KEY (`brand_id`) REFERENCES `brands` (`brand_id`)
 );
 
-CREATE TABLE `colors` (
-  `product_id` int UNSIGNED NOT NULL,
-  `name` varchar(100) NOT NULL UNIQUE,
-  PRIMARY KEY (`product_id`),
-  FOREIGN KEY (`product_id`) REFERENCES  `products` (`product_id`)
-);
+-- CREATE TABLE `colors` (
+--  `product_id` int UNSIGNED NOT NULL,
+--  `name` varchar(100) NOT NULL UNIQUE,
+--  PRIMARY KEY (`product_id`),
+--  FOREIGN KEY (`product_id`) REFERENCES  `products` (`product_id`)
+-- );
 
 /* test */
--- CREATE TABLE `colors` (
---   `color_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
---   `name` varchar(100) NOT NULL UNIQUE,
---   `hex_values` varchar(100) NOT NULL UNIQUE,
---   PRIMARY KEY (`color_id`)
--- );
+ CREATE TABLE `colors` (
+   `color_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+   `name` varchar(100) NOT NULL UNIQUE,
+   `hex_values` varchar(100) NOT NULL UNIQUE,
+   PRIMARY KEY (`color_id`)
+ );
 /* END */
 
 CREATE TABLE `images` (
@@ -165,32 +165,33 @@ INSERT INTO images (product_id,location) VALUES
 /* END */
 
 /* colors_test */
--- INSERT INTO colors(name, hex_values)
--- VALUES('Amarillo', '#FFFF00'),
--- ('Amarillo limón', '#FFF700'),
--- ('Azul', '#0000FF'),
--- ('Azul eléctrico', '#00FFFF'),
--- ('Blanco', '#FFFFFF'),
--- ('Gris', '#808080'),
--- ('Gris grafito', '#2F4F4F'),
--- ('Morado', '#800080'),
--- ('Morado profundo', '#4B0082'),
--- ('Naranja', '#FFA500'),
--- ('Naranja brillante', '#FFD700'),
--- ('Negro', '#000000'),
--- ('Plateado', '#E3E4E5'),
--- ('Rojo', '#FF0000'),
--- ('Rojo fuego', '#FF4500'),
--- ('Verde', '#008000'),
--- ('Verde neón', '#39FF14');
+ INSERT INTO colors(name, hex_values) VALUES
+ ('Amarillo', '#FFFF00'),
+ ('Amarillo limón', '#FFF700'),
+ ('Azul', '#0000FF'),
+ ('Azul eléctrico', '#00FFFF'),
+ ('Blanco', '#FFFFFF'),
+ ('Gris', '#808080'),
+ ('Gris grafito', '#2F4F4F'),
+ ('Morado', '#800080'),
+ ('Morado profundo', '#4B0082'),
+ ('Naranja', '#FFA500'),
+ ('Naranja brillante', '#FFD700'),
+ ('Negro', '#000000'),
+ ('Plateado', '#E3E4E5'),
+ ('Rojo', '#FF0000'),
+ ('Rojo fuego', '#FF4500'),
+ ('Verde', '#008000'),
+ ('Verde neón', '#39FF14');
 /* END */
 
 /* product_color_test */
--- CREATE TABLE product_colors (
--- 	product_id INT UNSIGNED NOT NULL,
--- 	color_id INT UNSIGNED NOT NULL,
--- 	PRIMARY KEY (product_id, color_id),
--- 	FOREIGN KEY (product_id) REFERENCES products(product_id),
--- 	FOREIGN KEY (color_id) REFERENCES colors(color_id)
--- );
+ CREATE TABLE product_colors (
+ 	product_id INT UNSIGNED NOT NULL,
+ 	color_id INT UNSIGNED NOT NULL,
+ 	PRIMARY KEY (product_id, color_id),
+ 	FOREIGN KEY (product_id) REFERENCES products(product_id),
+ 	FOREIGN KEY (color_id) REFERENCES colors(color_id)
+ );
 /* END */
+

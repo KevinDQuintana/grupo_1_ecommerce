@@ -3,7 +3,7 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Colors'
 
     let cols = {
-        product_id : {
+        color_id : {
             type : dataTypes.INTEGER(10).UNSIGNED,
             autoIncrement : true,
             primaryKey : true,
@@ -11,7 +11,13 @@ module.exports = (sequelize, dataTypes) => {
         },
         name : {
             type : dataTypes.STRING(100),
-            allowNull : false
+            allowNull : false,
+            unique: true
+        },
+        hex_values : {
+            type: dataTypes.STRING(100),
+            allowNull: false,
+            unique: true
         }
     }
 
