@@ -9,6 +9,7 @@
         <div class="product-form">
             <h1>Añadir producto a la lista de ventas</h1>
             <form action="/products" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="type" value="isProduct">
                 <input class="product-form__image" type="file" placeholder="Imagen" name="image" required>
                 <input type="text" placeholder="Nombre del producto" name="name" required>
                 <input type="number" placeholder="Precio" name="price" required>
@@ -21,19 +22,19 @@
                     <option value="">Elegí una categoría:</option>
                     <% for(const oneCategory of productsCategories) { %>
                         <option value="<%= oneCategory.category_id %>"> <%= oneCategory.name %> </option>
-                    <% } %>	
+                    <% } %>
                 </select>
                 <select class="controlar" name="brand" id="brand" >
                     <option value="">Elegí una marca:</option>
                     <% for(const oneBrand of productsBrands) { %>
                         <option value="<%= oneBrand.brand_id %>"> <%= oneBrand.name %> </option>
-                    <% } %>	
+                    <% } %>
                 </select>
                 <select class="controlar" name="color" id="color" >
                     <option value="">Elegí un color:</option>
                     <% for(const oneColor of productsColors) { %>
                         <option value="<%= oneColor.color_id %>"> <%= oneColor.name %> </option>
-                    <% } %>	
+                    <% } %>
                 </select>
                 <button type="submit" class="product-form__button">Agregar producto</button>
             </form>

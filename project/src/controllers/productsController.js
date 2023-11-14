@@ -49,6 +49,8 @@ const controller = {
 			})
 	},
 	store: function (req, res) {
+		console.log('POST Request - NEW PRODUCT');
+		console.log(`[INFO] filename: ${req.file.filename}`);
 		db.Products.create({
 			name: req.body.name,
 			price: Number(req.body.price),
@@ -61,12 +63,12 @@ const controller = {
 			specs: req.body.specs
 		})
 			.then((product) => {
-				console.log('[INFO] new product created succesfully');
+				console.log('[INFO] new product created successfully');
 				db.Images.create({
 					product_id: product.product_id,
 					location: req.file.filename
 				}).then(() => {
-					console.log('[INFO] new image created succesfully');
+					console.log('[INFO] new image created successfully');
 					res.redirect('/products');
 				})
 			})
@@ -106,7 +108,7 @@ const controller = {
 		)
 		Promise.all([promImage, promProductUpdate])
 			.then(() => {
-				console.log('[INFO] product updated succesfully');
+				console.log('[INFO] product updated successfully');
 				return res.redirect(`/products/detail/${req.params.id}`);
 			})
 			.catch(err => console.log(`[ERROR] can\'t update product: ${err}`))
@@ -121,21 +123,21 @@ const controller = {
 			.then((image) => {
 				const pathRemoveFile = path.join(__dirname, '../', '../', 'uploads', 'products', image.location);
 				fs.unlink(pathRemoveFile)
-				console.log('[INFO] image file removed succesfully');
+				console.log('[INFO] image file removed successfully');
 				db.Images.destroy({
 					where: {
 						product_id: req.params.id
 					}
 				})
 					.then(() => {
-						console.log('[INFO] image entry deleted succesfully');
+						console.log('[INFO] image entry deleted successfully');
 						db.Products.destroy({
 							where: {
 								product_id: req.params.id
 							}
 						})
 							.then(() => {
-								console.log('[INFO] product entry deleted succesfully');
+								console.log('[INFO] product entry deleted successfully');
 								res.redirect('/products')
 							})
 							.catch(err => {

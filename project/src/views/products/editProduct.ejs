@@ -10,6 +10,7 @@
 					<h1>Editar producto</h1>
 					<form action="/products/edit/<%= product.product_id %>?_method=PUT" method="POST"
 						enctype="multipart/form-data">
+						<input type="hidden" name="type" value="isProduct">
 						<input class="product-form__image" type="file" placeholder="Imagen" name="image" required>
 						<input type="text" placeholder="Nombre del producto" name="name" value="<%= product.name %>" required>
 						<input type="number" placeholder="Precio" name="price" value="<%= product.price %>" required>

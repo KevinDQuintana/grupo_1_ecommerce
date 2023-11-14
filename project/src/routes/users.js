@@ -2,12 +2,14 @@ const express = require('express');
 const { body } = require('express-validator');
 
 const path = require('path');
-const upload = require('../middlewares/multerUsers');
+// const upload = require('../middlewares/multerUsers');
+const upload = require('../middlewares/multer');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddlware = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 const usersController = require(path.join(__dirname, '../', 'controllers', 'usersController'));
+
 const validations = [
     body('email')
         .notEmpty().withMessage('Escribe un email').bail()
@@ -41,12 +43,14 @@ const loginValidation = [
 	body('password').notEmpty().withMessage('La contraseña no puede estar vacia'),
 ]
 
+const processSingleImage = require('../middlewares/processSingleImage');
+
 router.get('/login', guestMiddleware, usersController.login);
 router.post('/login', loginValidation, usersController.processLogin);
 
 router.get('/logout', usersController.logOut)
 
 router.get('/signup', guestMiddleware, usersController.signup);
-router.post('/signup', upload.single('image'), validations ,usersController.processSignup);
+router.post('/signup', upload.single('image'), validations, processSingleImage, usersController.processSignup);
 
 module.exports = router;

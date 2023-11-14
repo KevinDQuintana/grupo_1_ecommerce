@@ -10,7 +10,7 @@
 				<h2>Registro de usuario</h2>
 				<hr>
 				<form method="POST" action="/users/signup" enctype="multipart/form-data">
-					
+					<input type="hidden" name="type" value="isUser">
 					<% if (locals.errors && errors.email) { %>
 						<input class="controlar" style="border: red solid 2px;" name="email" id="email" placeholder="Email" value="<%= locals.oldData ? oldData.email : null %>">
 						<div class="error"><%= errors.email.msg %></div>
