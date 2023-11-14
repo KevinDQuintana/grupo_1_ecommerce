@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    let alias = 'Shopping_cart_products'
+    let alias = 'Shopping_Cart_Products'
 
     let cols = {
         shopping_cart_id : {
@@ -12,10 +12,10 @@ module.exports = (sequelize, dataTypes) => {
         product_id : {
             type : dataTypes.INTEGER(10).UNSIGNED,
             allowNull : false
-    
+
         }
     }
-	
+
 	let config = {}
     let shoppingCartProduct = sequelize.define(alias, cols, config);
 

@@ -69,7 +69,7 @@ const controller = {
 		}
 	},
 	signup: function (req, res) {
-		db.User_categories.findAll()
+		db.User_Categories.findAll()
 			.then(usersCategories => {
 				return res.render(path.join(__dirname, '../', 'views', 'users', 'signup'), { styles: ['/css/index.css', '/css/signup.css'], usersCategories });
 			})

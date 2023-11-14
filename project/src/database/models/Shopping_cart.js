@@ -2,7 +2,7 @@ const { INTEGER } = require("sequelize");
 
 module.exports = (sequelize, dataTypes) => {
 
-    let alias = 'Shoppings_carts'
+    let alias = 'Shopping_Carts'
 
     let cols = {
         shopping_cart_id : {
