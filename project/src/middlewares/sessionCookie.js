@@ -1,10 +1,9 @@
 module.exports = (req, res, next) => {
 	if (!req.session.user && req.cookies.session) {
 		req.session.user = req.cookies.session;
-		console.log('Cookie Received');
+		console.log('[INFO] cookie received');
 	} else {
-		console.log('Cookie Not Received');
+		console.log('[INFO] cookie not received');
 	}
-	// console.log('App Level Middleware Executed')
-	next();
+	return next();
 }

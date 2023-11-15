@@ -20,19 +20,19 @@
                 <textarea placeholder="Características del producto" name="specs" required></textarea>
                 <select class="controlar" name="category" id="category" >
                     <option value="">Elegí una categoría:</option>
-                    <% for(const oneCategory of productsCategories) { %>
+                    <% for(const oneCategory of productCategories) { %>
                         <option value="<%= oneCategory.category_id %>"> <%= oneCategory.name %> </option>
                     <% } %>
                 </select>
                 <select class="controlar" name="brand" id="brand" >
                     <option value="">Elegí una marca:</option>
-                    <% for(const oneBrand of productsBrands) { %>
+                    <% for(const oneBrand of productBrands) { %>
                         <option value="<%= oneBrand.brand_id %>"> <%= oneBrand.name %> </option>
                     <% } %>
                 </select>
                 <select class="controlar" name="color" id="color" >
                     <option value="">Elegí un color:</option>
-                    <% for(const oneColor of productsColors) { %>
+                    <% for(const oneColor of productColors) { %>
                         <option value="<%= oneColor.color_id %>"> <%= oneColor.name %> </option>
                     <% } %>
                 </select>
