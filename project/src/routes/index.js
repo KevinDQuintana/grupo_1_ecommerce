@@ -5,6 +5,7 @@ const router = express.Router();
 const indexController = require(path.join(__dirname, '../', 'controllers', 'indexController'));
 
 router.get('/', indexController.index);
+router.get('/result', indexController.result)
 router.get('/images/:filename', indexController.productImage);
 
 module.exports = router;

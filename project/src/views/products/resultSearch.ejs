@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+
+<body>
+	<%- include('../partials/header') %>
+	<main class="container">
+		<section class="products-list">
+			<% if (products.length > 0) { %>
+				<% products.forEach( product => { %>
+					<a href="/products/detail/<%= product.product_id %>" class="products-list__product">
+						<% if (product.images.location) { %>
+							<img class="products-list__product__image" src="/images/<%= product.images.location %>" onerror="this.src='/images/default.jpg'" alt="Producto">
+						<% } else { %>
+							<img class="products-list__product__image" src="/images/default.jpg %>" alt="Producto">
+						<% } %>
+						<div class="products-list__product__price-discount">
+							<span>$<%= toThousand(Math.trunc(product.price - (product.price * (product.discount / 100)))) %></span>
+							<% if (product.discount !== 0) { %>
+								<span><%= product.discount %>% %>OFF</span>
+							<% } %>
+						</div>
+						<div class="products-list__product__name"><%= product.name %></div>
+					</a>
+				<% }) %>
+			<% } %>
+		</section>
+		<% if (products.length === 0) { %>
+			<h1 style="display: inline-block; width: 100%;">Sin resultados</h1>
+		<% } %>
+	</main>
+	<%- include('../partials/footer') %>
+</body>
+
+</html>
