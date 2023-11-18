@@ -215,7 +215,7 @@ const controller = {
 			const location = req.file.filename;
 			const product_id = req.params.id;
 			await db.Images.update({ location }, { where: { product_id : product_id} });
-			await db.Product_colors.update({ product_id: product.product_id, color_id: Number(req.body.color) }, { where: { product_id : product_id} });
+			await db.Product_colors.update({ product_id: product_id, color_id: Number(req.body.color) }, { where: { product_id : product_id} });
 			const product = {
 				name: req.body.name,
 				price: Number(req.body.price),
