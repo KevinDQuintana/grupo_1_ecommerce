@@ -94,17 +94,17 @@ const controller = {
 	// },
 	edit: async function (req, res) {
 		try {
-			const categories = await db.Products_Categories.findAll();
-			const brands = await db.Brands.findAll();
-			const colors = await db.Colors.findAll();
+			const productCategories = await db.Products_Categories.findAll();
+			const productBrands = await db.Brands.findAll();
+			const productColors = await db.Colors.findAll( { include: { association: 'products' } });
 			const product = await db.Products.findByPk(req.params.id);
 			const viewPath = path.join(__dirname, '../', 'views', 'products', 'editProduct');
 			const locals = {
 				styles: ['/css/index.css', '/css/productCreate.css', '/css/editProduct.css'],
 				product,
-				categories,
-				brands,
-				colors
+				productCategories,
+				productBrands,
+				productColors,
 			};
 			return res.render(viewPath, locals);
 		} catch (error) {
@@ -162,6 +162,12 @@ const controller = {
 			};
 			await db.Images.create(image);
 			console.log('[INFO] new image created successfully');
+			const color = {
+				product_id: productCreated.product_id,
+				color_id: Number(req.body.color)
+			};
+			await db.Product_colors.create(color);
+			console.log('[INFO] new color created successfully');
 			res.redirect('/products');
 		} catch (error) {
 			console.log(`[ERROR] can\'t create product: ${error}`);
@@ -209,6 +215,7 @@ const controller = {
 			const location = req.file.filename;
 			const product_id = req.params.id;
 			await db.Images.update({ location }, { where: { product_id } });
+			await db.Product_colors.update({ product_id: req.params.id, color_id: Number(req.params.color) }, { where: { product_id } });
 			const product = {
 				name: req.body.name,
 				price: Number(req.body.price),
@@ -275,6 +282,8 @@ const controller = {
 			console.log('[INFO] image file removed successfully');
 			await db.Images.destroy({ where: { product_id: req.params.id } });
 			console.log('[INFO] image entry deleted successfully');
+			await db.Product_colors.destroy({ where: { product_id: req.params.id } });
+			console.log('[INFO] color entry deleted successfully');
 			await db.Products.destroy({ where: { product_id: req.params.id } });
 			console.log('[INFO] product entry deleted successfully');
 			res.redirect('/products');
