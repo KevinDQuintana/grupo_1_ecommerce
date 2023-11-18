@@ -214,8 +214,8 @@ const controller = {
 		try {
 			const location = req.file.filename;
 			const product_id = req.params.id;
-			await db.Images.update({ location }, { where: { product_id } });
-			await db.Product_colors.update({ product_id: req.params.id, color_id: Number(req.params.color) }, { where: { product_id } });
+			await db.Images.update({ location }, { where: { product_id : product_id} });
+			await db.Product_colors.update({ product_id: product.product_id, color_id: Number(req.body.color) }, { where: { product_id : product_id} });
 			const product = {
 				name: req.body.name,
 				price: Number(req.body.price),
@@ -227,7 +227,7 @@ const controller = {
 				brand_id: Number(req.body.brand),
 				specs: req.body.specs
 			};
-			await db.Products.update(product, { where: { product_id } });
+			await db.Products.update(product, { where: { product_id : product_id} });
 			console.log('[INFO] product updated successfully');
 			return res.redirect(`/products/detail/${product_id}`);
 		} catch (error) {

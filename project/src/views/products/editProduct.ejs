@@ -23,18 +23,18 @@
 							<option value="">Elegí una categoría:</option>
 							<% for(const oneCategory of productCategories) { %>
 								<% if (oneCategory.category_id === product.category_id) { %>
-									<option value="<%= oneCategory.name %>" selected><%= oneCategory.name %></option>
+									<option value="<%= oneCategory.category_id%>" selected><%= oneCategory.name %></option>
 								<% } %>
-								<option value="<%= oneCategory.name %>"><%= oneCategory.name %></option>
+								<option value="<%= oneCategory.category_id %>"><%= oneCategory.name %></option>
 							<% } %>
 						</select>
 						<select class="controlar" name="brand" id="brand">
 							<option value="">Elegí una marca:</option>
 							<% for(const oneBrand of productBrands) { %>
 								<% if (oneBrand.brand_id === product.brand_id) { %>
-									<option value="<%= oneBrand.name %>" selected><%= oneBrand.name %></option>
+									<option value="<%= oneBrand.brand_id %>" selected><%= oneBrand.name %></option>
 								<% } %>
-								<option value="<%= oneBrand.name %>"><%= oneBrand.name %></option>
+								<option value="<%= oneBrand.brand_id %>"><%= oneBrand.name %></option>
 							<% } %>
 						</select>
 						<select class="controlar" name="color" id="color" >
@@ -42,10 +42,10 @@
 							<% for(let i = 0; i < productColors.length; i++) {%>
 								<% for(let j = 0; j < productColors[i].products.length; j++) {%>
 									<% if (product.product_id === productColors[i].products[j].product_id) { %>
-										<option value="<%= productColors[i].name %>" selected><%= productColors[i].name %></option>
+										<option value="<%= productColors[i].color_id %>" selected><%= productColors[i].name %></option>
 									<% } %>
 								<% } %>
-								<option value="<%= productColors[i].name %>"> <%= productColors[i].name %> </option>
+								<option value="<%= productColors[i].color_id %>"> <%= productColors[i].name %> </option>
 							<% } %>
 						</select>
 						<button type="submit" class="product-form__button">Confirmar</button>
