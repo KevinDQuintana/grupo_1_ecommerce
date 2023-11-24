@@ -110,3 +110,19 @@
 **5. Dejar de hacer.**
 - Procrastinar y desperdiciar tiempo.
 - No revisar el contenido antes de las clases.
+
+## Restrospectiva Sprint 7
+
+**1. Comenzar a hacer.**
+- Estar al día con las clases y el proyecto.
+- Agregar nuevas funciones y aspectos al proyecto.
+
+**2. Hacer más.**
+
+**3. Continuar haciendo.**
+- Seguir motivado y trabajar en el proyecto.
+
+**4. Hacer menos.**
+
+**5. Dejar de hacer.**
+- Procrastinar.
