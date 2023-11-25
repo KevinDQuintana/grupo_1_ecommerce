@@ -162,40 +162,75 @@ const controller = {
 		try {
 			console.log('POST Request - NEW USER');
 			const errors = validationResult(req);
-			if (!errors.isEmpty()) {
-				console.log(`[Validation] ${errors.mapped()}`);
-				const userCategories = await db.User_Categories.findAll();
-				const viewPath = path.join(__dirname, '../', 'views', 'users', 'signup');
-				const locals = {
-					styles: ['/css/index.css', '/css/signup.css'],
-					errors: errors.mapped(),
-					oldData: req.body,
-					userCategories
+			const userCategories = await db.User_Categories.findAll();
+			const viewPath = path.join(__dirname, '../', 'views', 'users', 'signup');
+			const locals = {
+				styles: ['/css/index.css', '/css/signup.css'],
+				errors: errors.mapped(),
+				oldData: req.body,
+				userCategories
+			}
+
+			if (errors.isEmpty()) {
+				const conditions = [
+					{ email: req.body.email },
+					{ dni: req.body.dni }
+				];
+				const userExists = await db.Users.findOne({ where: { [Op.or]: conditions } });
+
+				if (!userExists) {
+					const user = {
+						first_name: req.body.firstName,
+						last_name: req.body.lastName,
+						email: req.body.email,
+						password: bcryptjs.hashSync(req.body.password, 10),
+						dni: req.body.dni,
+						phone: req.body.phone,
+						category_id: Number(req.body.category),
+						image: req.file.filename
+					};
+					await db.Users.create(user);
+					console.log('[INFO] user created successfully');
+					return res.redirect('/');
+				} else {
+					console.log('[INFO] user already exists');
+					const email = await db.Users.findOne({ where: { email: req.body.email } });
+					const dni = await db.Users.findOne({ where: { dni: req.body.dni } });
+					if (email && dni) {
+						const locals = {
+							styles: ['/css/index.css', '/css/signup.css'],
+							validation: { email: { msg: 'Este email ya esta registrado' } , dni: { msg: 'Este dni ya esta registrado' } },
+							oldData: req.body,
+							userCategories
+						}
+						return res.render(viewPath, locals);
+					} else {
+						if (email) {
+							const locals = {
+								styles: ['/css/index.css', '/css/signup.css'],
+								validation: { email: { msg: 'Este email ya esta registrado' } },
+								oldData: req.body,
+								userCategories
+							}
+							return res.render(viewPath, locals);
+						}
+						if (dni) {
+							const locals = {
+								styles: ['/css/index.css', '/css/signup.css'],
+								errors: errors.mapped(),
+								validation: { dni: { msg: 'Este dni ya esta registrado' } },
+								oldData: req.body,
+								userCategories
+							}
+							return res.render(viewPath, locals);
+						}
+					}
+	
 				}
+			} else {
+				console.log(`[Validation] ${errors.mapped()}`);
 				return res.render(viewPath, locals);
 			}
-			const conditions = [
-				{ email: req.body.email },
-				{ dni: req.body.dni }
-			];
-			const userExists = await db.Users.findOne({ where: { [Op.or]: conditions } });
-			if (!userExists) {
-				const user = {
-					first_name: req.body.firstName,
-					last_name: req.body.lastName,
-					email: req.body.email,
-					password: bcryptjs.hashSync(req.body.password, 10),
-					dni: req.body.dni,
-					phone: req.body.phone,
-					category_id: Number(req.body.category),
-					image: req.file.filename
-				};
-				await db.Users.create(user);
-				console.log('[INFO] user created successfully');
-				return res.redirect('/');
-			}
-			console.log('[INFO] user already exists');
-			return res.redirect('/');
 		} catch (error) {
 			console.log(`[ERROR] ${error}`);
 		}
