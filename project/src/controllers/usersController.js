@@ -164,11 +164,13 @@ const controller = {
 			const errors = validationResult(req);
 			if (!errors.isEmpty()) {
 				console.log(`[Validation] ${errors.mapped()}`);
+				const userCategories = await db.User_Categories.findAll();
 				const viewPath = path.join(__dirname, '../', 'views', 'users', 'signup');
 				const locals = {
 					styles: ['/css/index.css', '/css/signup.css'],
 					errors: errors.mapped(),
-					oldData: req.body
+					oldData: req.body,
+					userCategories
 				}
 				return res.render(viewPath, locals);
 			}

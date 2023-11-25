@@ -14,14 +14,22 @@ const validations = [
     body('email')
         .notEmpty().withMessage('Escribe un email').bail()
         .isEmail().withMessage('Escribe un formato de correo válido'),
-    body('password').notEmpty().withMessage('Escribe una contraseña'),
-    body('firstName').notEmpty().withMessage('Escribe tu nombre'),
-    body('lastName').notEmpty().withMessage('Ecribe tu apellido'),
-    body('dni').notEmpty().withMessage('Escribe tu DNI').bail()
+    body('password')
+        .notEmpty().withMessage('Escribe una contraseña'),
+    body('firstName')
+        .notEmpty().withMessage('Escribe tu nombre').bail()
+        .isLength({min:2}).withMessage('Introduce al menos 2 caracteres'),
+    body('lastName')
+        .notEmpty().withMessage('Ecribe tu apellido').bail()
+        .isLength({min:2}).withMessage('Introduce al menos 2 caracteres'),
+    body('dni')
+        .notEmpty().withMessage('Escribe tu DNI').bail()
         .isNumeric().withMessage('Digita solo números'),
-    body('phone').notEmpty().withMessage('Escribe tu número de teléfono').bail()
+    body('phone')
+        .notEmpty().withMessage('Escribe tu número de teléfono').bail()
         .isNumeric().withMessage('Digita solo números'),
-    body('category').notEmpty().withMessage('Escribe una categoría'),
+    body('category')
+        .notEmpty().withMessage('Escribe una categoría'),
     body('image').custom(( value, { req } ) => {
         const file = req.file;
         const acceptedExtensions = ['.jpg', '.png'];
@@ -50,6 +58,6 @@ router.post('/login', loginValidation, usersController.processLogin);
 router.get('/logout', usersController.logOut)
 
 router.get('/signup', guestMiddleware, usersController.signup);
-router.post('/signup', upload.single('image'), validations, processSingleImage, usersController.processSignup);
+router.post('/signup', upload.single('image'), validations, usersController.processSignup, processSingleImage, );
 
 module.exports = router;
