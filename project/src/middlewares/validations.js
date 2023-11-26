@@ -28,7 +28,7 @@ module.exports = [
 		.notEmpty().withMessage('Escribe una categoría'),
 	body('image').custom(async (value, { req }) => {
 		if (req.file) {
-			const allowedImageTypes = ['image/jpeg', 'image/png'];
+			const allowedImageTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
 			const isImage = allowedImageTypes.includes(req.file.mimetype);
 			if (!isImage) {
 				await fs.unlink(req.file.path)
