@@ -64,7 +64,7 @@
 						<select style="border: red solid 2px;" class="controlar" name="category" id="category" >
 							<option value="">Elegí una categoría:</option>
 							<% for(const oneCategory of userCategories) { %>
-								<option value="<%= oneCategory.category_id %>" <%= locals.oldData && (oneCategory.name === oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
+								<option value="<%= oneCategory.category_id %>" <%= locals.oldData && (oneCategory.category_id == oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
 							<% } %>
 						</select>
 						<div class="error"><%= errors.category.msg %></div>
@@ -72,7 +72,7 @@
 						<select  class="controlar" name="category" id="category" >
 							<option value="">Elegí una categoría:</option>
 							<% for(const oneCategory of userCategories) { %>
-								<option value="<%= oneCategory.category_id %>" <%= locals.oldData && (oneCategory.name === oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
+								<option value="<%= oneCategory.category_id %>" <%= locals.oldData && (oneCategory.category_id == oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
 							<% } %>
 						</select>
 					<% } %>
