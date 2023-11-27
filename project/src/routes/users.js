@@ -18,6 +18,6 @@ router.post('/login', loginValidation, usersController.processLogin);
 router.get('/logout', usersController.logOut)
 
 router.get('/signup', guestMiddleware, usersController.signup);
-router.post('/signup', upload.single('image'), signupValidation, usersController.processSignup, processSingleImage);
+router.post('/signup', upload.single('image'), processSingleImage, signupValidation, usersController.processSignup);
 
 module.exports = router;
