@@ -37,13 +37,11 @@
     transition-duration: 450ms;
     transition-timing-function: ease-in-out
 }
-
 .product-form__button:hover {
     background-color: #3C096C;
     transition-duration: 450ms;
     transition-timing-function: ease-in-out
 }
-
 .controlar {
     width: 100%;
     border: none;
@@ -51,11 +49,10 @@
     margin: 10px 0px 10px 0px;
     border-radius: 5px;
 }
-
 .error{
 	font-size: 16px;
 	color: red;
-	margin-top: 8px;
+    font-weight: bold;
 }
 
 @media(min-width: 768px) {

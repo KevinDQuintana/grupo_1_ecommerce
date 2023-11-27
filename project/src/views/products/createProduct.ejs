@@ -62,7 +62,7 @@
                     <select style="border: red solid 2px;" class="controlar" name="category" id="category" >
                         <option value="">Elegí una categoría:</option>
                         <% for(const oneCategory of productCategories) { %>
-                            <option value="<%= oneCategory.category_id %>" <%= locals.oldData && (oneCategory.name === oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
+                            <option value="<%= oneCategory.category_id %>" <%= locals.oldData && (oneCategory.category_id == oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
                         <% } %>
                     </select>
                     <div class="error"><%= errors.category.msg %></div>
@@ -70,7 +70,7 @@
                     <select class="controlar" name="category" id="category" >
                         <option value="">Elegí una categoría:</option>
                         <% for(const oneCategory of productCategories) { %>
-                            <option value="<%= oneCategory.category_id %>" <%= locals.oldData && (oneCategory.name === oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
+                            <option value="<%= oneCategory.category_id %>" <%= locals.oldData && (oneCategory.category_id == oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
                         <% } %>
                     </select>
                 <% } %>
@@ -78,7 +78,7 @@
                     <select style="border: red solid 2px;" class="controlar" name="brand" id="brand" >
                         <option value="">Elegí una marca:</option>
                         <% for(const oneBrand of productBrands) { %>
-                            <option value="<%= oneBrand.brand_id %>" <%= locals.oldData && (oneBrand.name === oldData.brand) ? 'selected' : null %>> <%= oneBrand.name %> </option>
+                            <option value="<%= oneBrand.brand_id %>" <%= locals.oldData && (oneBrand.brand_id == oldData.brand) ? 'selected' : null %>> <%= oneBrand.name %> </option>
                         <% } %>
                     </select>
                     <div class="error"><%= errors.brand.msg %></div>
@@ -86,7 +86,7 @@
                     <select class="controlar" name="brand" id="brand" >
                         <option value="">Elegí una marca:</option>
                         <% for(const oneBrand of productBrands) { %>
-                            <option value="<%= oneBrand.brand_id %>" <%= locals.oldData && (oneBrand.name === oldData.brand) ? 'selected' : null %>> <%= oneBrand.name %> </option>
+                            <option value="<%= oneBrand.brand_id %>" <%= locals.oldData && (oneBrand.brand_id == oldData.brand) ? 'selected' : null %>> <%= oneBrand.name %> </option>
                         <% } %>
                     </select>
                 <% } %>
@@ -94,7 +94,7 @@
                     <select style="border: red solid 2px;" class="controlar" name="color" id="color" >
                         <option value="">Elegí un color:</option>
                         <% for(const oneColor of productColors) { %>
-                            <option value="<%= oneColor.color_id %>" <%= locals.oldData && (oneColor.name === oldData.color) ? 'selected' : null %>> <%= oneColor.name %> </option>
+                            <option value="<%= oneColor.color_id %>" <%= locals.oldData && (oneColor.color_id == oldData.color) ? 'selected' : null %>> <%= oneColor.name %> </option>
                         <% } %>
                     </select>
                     <div class="error"><%= errors.color.msg %></div>
@@ -102,7 +102,7 @@
                     <select class="controlar" name="color" id="color" >
                         <option value="">Elegí un color:</option>
                         <% for(const oneColor of productColors) { %>
-                            <option value="<%= oneColor.color_id %>" <%= locals.oldData && (oneColor.name === oldData.color) ? 'selected' : null %>> <%= oneColor.name %> </option>
+                            <option value="<%= oneColor.color_id %>" <%= locals.oldData && (oneColor.color_id == oldData.color) ? 'selected' : null %>> <%= oneColor.name %> </option>
                         <% } %>
                     </select>
                 <% } %>

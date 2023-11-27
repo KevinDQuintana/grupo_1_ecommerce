@@ -21,8 +21,7 @@ module.exports = [
         .notEmpty().withMessage('Ingresa el precio').bail()
         .isNumeric().withMessage('Digita solo números'),
     body('discount')
-        .notEmpty().withMessage('Ingrese el descuento. INGRESA 0 si NO tiene descuento').bail()
-        .isNumeric().withMessage('Digita solo números'),
+        .isInt({ min: 0, max: 100 }).withMessage('El descuento debe ser un número entre 0 y 100'),
     body('descriptionTitle')
         .notEmpty().withMessage('Ingresa un título para la descripción'),
     body('description')
@@ -37,7 +36,7 @@ module.exports = [
               throw new Error('El stock no puede ser cero');
             }
             return true;
-          }),
+        }),
     body('specs')
           .notEmpty().withMessage('Ingresa una especificaciones').bail()
           .isLength({ min: 20 }).withMessage('Debe tener al menos 20 caracteres'),
