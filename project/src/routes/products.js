@@ -14,7 +14,7 @@ router.get('/edit/:id', productsController.edit);
 
 router.post('/', upload.single('image'), productValidation, productsController.store, processtSingleImage); // Cargar nuevo producto a la lista
 
-router.put('/edit/:id', upload.single('image'), processtSingleImage, productsController.update);
+router.put('/edit/:id', upload.single('image'), productValidation, productsController.update, processtSingleImage);
 
 router.delete('/delete/:id', productsController.delete);
 
