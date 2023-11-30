@@ -25,7 +25,7 @@ module.exports = [
 		.notEmpty().withMessage('Escribe tu número de teléfono').bail()
 		.isNumeric().withMessage('Digita solo números'),
 	body('category')
-		.notEmpty().withMessage('Escribe una categoría'),
+		.notEmpty().withMessage('Selecciona una categoría'),
 	body('image').custom(async (value, { req }) => {
 		if (req.file) {
 			const allowedImageTypes = ['image/jpeg', 'image/png'];

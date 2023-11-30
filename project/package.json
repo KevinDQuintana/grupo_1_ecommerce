@@ -4,7 +4,7 @@
   "description": "Bienvenido a nuestra tienda de componentes de PC, tu destino definitivo para todas tus necesidades tecnológicas. Nuestro ecommerce está dedicado a ofrecerte una amplia gama de productos de calidad para construir y mejorar tu propia PC personalizada.",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon src/app.js --ext *.js *.ejs *.css",
+    "dev": "nodemon src/app.js --ext js,ejs,css",
     "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
