@@ -3,7 +3,6 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-
 .registro {
 	width: 80%;
 	margin: auto;
@@ -14,13 +13,11 @@
 	max-width: 615px;
 	border-radius: 15px;
 }
-
 body main section>hr {
 	border: 0;
 	border-bottom: 1px solid #eaeaea;
 	margin: 10px 0;
 }
-
 .controlar {
 	width: 100%;
 	margin-top: 25px;
@@ -28,7 +25,6 @@ body main section>hr {
 	border-radius: 6px;
 	border: 1px solid #ebebeb;
 }
-
 .boton {
 	margin-top: 20px;
 	width: 100%;
@@ -40,18 +36,15 @@ body main section>hr {
 	transition-duration: 250ms;
 	transition-timing-function: ease-in-out;
 }
-
 .boton:hover {
 	background: #c77dff;
 	transition-duration: 250ms;
 	transition-timing-function: ease-in-out;
 }
-
 .registro {
 	margin-top: 20px;
 	font-size: 18px;
 }
-
 .mensaje {
 	width: 80%;
 	background: #7B2CBF;
@@ -63,14 +56,15 @@ body main section>hr {
 	font-size: 20px;
 	border-radius: 15px;
 }
-
 body main div>hr {
 	border: 0;
 	border-bottom: 1px solid #eaeaea;
 	margin: 15px 0;
 }
 .error{
+	text-align: center;
 	font-size: 16px;
 	color: red;
+	font-weight: bold;
 	margin-top: 8px;
 }

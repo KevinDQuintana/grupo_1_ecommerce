@@ -9,7 +9,7 @@ const authMiddlware = require('../middlewares/authMiddleware');
 const router = express.Router();
 const usersController = require(path.join(__dirname, '../', 'controllers', 'usersController'));
 const processSingleImage = require('../middlewares/processSingleImage');
-const validations = require('../middlewares/validations');
+const signupValidation = require('../middlewares/signupValidation');
 const loginValidation = require('../middlewares/loginValidation');
 
 router.get('/login', guestMiddleware, usersController.login);
@@ -18,6 +18,6 @@ router.post('/login', loginValidation, usersController.processLogin);
 router.get('/logout', usersController.logOut)
 
 router.get('/signup', guestMiddleware, usersController.signup);
-router.post('/signup', upload.single('image'), validations, usersController.processSignup, processSingleImage);
+router.post('/signup', upload.single('image'), processSingleImage, signupValidation, usersController.processSignup);
 
 module.exports = router;

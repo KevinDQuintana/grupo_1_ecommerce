@@ -1,7 +1,8 @@
+const db = require('../database/models');
 const fs = require('fs/promises');
 const path = require('path');
+const { validationResult } = require('express-validator');
 
-const db = require('../database/models');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -94,6 +95,7 @@ const controller = {
 	// },
 	edit: async function (req, res) {
 		try {
+			const errors = validationResult(req);
 			const productCategories = await db.Products_Categories.findAll();
 			const productBrands = await db.Brands.findAll();
 			const productColors = await db.Colors.findAll( { include: { association: 'products' } });
@@ -101,6 +103,8 @@ const controller = {
 			const viewPath = path.join(__dirname, '../', 'views', 'products', 'editProduct');
 			const locals = {
 				styles: ['/css/index.css', '/css/productCreate.css', '/css/editProduct.css'],
+				errors: errors.mapped(),
+				oldData: req.body,
 				product,
 				productCategories,
 				productBrands,
@@ -143,32 +147,50 @@ const controller = {
 	store: async function (req, res) {
 		try {
 			console.log('POST Request - NEW PRODUCT');
-			const product = {
-				name: req.body.name,
-				price: Number(req.body.price),
-				discount: Number(req.body.discount),
-				description_title: req.body.descriptionTitle,
-				description: req.body.description,
-				stock: Number(req.body.stock),
-				category_id: Number(req.body.category),
-				brand_id: Number(req.body.brand),
-				specs: req.body.specs
-			};
-			const productCreated = await db.Products.create(product);
-			console.log('[INFO] new product created successfully');
-			const image = {
-				product_id: productCreated.product_id,
-				location: req.file.filename
-			};
-			await db.Images.create(image);
-			console.log('[INFO] new image created successfully');
-			const color = {
-				product_id: productCreated.product_id,
-				color_id: Number(req.body.color)
-			};
-			await db.Product_colors.create(color);
-			console.log('[INFO] new color created successfully');
-			res.redirect('/products');
+			const errors = validationResult(req);
+			const productCategories = await db.Products_Categories.findAll();
+			const productBrands = await db.Brands.findAll();
+			const productColors = await db.Colors.findAll();
+			const viewPath = path.join(__dirname, '../', 'views', 'products', 'createProduct')
+			const locals = {
+				styles: ['/css/index.css', '/css/productCreate.css'],
+				errors: errors.mapped(),
+				oldData: req.body,
+				productCategories,
+				productBrands,
+				productColors
+			}
+			if (errors.isEmpty()) {
+				const product = {
+					name: req.body.name,
+					price: Number(req.body.price),
+					discount: Number(req.body.discount),
+					description_title: req.body.descriptionTitle,
+					description: req.body.description,
+					stock: Number(req.body.stock),
+					category_id: Number(req.body.category),
+					brand_id: Number(req.body.brand),
+					specs: req.body.specs
+				};
+				const productCreated = await db.Products.create(product);
+				console.log('[INFO] new product created successfully');
+				const image = {
+					product_id: productCreated.product_id,
+					location: req.file.filename
+				};
+				await db.Images.create(image);
+				console.log('[INFO] new image created successfully');
+				const color = {
+					product_id: productCreated.product_id,
+					color_id: Number(req.body.color)
+				};
+				await db.Product_colors.create(color);
+				console.log('[INFO] new color created successfully');
+				res.redirect('/products');
+			} else {
+				console.log(`[Validation] ${errors.mapped()}`);
+				return res.render(viewPath, locals);
+			}
 		} catch (error) {
 			console.log(`[ERROR] can\'t create product: ${error}`);
 			return res.redirect('/products/create');
@@ -212,24 +234,44 @@ const controller = {
 	// },
 	update: async function (req, res) {
 		try {
-			const location = req.file.filename;
-			const product_id = req.params.id;
-			await db.Images.update({ location }, { where: { product_id : product_id} });
-			await db.Product_colors.update({ product_id: product_id, color_id: Number(req.body.color) }, { where: { product_id : product_id} });
-			const product = {
-				name: req.body.name,
-				price: Number(req.body.price),
-				discount: Number(req.body.discount),
-				description_title: req.body.descriptionTitle,
-				description: req.body.description,
-				stock: Number(req.body.stock),
-				category_id: Number(req.body.category),
-				brand_id: Number(req.body.brand),
-				specs: req.body.specs
+			const errors = validationResult(req);
+			const productCategories = await db.Products_Categories.findAll();
+			const productBrands = await db.Brands.findAll();
+			const productColors = await db.Colors.findAll( { include: { association: 'products' } });
+			const product = await db.Products.findByPk(req.params.id);
+			const viewPath = path.join(__dirname, '../', 'views', 'products', 'editProduct');
+			const locals = {
+				styles: ['/css/index.css', '/css/productCreate.css', '/css/editProduct.css'],
+				errors: errors.mapped(),
+				oldData: req.body,
+				product,
+				productCategories,
+				productBrands,
+				productColors,
 			};
-			await db.Products.update(product, { where: { product_id : product_id} });
-			console.log('[INFO] product updated successfully');
-			return res.redirect(`/products/detail/${product_id}`);
+			if (errors.isEmpty()) {
+				const location = req.file.filename;
+				const product_id = req.params.id;
+				await db.Images.update({ location }, { where: { product_id : product_id} });
+				await db.Product_colors.update({ product_id: product_id, color_id: Number(req.body.color) }, { where: { product_id : product_id} });
+				const product = {
+					name: req.body.name,
+					price: Number(req.body.price),
+					discount: Number(req.body.discount),
+					description_title: req.body.descriptionTitle,
+					description: req.body.description,
+					stock: Number(req.body.stock),
+					category_id: Number(req.body.category),
+					brand_id: Number(req.body.brand),
+					specs: req.body.specs
+				};
+				await db.Products.update(product, { where: { product_id : product_id} });
+				console.log('[INFO] product updated successfully');
+				return res.redirect(`/products/detail/${product_id}`);
+			} else {
+				console.log(`[Validation] ${errors.mapped()}`);
+				return res.render(viewPath, locals);
+			}
 		} catch (error) {
 			console.log(`[ERROR] can\'t update product: ${error}`);
 		}
