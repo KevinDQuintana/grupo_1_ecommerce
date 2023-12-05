@@ -10,7 +10,9 @@
 			<div class="formulario">
 				<h3>Iniciar sesión</h3>
 				<button class="button1"><i class="fa-brands fa-google"></i>Iniciar sesión por Google</button>
-				<form action="/users/login" method="post">
+				<div class="error"></div>
+				<div class="error password-error"></div>
+				<form action="/users/login" method="post" id="mainForm">
 					<hr>
 					<span class="texto-rayita">O bien por</span>
 					<% if (locals.errors) {%>
@@ -34,8 +36,10 @@
                                 <input class="controlar" type="password" name="password" id="password" placeholder="Contraseña">
                             <% } %>
                         <% } else {%>
-                            	<input class="controlar" name="email" id="email" placeholder="Email">
-                            	<input class="controlar" type="password" name="password" id="password" placeholder="Contraseña">
+								<input class="controlar" name="email" id="email" placeholder="Email">
+								<div class="error emailError"></div>
+								<input class="controlar" type="password" name="password" id="password" placeholder="Contraseña">
+								<div class="error passwordError"></div>
                         <% } %>
                     <% } %>
 					
@@ -69,6 +73,9 @@
 		</section>
 	</main>
 	<%- include('../partials/footer') %>
+
+	<script type="text/javascript" src="/js/validationLogin.js"></script>
+
 </body>
 
 </html>
