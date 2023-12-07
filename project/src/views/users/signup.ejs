@@ -21,7 +21,7 @@
 							<div class="error"><%= validation.email.msg %></div>
 						<% } else { %>
 							<input class="controlar" name="email" id="email" placeholder="Email" value="<%= locals.oldData ? oldData.email : null %>">
-							<span></span>
+							<span id="emailSpan"></span>
 						<% } %>
 					<% } %>
 					<% if (locals.errors && errors.password) { %>
@@ -51,9 +51,9 @@
 						<input class="controlar" style="border: red solid 2px;" name="dni" id="dni" placeholder="Numero de DNI"  value="<%= locals.oldData ? oldData.dni : null %>">
 						<div class="error"><%= errors.dni.msg %></div>
 					<% } else { %>
-						<% if (locals.validation && validation.dni) { %>							
+						<% if (locals.validation && validation.dni) { %>
 							<input class="controlar" style="border: red solid 2px;" name="dni" id="dni" placeholder="Numero de DNI"  value="<%= locals.oldData ? oldData.dni : null %>">
-							<div class="error"><%= validation.dni.msg %></div>						
+							<div class="error"><%= validation.dni.msg %></div>
 						<% } else { %>
 							<input class="controlar" name="dni" id="dni" placeholder="Numero de DNI"  value="<%= locals.oldData ? oldData.dni : null %>">
 							<span></span>
@@ -89,7 +89,7 @@
 						<input class="controlar" type="file" name="image" id="image">
 						<span></span>
 					<% } %>
-					
+
 					<!-- <% if (!locals.errors) { %>
 						<% if (locals.validation) { %>
 							<% if (validation.email) { %>
@@ -101,7 +101,7 @@
 						<% } %>
 					<% } %> -->
 
-						
+
 					<button class="boton" type="submit">Enviar</button>
 				</form>
 			</section>
@@ -113,6 +113,7 @@
 			</div>
 		</main>
 		<%- include('../partials/footer') %>
+		<script src="https://unpkg.com/validator@latest/validator.min.js"></script>
 		<script src = '/js/validation_singUp.js'></script>
 </body>
 
