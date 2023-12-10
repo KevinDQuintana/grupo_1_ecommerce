@@ -9,24 +9,24 @@
 			<section class="registro">
 				<h2>Registro de usuario</h2>
 				<hr>
-				<form method="POST" action="/users/signup" enctype="multipart/form-data">
+				<form method="POST" action="/users/signup" enctype="multipart/form-data" id="mainForm">
 					<input type="hidden" name="type" value="isUser">
 
 					<% if (locals.errors && errors.email) { %>
-						<input class="controlar" style="border: red solid 2px;" name="email" id="email" placeholder="Email" value="<%= locals.oldData ? oldData.email : null %>">
-						<div class="error"><%= errors.email.msg %></div>
+						<input class="controlar" name="email" id="email" placeholder="Email" value="<%= locals.oldData ? oldData.email : null %>">
+						<span class="error"><%= errors.email.msg %></span>
 					<% } else { %>
 						<% if (locals.validation && validation.email) { %>
-							<input class="controlar" style="border: red solid 2px;" name="email" id="email" placeholder="Email" value="<%= locals.oldData ? oldData.email : null %>">
-							<div class="error"><%= validation.email.msg %></div>
+							<input class="controlar" name="email" id="email" placeholder="Email" value="<%= locals.oldData ? oldData.email : null %>">
+							<span class="error"><%= validation.email.msg %></span>
 						<% } else { %>
 							<input class="controlar" name="email" id="email" placeholder="Email" value="<%= locals.oldData ? oldData.email : null %>">
-							<span id="emailSpan"></span>
+							<span></span>
 						<% } %>
 					<% } %>
 					<% if (locals.errors && errors.password) { %>
-						<input class="controlar" style="border: red solid 2px;" name="password" id="password" placeholder="Contraseña">
-						<div class="error"><%= errors.password.msg %></div>
+						<input class="controlar" name="password" id="password" placeholder="Contraseña">
+						<span class="error"><%= errors.password.msg %></span>
 					<% } else { %>
 						<input class="controlar" name="password" id="password" placeholder="Contraseña">
 						<span></span>
@@ -34,46 +34,46 @@
 					<h2 style="margin-top: 20px; margin-bottom: 8px;">Informacion Personal</h2>
 					<hr>
 					<% if (locals.errors && errors.firstName) { %>
-						<input class="controlar" style="border: red solid 2px;" name="firstName" id="firstName" placeholder="Nombre"  value="<%= locals.oldData ? oldData.firstName : null %>">
-						<div class="error"><%= errors.firstName.msg %></div>
+						<input class="controlar" name="firstName" id="firstName" placeholder="Nombre"  value="<%= locals.oldData ? oldData.firstName : null %>">
+						<span class="error"><%= errors.firstName.msg %></span>
 					<% } else { %>
 						<input class="controlar" name="firstName" id="firstName" placeholder="Nombre"  value="<%= locals.oldData ? oldData.firstName : null %>">
 						<span></span>
 					<% } %>
 					<% if (locals.errors && errors.lastName) { %>
-						<input class="controlar" style="border: red solid 2px;" name="lastName" id="lastName" placeholder="Apellido"  value="<%= locals.oldData ? oldData.lastName : null %>">
-						<div class="error"><%= errors.lastName.msg %></div>
+						<input class="controlar" name="lastName" id="lastName" placeholder="Apellido"  value="<%= locals.oldData ? oldData.lastName : null %>">
+						<span class="error"><%= errors.lastName.msg %></span>
 					<% } else { %>
 						<input class="controlar" name="lastName" id="lastName" placeholder="Apellido"  value="<%= locals.oldData ? oldData.lastName : null %>">
 						<span></span>
 					<% } %>
 					<% if (locals.errors && errors.dni) { %>
-						<input class="controlar" style="border: red solid 2px;" name="dni" id="dni" placeholder="Numero de DNI"  value="<%= locals.oldData ? oldData.dni : null %>">
-						<div class="error"><%= errors.dni.msg %></div>
+						<input class="controlar" name="dni" id="dni" placeholder="Numero de DNI"  value="<%= locals.oldData ? oldData.dni : null %>">
+						<span class="error"><%= errors.dni.msg %></span>
 					<% } else { %>
 						<% if (locals.validation && validation.dni) { %>
-							<input class="controlar" style="border: red solid 2px;" name="dni" id="dni" placeholder="Numero de DNI"  value="<%= locals.oldData ? oldData.dni : null %>">
-							<div class="error"><%= validation.dni.msg %></div>
+							<input class="controlar" name="dni" id="dni" placeholder="Numero de DNI"  value="<%= locals.oldData ? oldData.dni : null %>">
+							<span class="error"><%= validation.dni.msg %></span>
 						<% } else { %>
 							<input class="controlar" name="dni" id="dni" placeholder="Numero de DNI"  value="<%= locals.oldData ? oldData.dni : null %>">
 							<span></span>
 						<% } %>
 					<% } %>
 					<% if (locals.errors && errors.phone) { %>
-						<input class="controlar" style="border: red solid 2px;" name="phone" id="phone" placeholder="Numero de telefono"  value="<%= locals.oldData ? oldData.phone : null %>">
-						<div class="error"><%= errors.phone.msg %></div>
+						<input class="controlar" name="phone" id="phone" placeholder="Numero de telefono"  value="<%= locals.oldData ? oldData.phone : null %>">
+						<span class="error"><%= errors.phone.msg %></span>
 					<% } else { %>
 						<input class="controlar" name="phone" id="phone" placeholder="Numero de telefono"  value="<%= locals.oldData ? oldData.phone : null %>">
 						<span></span>
 					<% } %>
 					<% if (locals.errors && errors.category) { %>
-						<select style="border: red solid 2px;" class="controlar" name="category" id="category" >
+						<select class="controlar" name="category" id="category" >
 							<option value="">Elegí una categoría:</option>
 							<% for(const oneCategory of userCategories) { %>
 								<option value="<%= oneCategory.category_id %>" <%= locals.oldData && (oneCategory.category_id == oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
 							<% } %>
 						</select>
-						<div class="error"><%= errors.category.msg %></div>
+						<span class="error"><%= errors.category.msg %></span>
 					<% } else { %>
 						<select  class="controlar" name="category" id="category" >
 							<option value="">Elegí una categoría:</option>
@@ -81,10 +81,11 @@
 								<option value="<%= oneCategory.category_id %>" <%= locals.oldData && (oneCategory.category_id == oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
 							<% } %>
 						</select>
+						<span></span>
 					<% } %>
 					<% if (locals.errors && errors.image) { %>
-						<input style="border: red solid 2px;" class="controlar" type="file" name="image" id="image">
-						<div class="error"><%= errors.image.msg %></div>
+						<input class="controlar" type="file" name="image" id="image">
+						<span class="error"><%= errors.image.msg %></span>
 					<% } else { %>
 						<input class="controlar" type="file" name="image" id="image">
 						<span></span>
@@ -104,6 +105,7 @@
 
 					<button class="boton" type="submit">Enviar</button>
 				</form>
+			<span></span>
 			</section>
 			<div class="mensaje">
 				<h4>Recordá:</h4>
