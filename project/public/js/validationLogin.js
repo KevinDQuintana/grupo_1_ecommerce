@@ -1,35 +1,87 @@
 window.addEventListener('load', function (){
 
-    let emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+	// Funciones de validaciones.
+	function handleIsEmpty(msg, field, shouldEmpty) {
+		if (validator.isEmpty(field.value)) {
+			field.nextElementSibling.innerText = msg;
+			field.nextElementSibling.classList.add('error');
+			return true;
+		} else {
+			if (shouldEmpty) {
+				field.nextElementSibling.innerText = '';
+				field.nextElementSibling.classList.remove('error');
+				return false;
+			};
+		};
+	};
 
-    let form = document.querySelector('#mainForm');
-    console.log(form);
-    let email = document.querySelector('#email');
-    console.log(email);
-    let password = document.querySelector('#password');
-    console.log(password);
+	function handleIsEmail(email) {
+		if (!validator.isEmail(email.value.trim())) {
+			email.nextElementSibling.innerText = 'El email es invalido';
+			email.nextElementSibling.classList.add('error');
+			shouldEmpty = false;
+			return true;
+		} else {
+			email.nextElementSibling.innerText = '';
+			email.nextElementSibling.classList.remove('error');
+			shouldEmpty = true;
+			return false;
+		};
+	};
 
-    form.addEventListener('submit', function(e){
-        
-        if (email.value == '' || !emailValidation.test(email.value) || password.value == '') {
-            
-            e.preventDefault();
-            
-            let emailError = document.querySelector('.emailError');
-            let passwordError = document.querySelector('.passwordError');
+	function handleInputEmpty() {
+		let inputs = document.querySelectorAll('.controlar');
+		
+		for (let input of inputs) {
+			if (validator.isEmpty(input.value)) {
+				return true;
+			};
+  		};
+	};
 
-            if (email.value == '') {
-                emailError.innerText = 'Email vacío';
-            } else if (!emailValidation.test(email.value)) {
-                emailError.innerText = 'Email inválido';
-            };
+	// Funciones de elementos/campos.
+	function emailValid () {
+		let email = document.querySelector('#email');
 
-            if (password.value == '') {
-                passwordError.innerText = 'Contraseña vacía';
-            };
-        
-        };
+		email.addEventListener('blur', () => {
+			handleIsEmpty('El campo email esta vacío!', email, null);
+			validator.isEmpty(email.nextElementSibling.innerText) ? errorEmail = false:  errorEmail = true; 
+		});
+		email.addEventListener('input', () => {
+			handleIsEmail(email);
+			validator.isEmpty(email.nextElementSibling.innerText) ? errorEmail = false:  errorEmail = true; 
+		});
+	};
+	
+	function passwordValid () {
+		let password = document.querySelector('#password');
 
-    });
+		password.addEventListener('blur', () => {
+			handleIsEmpty('El campo contraseña esta vacío!', password, null);
+			validator.isEmpty(password.nextElementSibling.innerText) ? errorPassword = false:  errorPassword = true; 
+		});
+		password.addEventListener('input', () => {
+			handleIsEmpty('', password, true);
+			validator.isEmpty(password.nextElementSibling.innerText) ? errorPassword = false:  errorPassword = true; 
+		});
+	};
 
+	function formValid () {
+		let form = document.querySelector('#mainForm');
+		form.addEventListener('submit', (e) => {
+			if (handleInputEmpty() || errorEmail || errorPassword) {
+				e.preventDefault();
+				alert('Faltan completar campos del formulario!');
+			};
+		});
+	};
+
+	// Inicialización de errores.
+	let errorEmail, errorPassword;
+
+	// Inicialización de eventos.
+	emailValid();
+	passwordValid();
+
+	formValid();
 });
