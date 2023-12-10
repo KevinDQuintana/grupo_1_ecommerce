@@ -10,36 +10,35 @@
 			<div class="formulario">
 				<h3>Iniciar sesión</h3>
 				<button class="button1"><i class="fa-brands fa-google"></i>Iniciar sesión por Google</button>
-				<div class="error"></div>
-				<div class="error password-error"></div>
 				<form action="/users/login" method="post" id="mainForm">
 					<hr>
 					<span class="texto-rayita">O bien por</span>
 					<% if (locals.errors) {%>
                         <% if (errors.email) {%>
                             <input class="controlar" name="email" id="email" placeholder="Email">
-                            <div class="error"><%= errors.email.msg %></div>
+                            <span class="error"><%= errors.email.msg %></span>
                         <% } else {%>
                             <input class="controlar" name="email" id="email" placeholder="Email">
                         <% } %>
                         <% if (errors.password) {%>
                             <input class="controlar" type="password" name="password" id="password" placeholder="Contraseña">
-                            <div class="error"><%= errors.password.msg %></div>
+                            <span class="error"><%= errors.password.msg %></span>
                         <% } else{%>
                             <input class="controlar" type="password" name="password" id="password" placeholder="Contraseña">
                         <% } %>
                     <% } else {%>
                         <% if (locals.validation) {%>
                             <% if (validation.email) {%>
-                                <div class="error"><%= validation.email.msg %></div>
                                 <input class="controlar" name="email" id="email" placeholder="Email">
+                                <span class="error"><%= validation.email.msg %></span>
                                 <input class="controlar" type="password" name="password" id="password" placeholder="Contraseña">
+								<span></span>
                             <% } %>
                         <% } else {%>
 								<input class="controlar" name="email" id="email" placeholder="Email">
-								<div class="error emailError"></div>
+								<span></span>
 								<input class="controlar" type="password" name="password" id="password" placeholder="Contraseña">
-								<div class="error passwordError"></div>
+								<span></span>
                         <% } %>
                     <% } %>
 					
@@ -73,9 +72,8 @@
 		</section>
 	</main>
 	<%- include('../partials/footer') %>
-
+	<script src="https://unpkg.com/validator@latest/validator.min.js"></script>
 	<script type="text/javascript" src="/js/validationLogin.js"></script>
-
 </body>
 
 </html>
