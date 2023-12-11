@@ -9,122 +9,137 @@
 				<div class="product-form">
 					<h1>Editar producto</h1>
 					<form action="/products/edit/<%= product.product_id %>?_method=PUT" method="POST"
-						enctype="multipart/form-data">
+						enctype="multipart/form-data" id="mainForm">
 						<input type="hidden" name="type" value="isProduct">
 						<% if (locals.errors && errors.image) { %>
-							<input style="border: red solid 2px;" class="product-form__image" type="file" placeholder="Imagen" name="image" >
+							<input  class="product-form__image controlar" type="file" placeholder="Imagen" name="image" id="image">
 							<div class="error"><%= errors.image.msg %></div>
 						<% } else { %>
-							<input class="product-form__image" type="file" placeholder="Imagen" name="image" >
+							<input class="product-form__image controlar" type="file" placeholder="Imagen" name="image" id="image">
+							<span></span>
 						<% } %>
 						<% if (!oldData.name) { %>
 							<% if (locals.errors && errors.name) { %>
-								<input style="border: red solid 2px;" type="text" placeholder="Nombre del producto" name="name" value="<%= oldData.name %>" >
+								<input class="controlar"  type="text" placeholder="Nombre del producto" name="name" value="<%= oldData.name %>" id="name">
 								<div class="error"><%= errors.name.msg %></div>			
 							<% } else { %>
-								<input type="text" placeholder="Nombre del producto" name="name" value="<%= product.name %>" >
+								<input class="controlar" type="text" placeholder="Nombre del producto" name="name" value="<%= product.name %>" id="name">
+								<span></span>
 							<% } %>
 						<% } else { %>
 							<% if (locals.errors && errors.name) { %>
-								<input style="border: red solid 2px;" type="text" placeholder="Nombre del producto" name="name" value="<%= oldData.name %>" >
+								<input class="controlar"  type="text" placeholder="Nombre del producto" name="name" value="<%= oldData.name %>" id="name">
 								<div class="error"><%= errors.name.msg %></div>
 							<% } else { %>
-								<input type="text" placeholder="Nombre del producto" name="name" value="<%= oldData.name %>" >
+								<input class="controlar" type="text" placeholder="Nombre del producto" name="name" value="<%= oldData.name %>" id="name">
+								<span></span>
 							<% } %>
 						<% } %>
-						<% if (!oldData.name) { %>
+						<% if (!oldData.price) { %>
 							<% if (locals.errors && errors.price) { %>
-								<input style="border: red solid 2px;" type="number" placeholder="Precio" name="price" value="<%= oldData.price %>" >
+								<input class="controlar"  type="text" placeholder="Precio" name="price" value="<%= oldData.price %>" id="price">
 								<div class="error"><%= errors.price.msg %></div>
 							<% } else { %>
-								<input type="number" placeholder="Precio" name="price" value="<%= product.price %>" >
+								<input class="controlar" type="text" placeholder="Precio" name="price" value="<%= product.price %>" id="price">
+								<span></span>
 							<% } %>
 						<% } else { %>
 							<% if (locals.errors && errors.price) { %>
-								<input style="border: red solid 2px;" type="number" placeholder="Precio" name="price" value="<%= oldData.price %>" >
+								<input class="controlar"  type="text" placeholder="Precio" name="price" value="<%= oldData.price %>" id="price">
 								<div class="error"><%= errors.price.msg %></div>
 							<% } else { %>
-								<input type="number" placeholder="Precio" name="price" value="<%= oldData.price %>" >
+								<input class="controlar" type="text" placeholder="Precio" name="price" value="<%= oldData.price %>" id="price">
+								<span></span>
 							<% } %>
 						<% } %>
 						<% if (!oldData.discount) { %>
 							<% if (locals.errors && errors.discount) { %>
-								<input style="border: red solid 2px;" type="number" placeholder="Descuento" name="discount" value="<%= oldData.discount %>" >
+								<input class="controlar"  type="text" placeholder="Descuento" name="discount" value="<%= oldData.discount %>" id="discount">
 								<div class="error"><%= errors.discount.msg %></div>
 							<% } else { %>
-								<input type="number" placeholder="Descuento" name="discount" value="<%= product.discount %>" >
+								<input class="controlar" type="text" placeholder="Descuento" name="discount" value="<%= product.discount %>" id="discount">
+								<span></span>
 							<% } %>
 						<% } else { %>
 							<% if (locals.errors && errors.discount) { %>
-								<input style="border: red solid 2px;" type="number" placeholder="Descuento" name="discount" value="<%=  oldData.discount %>" >
+								<input class="controlar"  type="text" placeholder="Descuento" name="discount" value="<%=  oldData.discount %>" id="discount">
 								<div class="error"><%= errors.discount.msg %></div>
 							<% } else { %>
-								<input type="number" placeholder="Descuento" name="discount" value="<%=  oldData.discount %>" >
+								<input class="controlar" type="text" placeholder="Descuento" name="discount" value="<%=  oldData.discount %>" id="discount">
+								<span></span>
 							<% } %>
 						<% } %>
 						<% if (!oldData.descriptionTitle) { %>
 							<% if (locals.errors && errors.descriptionTitle) { %>
-								<input style="border: red solid 2px;" type="text" placeholder="Título de la descripción" name="descriptionTitle" value="<%= oldData.descriptionTitle %>" >
+								<input class="controlar"  type="text" placeholder="Título de la descripción" name="descriptionTitle" value="<%= oldData.descriptionTitle %>" id="descriptionTitle">
 								<div class="error"><%= errors.descriptionTitle.msg %></div>
 							<% } else { %>
-								<input type="text" placeholder="Título de la descripción" name="descriptionTitle" value="<%= product.description_title %>" >
+								<input class="controlar" type="text" placeholder="Título de la descripción" name="descriptionTitle" value="<%= product.description_title %>" id="descriptionTitle">
+								<span></span>
 							<% } %>
 						<% } else { %>
 							<% if (locals.errors && errors.descriptionTitle) { %>
-								<input style="border: red solid 2px;" type="text" placeholder="Título de la descripción" name="descriptionTitle" value="<%= oldData.descriptionTitle %>" >
+								<input class="controlar"  type="text" placeholder="Título de la descripción" name="descriptionTitle" value="<%= oldData.descriptionTitle %>" id="descriptionTitle">
 								<div class="error"><%= errors.descriptionTitle.msg %></div>
 							<% } else { %>
-								<input type="text" placeholder="Título de la descripción" name="descriptionTitle" value="<%= oldData.descriptionTitle %>" >
+								<input class="controlar" type="text" placeholder="Título de la descripción" name="descriptionTitle" value="<%= oldData.descriptionTitle %>" id="descriptionTitle">
+								<span></span>
 							<% } %>
 						<% } %>
 						<% if (!oldData.description) { %>
 							<% if (locals.errors && errors.description) { %>
-								<textarea  style="border: red solid 2px;" placeholder="Descripción" name="description" ><%= oldData.description %></textarea>
+								<textarea  class="controlar"  placeholder="Descripción" name="description" id="description"><%= oldData.description %></textarea>
 								<div class="error"><%= errors.description.msg %></div>
 							<% } else { %>
-								<textarea placeholder="Descripción" name="description" ><%= product.description %></textarea>
+								<textarea class="controlar" placeholder="Descripción" name="description" id="description"><%= product.description %></textarea>
+								<span></span>
 							<% } %>
 						<% } else { %>
 							<% if (locals.errors && errors.description) { %>
-								<textarea  style="border: red solid 2px;" placeholder="Descripción" name="description" ><%= oldData.description %></textarea>
+								<textarea  class="controlar"  placeholder="Descripción" name="description" id="description"><%= oldData.description %></textarea>
 								<div class="error"><%= errors.description.msg %></div>
 							<% } else { %>
-								<textarea placeholder="Descripción" name="description" ><%= oldData.description %></textarea>
+								<textarea class="controlar" placeholder="Descripción" name="description" id="description"><%= oldData.description %></textarea>
+								<span></span>
 							<% } %>
 						<% } %>
 						<% if (!oldData.stock) { %>
 							<% if (locals.errors && errors.stock) { %>
-								<input style="border: red solid 2px;" type="number" placeholder="Stock" name="stock" value="<%= oldData.stock %>" >
+								<input class="controlar"  type="text" placeholder="Stock" name="stock" value="<%= oldData.stock %>" id="stock">
 								<div class="error"><%= errors.stock.msg %></div>
 							<% } else { %>
-								<input type="number" placeholder="Stock" name="stock" value="<%= product.stock %>" >
+								<input class="controlar" type="text" placeholder="Stock" name="stock" value="<%= product.stock %>" id="stock">
+								<span></span>
 							<% } %>
 						<% } else { %>
 							<% if (locals.errors && errors.stock) { %>
-								<input style="border: red solid 2px;" type="number" placeholder="Stock" name="stock" value="<%= oldData.stock %>" >
+								<input class="controlar"  type="text" placeholder="Stock" name="stock" value="<%= oldData.stock %>" id="stock">
 								<div class="error"><%= errors.stock.msg %></div>
 							<% } else { %>
-								<input type="number" placeholder="Stock" name="stock" value="<%= oldData.stock %>" >
+								<input class="controlar" type="text" placeholder="Stock" name="stock" value="<%= oldData.stock %>" id="stock" >
+								<span></span>
 							<% } %>
 						<% } %>
 						<% if (!oldData.specs) { %>
 							<% if (locals.errors && errors.specs) { %>
-								<textarea style="border: red solid 2px;" placeholder="Características del producto" name="specs" ><%= oldData.specs %></textarea>
+								<textarea class="controlar"  placeholder="Características del producto" name="specs" id="specs"><%= oldData.specs %></textarea>
 								<div class="error"><%= errors.specs.msg %></div>
 							<% } else { %>
-								<textarea placeholder="Características del producto" name="specs" ><%= product.specs %></textarea>
+								<textarea class="controlar" placeholder="Características del producto" name="specs" id="specs"><%= product.specs %></textarea>
+								<span></span>
 							<% } %>
 						<% } else { %>
 							<% if (locals.errors && errors.specs) { %>
-								<textarea style="border: red solid 2px;" placeholder="Características del producto" name="specs" ><%= oldData.specs %></textarea>
+								<textarea class="controlar"  placeholder="Características del producto" name="specs" id="specs"><%= oldData.specs %></textarea>
 								<div class="error"><%= errors.specs.msg %></div>
 							<% } else { %>
-								<textarea placeholder="Características del producto" name="specs" ><%= oldData.specs %></textarea>
+								<textarea class="controlar" placeholder="Características del producto" name="specs" id="specs"><%= oldData.specs %></textarea>
+								<span></span>
 							<% } %>
 						<% } %>
 						<% if (!oldData.category) { %>
 							<% if (locals.errors && errors.category) { %>
-								<select style="border: red solid 2px;" class="controlar" name="category" id="category" >
+								<select  class="controlar" name="category" id="category" >
 									<option value="">Elegí una categoría:</option>
 									<% for(const oneCategory of productCategories) { %>
 										<option value="<%= oneCategory.category_id %>" <%= (oneCategory.category_id == oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
@@ -138,10 +153,11 @@
 										<option value="<%= oneCategory.category_id %>" <%= (oneCategory.category_id == product.category_id) ? 'selected' : null %>> <%= oneCategory.name %> </option>
 									<% } %>
 								</select>
+								<span></span>
 							<% } %>
 						<% } else { %>
 							<% if (locals.errors && errors.category) { %>
-								<select style="border: red solid 2px;" class="controlar" name="category" id="category" >
+								<select  class="controlar" name="category" id="category" >
 									<option value="">Elegí una categoría:</option>
 									<% for(const oneCategory of productCategories) { %>
 										<option value="<%= oneCategory.category_id %>" <%= (oneCategory.category_id == oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
@@ -155,11 +171,12 @@
 										<option value="<%= oneCategory.category_id %>" <%= (oneCategory.category_id == oldData.category) ? 'selected' : null %>> <%= oneCategory.name %> </option>
 									<% } %>
 								</select>
+								<span></span>
 							<% } %>
 						<% } %>
 						<% if (!oldData.brand) { %>
 							<% if (locals.errors && errors.brand) { %>
-								<select style="border: red solid 2px;" class="controlar" name="brand" id="brand" >
+								<select  class="controlar" name="brand" id="brand" >
 									<option value="">Elegí una marca:</option>
 									<% for(const oneBrand of productBrands) { %>
 										<option value="<%= oneBrand.brand_id %>" <%= (oneBrand.brand_id == oldData.brand) ? 'selected' : null %>> <%= oneBrand.name %> </option>
@@ -173,10 +190,11 @@
 										<option value="<%= oneBrand.brand_id %>" <%= (oneBrand.brand_id == product.brand_id) ? 'selected' : null %>> <%= oneBrand.name %> </option>
 									<% } %>
 								</select>
+								<span></span>
 							<% } %>
 						<% } else { %>
 							<% if (locals.errors && errors.brand) { %>
-								<select style="border: red solid 2px;" class="controlar" name="brand" id="brand" >
+								<select  class="controlar" name="brand" id="brand" >
 									<option value="">Elegí una marca:</option>
 									<% for(const oneBrand of productBrands) { %>
 										<option value="<%= oneBrand.brand_id %>" <%= (oneBrand.brand_id == oldData.brand) ? 'selected' : null %>> <%= oneBrand.name %> </option>
@@ -190,6 +208,7 @@
 										<option value="<%= oneBrand.brand_id %>" <%= (oneBrand.brand_id == oldData.brand) ? 'selected' : null %>> <%= oneBrand.name %> </option>
 									<% } %>
 								</select>
+								<span></span>
 							<% } %>
 						<% } %>
 						<% if (!oldData.color) { %>
@@ -221,7 +240,7 @@
 							<% } %>					
 						<% } else { %>
 							<% if (locals.errors && errors.color) { %>
-								<select style="border: red solid 2px;" class="controlar" name="color" id="color" >
+								<select  class="controlar" name="color" id="color" >
 									<option value="">Elegí un color:</option>
 									<% for(const oneColor of productColors) { %>
 										<option value="<%= oneColor.color_id %>" <%= (oneColor.color_id == oldData.color) ? 'selected' : null %>> <%= oneColor.name %> </option>
@@ -278,6 +297,8 @@
 				</div>
 			</main>
 			<%- include('../partials/footer') %>
+			<script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    		<script type="text/javascript" src="/js/validationProduct.js"></script>
 	</body>
 
 </html>
