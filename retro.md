@@ -126,3 +126,19 @@
 
 **5. Dejar de hacer.**
 - Procrastinar.
+
+## Restrospectiva Sprint 8
+
+**1. Comenzar a hacer.**
+- Terminar el último sprint y partes del proyecto.
+- Completar los módulos de Playground.
+
+**2. Hacer más.**
+
+**3. Continuar haciendo.**
+- Seguir motivado y dar un esfuerzo más.
+
+**4. Hacer menos.**
+
+**5. Dejar de hacer.**
+- Procrastinar y no estar al día con el contenido de Playground.
