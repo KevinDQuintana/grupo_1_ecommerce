@@ -68,12 +68,12 @@ window.addEventListener('load', function (){
 
 		image.addEventListener('blur', () => {
 			handleIsEmpty('El campo imagen esta vacío!', image, null);
+			validator.isEmpty(image.nextElementSibling.innerText) ? errorImage = false:  errorImage = true; 
 		});
 		image.addEventListener('input', () => {
 			handleAllowExtension(image);
+			validator.isEmpty(image.nextElementSibling.innerText) ? errorImage = false:  errorImage = true; 
 		});
-
-
 	};
 
 	function nameValid () {
@@ -81,9 +81,11 @@ window.addEventListener('load', function (){
 		
 		name.addEventListener('blur', () => {
 			handleIsEmpty('El campo nombre esta vacío!', name, null);
+			validator.isEmpty(name.nextElementSibling.innerText) ? errorName = false:  errorName = true; 
 		});
 		name.addEventListener('input', () => {
 			handleIsLength('El campo nombre debe contener al menos 8 caracteres!', name, 8);
+			validator.isEmpty(name.nextElementSibling.innerText) ? errorName = false:  errorName = true; 
 		});
 	};
 
@@ -92,9 +94,11 @@ window.addEventListener('load', function (){
 		
 		price.addEventListener('blur', () =>  {
 			handleIsEmpty('El campo precio esta vacío!', price, null);
+			validator.isEmpty(price.nextElementSibling.innerText) ? errorPrice = false:  errorPrice = true; 
 		});
 		price.addEventListener('input', () => {
 			handleIsNumeric('El campo precio debe contener solo números!', price);
+			validator.isEmpty(price.nextElementSibling.innerText) ? errorPrice = false:  errorPrice = true; 
 		});
 	};
 
@@ -103,9 +107,11 @@ window.addEventListener('load', function (){
 
 		discount.addEventListener('blur', () =>  {
 			handleIsEmpty('El campo descuento esta vacío!', discount), null;
+			validator.isEmpty(discount.nextElementSibling.innerText) ? errorDiscount = false:  errorDiscount = true; 
 		});
 		discount.addEventListener('input', () => {
 			handleIsNumeric('El campo descuento debe contener solo números!', discount);
+			validator.isEmpty(discount.nextElementSibling.innerText) ? errorDiscount = false:  errorDiscount = true; 
 		});
 	};
 
@@ -114,9 +120,11 @@ window.addEventListener('load', function (){
 
 		descriptionTitle.addEventListener('blur', () => {
 			handleIsEmpty('El campo título de la descripción esta vacío!', descriptionTitle, null);
+			validator.isEmpty(descriptionTitle.nextElementSibling.innerText) ? errorDescriptionTitle = false:  errorDescriptionTitle = true; 
 		});
 		descriptionTitle.addEventListener('input', () => {
 			handleIsLength('El campo título de la descripción debe contener al menos 10 caracteres!', descriptionTitle, 10);
+			validator.isEmpty(descriptionTitle.nextElementSibling.innerText) ? errorDescriptionTitle = false:  errorDescriptionTitle = true; 
 		});
 	};
 
@@ -125,9 +133,11 @@ window.addEventListener('load', function (){
 
 		description.addEventListener('blur', () => {
 			handleIsEmpty('El campo descripción esta vacío!', description, null);
+			validator.isEmpty(description.nextElementSibling.innerText) ? errorDescription = false:  errorDescription = true; 
 		});
 		description.addEventListener('input', () => {
 			handleIsLength('El campo descripción debe contener al menos 20 caracteres!', description, 20);
+			validator.isEmpty(description.nextElementSibling.innerText) ? errorDescription = false:  errorDescription = true; 
 		});
 	};
 
@@ -136,9 +146,11 @@ window.addEventListener('load', function (){
 
 		stock.addEventListener('blur', () =>  {
 			handleIsEmpty('El campo stock esta vacío!', stock, null);
+			validator.isEmpty(stock.nextElementSibling.innerText) ? errorStock = false:  errorStock = true; 
 		});
 		stock.addEventListener('input', () => {
 			handleIsNumeric('El campo stock debe contener solo números!', stock);
+			validator.isEmpty(stock.nextElementSibling.innerText) ? errorStock = false:  errorStock = true; 
 		});
 		
 	};
@@ -148,9 +160,11 @@ window.addEventListener('load', function (){
 
 		specs.addEventListener('blur', () => {
 			handleIsEmpty('El campo características del producto esta vacío!', specs, null);
+			validator.isEmpty(specs.nextElementSibling.innerText) ? errorSpecs = false:  errorSpecs = true; 
 		});
 		specs.addEventListener('input', () => {
 			handleIsLength('El campo características del producto debe contener al menos 20 caracteres!', specs, 20);
+			validator.isEmpty(specs.nextElementSibling.innerText) ? errorSpecs = false:  errorSpecs = true; 
 		});
 	};
 
@@ -159,8 +173,8 @@ window.addEventListener('load', function (){
 
 		category.addEventListener('blur', () => {
 			handleIsEmpty('El campo categoría esta vacío!', category, true);
+			validator.isEmpty(category.nextElementSibling.innerText) ? errorCategory = false:  errorCategory = true; 
 		});
-
 	};
 
 	function brandValid () {
@@ -168,6 +182,7 @@ window.addEventListener('load', function (){
 
 		brand.addEventListener('blur', () => {
 			handleIsEmpty('El campo marca esta vacío!', brand, true);
+			validator.isEmpty(brand.nextElementSibling.innerText) ? errorBrand = false:  errorBrand = true; 
 		});
 	};
 
@@ -175,12 +190,15 @@ window.addEventListener('load', function (){
 		let form = document.querySelector('#mainForm');
 
 		form.addEventListener('submit', (e) => {
-			if (handleInputEmpty()) {
+			if (handleInputEmpty() || errorImage || errorName || errorPrice || errorDiscount || errorDescriptionTitle || errorDescription || errorStock || errorSpecs || errorCategory || errorBrand) {
 				e.preventDefault();
 				alert('Faltan completar campos del formulario!');
 			};
 		});
 	};
+
+	// Inicialiazación de errores.
+	let errorImage, errorName, errorPrice, errorDiscount, errorDescriptionTitle, errorDescription, errorStock, errorSpecs, errorCategory, errorBrand;
 
 	// Inicialización de eventos.
 	imageValid();
