@@ -97,9 +97,11 @@ window.addEventListener('load', function () {
 
 		email.addEventListener('blur', () => {
 			handleIsEmpty('El campo email esta vacío!', email, null);
+			validator.isEmpty(email.nextElementSibling.innerText) ? errorEmail = false:  errorEmail = true; 
 		});
 		email.addEventListener('input', () => {
 			handleIsEmail(email);
+			validator.isEmpty(email.nextElementSibling.innerText) ? errorEmail = false:  errorEmail = true; 
 		});
 	};
 
@@ -108,11 +110,13 @@ window.addEventListener('load', function () {
 
 		password.addEventListener('blur', () => {
 			handleIsEmpty('El campo contraseña esta vacío!', password, null);
+			validator.isEmpty(password.nextElementSibling.innerText) ? errorPassword = false:  errorPassword = true; 
 		});
 		password.addEventListener('input', () => {
 			if (handleIsLength('El campo contraseña debe tener al menos 8 caracteres', password, 8)) {
 				handleIsPassword(password);
 			};
+			validator.isEmpty(password.nextElementSibling.innerText) ? errorPassword = false:  errorPassword = true; 
 		});
 	};
 
@@ -121,9 +125,11 @@ window.addEventListener('load', function () {
 
 		firstName.addEventListener('blur', () => {
 			handleIsEmpty('El campo nombre esta vacío!', firstName, null);
+			validator.isEmpty(firstName.nextElementSibling.innerText) ? errorFirstName = false:  errorFirstName = true; 
 		});
 		firstName.addEventListener('input', () => {
 			handleIsLength('El campo nombre debe contener al menos 2 caracteres!', firstName, 2);
+			validator.isEmpty(firstName.nextElementSibling.innerText) ? errorFirstName = false:  errorFirstName = true; 
 		});
 
 	};
@@ -133,9 +139,11 @@ window.addEventListener('load', function () {
 		
 		lastName.addEventListener('blur', () => {
 			handleIsEmpty('El campo apellido esta vacío!', lastName, null);
+			validator.isEmpty(lastName.nextElementSibling.innerText) ? errorLastName = false:  errorLastName = true; 
 		});
 		lastName.addEventListener('input', () => {
 			handleIsLength('El campo apellido debe contener al menos 2 caracteres!', lastName, 2);
+			validator.isEmpty(lastName.nextElementSibling.innerText) ? errorLastName = false:  errorLastName = true; 
 		});
 	};
 
@@ -143,11 +151,13 @@ window.addEventListener('load', function () {
 		let dni = document.querySelector('#dni');
 		dni.addEventListener('blur', () => {
 			handleIsEmpty('El campo dni esta vacío!', dni, null);
+			validator.isEmpty(dni.nextElementSibling.innerText) ? errorDni = false:  errorDni = true; 
 		});
 		dni.addEventListener('input', () => {
 			if (handleIsNumeric('El campo dni solo debe contener números', dni)) {
 				handleIsLength('El campo dni debe contener al menos 8 dígitos!', dni, 8);
 			};
+			validator.isEmpty(dni.nextElementSibling.innerText) ? errorDni = false:  errorDni = true; 
 		});
 	}; 
 
@@ -156,11 +166,13 @@ window.addEventListener('load', function () {
 
 		phone.addEventListener('blur', () => {
 			handleIsEmpty('El campo teléfono esta vacío!', phone, null);
+			validator.isEmpty(phone.nextElementSibling.innerText) ? errorPhone = false:  errorPhone = true; 
 		});
 		phone.addEventListener('input', () => {
 			if (handleIsNumeric('El campo número de teléfono solo debe contener números', phone)) {
 				handleIsLength('El campo número de teléfono debe tener al menos 8 dígitos', phone, 8);
 			};
+			validator.isEmpty(phone.nextElementSibling.innerText) ? errorPhone = false:  errorPhone = true; 
 		});
 	};
 
@@ -169,6 +181,7 @@ window.addEventListener('load', function () {
 
 		category.addEventListener('blur', () => {
 			handleIsEmpty('El campo categoría esta vacío!', category, true);
+			validator.isEmpty(category.nextElementSibling.innerText) ? errorCategory = false:  errorCategory = true; 
 		});
 	};
 
@@ -177,9 +190,11 @@ window.addEventListener('load', function () {
 
 		image.addEventListener('blur', () => {
 			handleIsEmpty('El campo imagen esta vacío!', image, null);
+			validator.isEmpty(image.nextElementSibling.innerText) ? errorImage = false:  errorImage = true; 
 		});
 		image.addEventListener('input', () => {
 			handleAllowExtension(image);
+			validator.isEmpty(image.nextElementSibling.innerText) ? errorImage = false:  errorImage = true; 
 		});
 
 	};
@@ -188,7 +203,8 @@ window.addEventListener('load', function () {
 		let form = document.querySelector('#mainForm');
 
 		form.addEventListener('submit', (e) => {
-			if (handleInputEmpty()) {
+			if (handleInputEmpty() || errorEmail || errorPassword || errorFirstName || errorLastName || errorDni || errorPhone || 
+			errorCategory || errorImage) {
 				e.preventDefault();
 				alert('Faltan completar campos del formulario!');
 			};
