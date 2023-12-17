@@ -7,4 +7,7 @@ const apiController = require(path.join(__dirname, '../', 'controllers', 'apiCon
 router.get('/products/:id', apiController.singleProduct);
 router.get('/products', apiController.listOfProducts);
 
+router.get('/users/:id', apiController.singleUser);
+router.get('/users', apiController.listOfUsers);
+
 module.exports = router;

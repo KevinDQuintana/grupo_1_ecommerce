@@ -19,6 +19,10 @@ module.exports = {
 
 	listOfProducts: async function (req, res) {
 		const products = await db.Products.findAll();
+		const productsCategories = await db.Products_Categories.findAll();
+		const productsBrands = await db.Brands.findAll();
+		const productsColors = await db.Colors.findAll();
+		const productsImages = await db.Images.findAll();
 		const countByCategory = await db.Products_Categories.findAll({
 			attributes: [
 				'name',
@@ -41,8 +45,51 @@ module.exports = {
 		return res.json({
 			count: products.length,
 			countByCategory,
-			data: products,
+			data: {
+				products,
+				productsCategories,
+				productsBrands,
+				productsColors,
+				productsImages,
+				imageUrl: 'http://localhost:4000/images/'
+			},
 			status: 200,
 		});
+	},
+
+	singleUser: async function (req, res) {
+		const user = await db.Users.findOne({
+			where: {
+				user_id: req.params.id
+			}
+		});
+
+		const userData = { ...user.get(), image: undefined, password: undefined, category_id: undefined};
+
+		return res.json({
+			data: userData,
+			detail: user ? user.image : null,
+			status: 200
+		});
+
+	},
+
+	listOfUsers: async function (req, res) {
+		const users = await db.Users.findAll({
+			attributes: [
+				'user_id',
+				'first_name',
+				'last_name',
+				'email',
+				['image','detail']
+			]
+		});
+
+		return res.json({
+			count: users.length,
+			users: users,
+			status: 200,
+		});
+
 	},
 }
