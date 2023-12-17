@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
+const cors = require('cors');
 const sessionCookie = require(path.join(__dirname, 'middlewares', 'sessionCookie'));
 const sessionMiddleware = require(path.join(__dirname, 'middlewares', 'session'));
 
@@ -10,6 +11,8 @@ const PORT = process.env.PORT || 4000;
 const publicPath = path.join(__dirname, '../', 'public');
 
 const app = express();
+
+app.use(cors());
 
 /* cookie-parser */
 app.use(cookieParser('secret-code'));
