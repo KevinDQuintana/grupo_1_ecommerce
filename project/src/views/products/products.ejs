@@ -25,9 +25,11 @@
                 </a>
             <% }) %>
         </section>
-        <div class="products-create">
-            <a class="products-create__button" href="/products/create">Crear producto</a>
-        </div>
+        <% if (req.session.userLogged) { %>
+            <div class="products-create">
+                <a class="products-create__button" href="/products/create">Crear producto</a>
+            </div>
+        <% } %>
     </main>
     <%- include('../partials/footer') %>
 </body>

@@ -52,12 +52,14 @@
 					<% }) %>
 				</div>
 			</section>
-			<section class="product__edit-or-delete">
-				<a href="/products/edit/<%= product.product_id %>" class="product__edit-or-delete__button-edit">Editar</a>
-				<form action="/products/delete/<%= product.product_id %>?_method=DELETE" method="POST">
-					<button type="submit" class="product__edit-or-delete__button-delete">Eliminar</button>
-				</form>
-			</section>
+			<% if (req.session.userLogged) { %>
+				<section class="product__edit-or-delete">
+					<a href="/products/edit/<%= product.product_id %>" class="product__edit-or-delete__button-edit">Editar</a>
+					<form action="/products/delete/<%= product.product_id %>?_method=DELETE" method="POST">
+						<button type="submit" class="product__edit-or-delete__button-delete">Eliminar</button>
+					</form>
+				</section>
+			<% } %>
 		</section>
 		<section class="related-products">
 			<p class="related-products__título">Productos relacionados</p>

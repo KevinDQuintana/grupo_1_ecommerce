@@ -20,7 +20,8 @@ const controller = {
 			const locals = {
 				styles: ['/css/index.css', '/css/products.css'],
 				products,
-				toThousand
+				toThousand,
+				req
 			};
 			return res.render(viewPath, locals);
 		} catch (error) {
@@ -74,7 +75,8 @@ const controller = {
 			const locals = {
 				styles: ['/css/index.css', '/css/productDetail.css'],
 				product,
-				toThousand
+				toThousand,
+				req
 			};
 			return res.render(viewPath, locals);
 		} catch (error) {
