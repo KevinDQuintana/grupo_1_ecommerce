@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <main class="container">
+        <section class="user">
+            <div>Bienvenido <%= user.fName %>  <%= user.lName %>!</div>
+            <div>Correo: <%= user.email %></div>
+        </section>
+        <div class="products-create">
+            <a class="products-create__button" href="/users/logout">Cerrar sesión</a>
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>

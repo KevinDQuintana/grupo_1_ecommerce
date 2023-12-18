@@ -23,7 +23,7 @@
 		<% if (session) { %>
 			<ul>
 				<li class="li-button"><a class="button" href="/productCart">Mi Carrito</a></li>
-				<li><a class="user-profile" href="/users/logout"><%= `${session.fName} ${session.lName}` %> <i class="fa-solid fa-circle-user"></i></a></li>
+				<li><a class="user-profile" href="/users/profile"><%= `${session.fName} ${session.lName}` %> <i class="fa-solid fa-circle-user"></i></a></li>
 			</ul>
 		<% } else { %>
 			<ul>

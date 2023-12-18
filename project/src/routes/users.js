@@ -15,6 +15,7 @@ const loginValidation = require('../middlewares/loginValidation');
 router.get('/login', guestMiddleware, usersController.login);
 router.post('/login', loginValidation, usersController.processLogin);
 
+router.get('/profile', usersController.profile);
 router.get('/logout', usersController.logOut)
 
 router.get('/signup', guestMiddleware, usersController.signup);

@@ -22,7 +22,7 @@ const controller = {
 		const viewPath = path.join(__dirname, '..', 'views', 'users', 'profile');
 		const locals = {
 			styles: ['/css/index.css'],
-			user: req.session.userLogged
+			user: req.session.user
 		};
 		return res.render(viewPath, locals)
 	},
@@ -94,6 +94,7 @@ const controller = {
 						email: user.email,
 						fName: user.first_name,
 						lName: user.last_name,
+						image: user.image,
 					};
 
 					if (req.body.rememberMe) {
