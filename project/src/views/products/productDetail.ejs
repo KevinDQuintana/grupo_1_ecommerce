@@ -52,7 +52,7 @@
 					<% }) %>
 				</div>
 			</section>
-			<% if (req.session.userLogged) { %>
+			<% if (req.session.userLogged || req.cookies.session) { %>
 				<section class="product__edit-or-delete">
 					<a href="/products/edit/<%= product.product_id %>" class="product__edit-or-delete__button-edit">Editar</a>
 					<form action="/products/delete/<%= product.product_id %>?_method=DELETE" method="POST">
