@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const sequelize = require('sequelize')
+const { Op } = require('sequelize');
 
 module.exports = {
 	singleProduct: async function (req, res) {
@@ -37,12 +38,13 @@ module.exports = {
 			  attributes: [],
 			  as: 'products',
 			  required: false,
-			  where: {
-				'category_id': sequelize.col('products_categories.category_id')
+			  on: {
+				'$products.category_id$': { [Op.eq]: sequelize.col('products_categories.category_id') }
 			  }
 			}],
-			group: ['products_categories.name']
-		});
+			group: ['name']
+		  });
+				
 
 		return res.json({
 			count: products.length,
