@@ -13,6 +13,10 @@ const controller = {
 		const imagePath = path.join(__dirname, '../', '../', 'uploads', 'products', req.params.filename);
 		res.sendFile(imagePath);
 	},
+	userImage: function (req, res) {
+		const imagePath = path.join(__dirname, '../', '../', 'uploads', 'users', req.params.filename);
+		res.sendFile(imagePath);
+	},
 	result: async function (req, res) {
 		const products = await db.Products.findAll({ include: { association: 'images' } });
 		const found = await products.filter(temp => temp.name.toLowerCase().includes(req.query.search.toLowerCase()));

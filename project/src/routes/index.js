@@ -6,6 +6,7 @@ const indexController = require(path.join(__dirname, '../', 'controllers', 'inde
 
 router.get('/', indexController.index);
 router.get('/result', indexController.result)
-router.get('/images/:filename', indexController.productImage);
+router.get('/images/product/:filename', indexController.productImage);
+router.get('/images/user/:filename', indexController.userImage);
 
 module.exports = router;

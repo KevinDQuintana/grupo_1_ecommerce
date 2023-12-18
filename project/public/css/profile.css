@@ -17,6 +17,10 @@
     background-color: #5A189A;
     border-radius: 10px;
 }
+.user-info__image {
+    margin: auto;
+    width: 50%;
+}
 .user-info__welcome {
     margin: 10px 0px 10px 0px;
 }

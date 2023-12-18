@@ -5,6 +5,15 @@
     <%- include('../partials/header') %>
     <main class="container container-user">
         <section class="user-info">
+            <% if (user.image) { %>
+                <div class="user-info__image">
+                    <img src="/images/user/<%= user.image %>" alt="">
+                </div>            
+            <% } else { %>
+                <div class="user-info__image">
+                    <img class="products-list__product__image" src="/images/user/default.jpg %>" alt="Producto">
+                </div>
+            <% } %>
             <div class="user-info__welcome">Bienvenido <%= user.fName %>  <%= user.lName %>!</div>
             <div class="user-info__email">Correo: <%= user.email %></div>
         </section>
