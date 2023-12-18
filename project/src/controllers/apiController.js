@@ -29,21 +29,19 @@ module.exports = {
 		const productsColors = await db.Colors.findAll();
 		const countByCategory = await db.Products_Categories.findAll({
 			attributes: [
-				'name',
-				[sequelize.fn('COUNT', sequelize.col('products.product_id')), 'count']
+			  'name',
+			  [sequelize.fn('COUNT', sequelize.col('products.category_id')), 'count']
 			],
-			include: [
-				{
-					model: db.Products,
-					as: 'products',
-					attributes: [],
-					required: false,
-					on: {
-						'products.category_id': sequelize.col('products_categories.category_id')
-					}
-				}
-			],
-			group: ['products_categories.category_id', 'products_categories.name'],
+			include: [{
+			  model: db.Products,
+			  attributes: [],
+			  as: 'products',
+			  required: false,
+			  where: {
+				'category_id': sequelize.col('products_categories.category_id')
+			  }
+			}],
+			group: ['products_categories.name']
 		});
 
 		return res.json({
