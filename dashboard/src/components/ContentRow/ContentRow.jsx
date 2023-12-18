@@ -9,14 +9,13 @@ class ContentRow extends Component {
 		this.state = {
 			products: [],
 			categories: [],
-			images: [],
 			url: ''
 		};
 	};
 
 	async componentDidMount() {
 		const response = await getProducts();
-		this.setState({products: response.data.products, categories: response.data.productsCategories, images: response.data.productsImages, url: response.data.imageUrl});
+		this.setState({products: response.data.products, categories: response.data.productsCategories, url: response.data.imageUrl});
 		// setTimeout(async() => {
 		// }, 5000);
 	};
@@ -32,19 +31,12 @@ class ContentRow extends Component {
 		let lastProduct = this.state.products[this.state.products.length-1]; 
 		
 		let url = this.state.url;
-		let lastProductImage;
-		this.state.images.map(image => {
-			if (lastProduct.product_id === image.product_id) {
-				lastProductImage = image.location
-			};
-		});
-		console.log(lastProductImage);
 
 		return (
 			<div className="row">
 				<Card title={'Último producto agregado'}>
 					<div className="text-center">
-						<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: '40rem'}} src={lastProductImage && url && `${url}${lastProductImage}`} alt={lastProduct && lastProduct.name}/>
+						<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: '40rem'}} src={lastProduct && url && `${url}${lastProduct.images.location}`} alt={lastProduct && lastProduct.name}/>
 					</div>
 					<p>{lastProduct && lastProduct.description}</p>
 					<a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Ver detalle del producto</a>

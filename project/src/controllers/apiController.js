@@ -18,11 +18,15 @@ module.exports = {
 	},
 
 	listOfProducts: async function (req, res) {
-		const products = await db.Products.findAll();
+		const products = await db.Products.findAll({
+			include: [
+				{ association: 'images' },
+				// { association: 'product_category' }
+			  ]
+		});
 		const productsCategories = await db.Products_Categories.findAll();
 		const productsBrands = await db.Brands.findAll();
 		const productsColors = await db.Colors.findAll();
-		const productsImages = await db.Images.findAll();
 		const countByCategory = await db.Products_Categories.findAll({
 			attributes: [
 				'name',
@@ -50,7 +54,6 @@ module.exports = {
 				productsCategories,
 				productsBrands,
 				productsColors,
-				productsImages,
 				imageUrl: 'http://localhost:4000/images/'
 			},
 			status: 200,
