@@ -25,7 +25,7 @@
                 </a>
             <% }) %>
         </section>
-        <% if (req.session.userLogged) { %>
+        <% if (req.session.userLogged || req.cookies.session) { %>
             <div class="products-create">
                 <a class="products-create__button" href="/products/create">Crear producto</a>
             </div>
