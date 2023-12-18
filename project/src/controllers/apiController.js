@@ -54,7 +54,7 @@ module.exports = {
 				productsCategories,
 				productsBrands,
 				productsColors,
-				imageUrl: 'http://localhost:4000/images/'
+				imageUrl: 'http://localhost:4000/images/product/'
 			},
 			status: 200,
 		});
