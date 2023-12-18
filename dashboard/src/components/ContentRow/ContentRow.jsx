@@ -15,7 +15,7 @@ class ContentRow extends Component {
 
 	async componentDidMount() {
 		const response = await getProducts();
-		this.setState({products: response.data.products, categories: response.data.productsCategories, url: response.data.imageUrl});
+		this.setState({products: response.data.products, categories: response.countByCategory, url: response.data.imageUrl});
 		// setTimeout(async() => {
 		// }, 5000);
 	};
