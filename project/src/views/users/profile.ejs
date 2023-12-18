@@ -3,13 +3,13 @@
     <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-    <main class="container">
-        <section class="user">
-            <div>Bienvenido <%= user.fName %>  <%= user.lName %>!</div>
-            <div>Correo: <%= user.email %></div>
+    <main class="container container-user">
+        <section class="user-info">
+            <div class="user-info__welcome">Bienvenido <%= user.fName %>  <%= user.lName %>!</div>
+            <div class="user-info__email">Correo: <%= user.email %></div>
         </section>
-        <div class="products-create">
-            <a class="products-create__button" href="/users/logout">Cerrar sesión</a>
+        <div class="user-info__button-container">
+            <a class="user-info__button" href="/users/logout">Cerrar sesión</a>
         </div>
     </main>
     <%- include('../partials/footer') %>

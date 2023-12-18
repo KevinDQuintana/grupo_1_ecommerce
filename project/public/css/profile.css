@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+.container-user {
+    text-align: center;
+}
+.user-info {
+    width: 60%;
+    min-width: 300px;
+    font-size: 1rem;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 50px;
+    color: #E0AAFF;
+    background-color: #5A189A;
+    border-radius: 10px;
+}
+.user-info__welcome {
+    margin: 10px 0px 10px 0px;
+}
+.user-info__email {
+    margin: 10px 0px 10px 0px;
+}
+.user-info__button-container {
+    margin-bottom: 100px;
+}
+.user-info__button {
+    padding: 20px;
+    color: #E0AAFF;
+    background-color: #5A189A;
+    border-radius: 10px;
+}
+
+/* Tablet */
+@media(min-width: 768px) {
+    .user-info {
+        font-size: 1.5rem;
+        min-width: 500px;
+    }
+}
+
+/* Laptop */
+@media(min-width: 1024px) {
+   
+}

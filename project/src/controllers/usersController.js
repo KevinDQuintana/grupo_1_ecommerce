@@ -21,7 +21,7 @@ const controller = {
 	profile: function (req, res) {
 		const viewPath = path.join(__dirname, '..', 'views', 'users', 'profile');
 		const locals = {
-			styles: ['/css/index.css'],
+			styles: ['/css/index.css', '/css/profile.css'],
 			user: req.session.user
 		};
 		return res.render(viewPath, locals)
